@@ -1,0 +1,45 @@
+ReXGrounding Challenge - prompt-variant experiment (inference only)
+
+Thank you for taking part. We would like to measure how your model responds to
+the wording of the finding sentences. Please run your final challenge model,
+without any retraining, fine-tuning or tuning, on a set of alternative prompts
+for every test finding.
+
+INPUT: ReXGrounding_test_prompts.json
+
+Same scans, finding keys and order as the released test split
+(MICCAI_challenge_dataset.json, key "test"). The only difference is that each
+finding maps to a list of prompts instead of one sentence, for example:
+
+  {"name": "train_13195_a_1.nii.gz",
+   "findings": {
+     "0": ["Subpleural ground glass opacity in the posterobasal segment of the right lower lobe",
+           "Subpleural ground glass opacity in the right lung",
+           "Subpleural ground glass opacity in the posterobasal segment of the lower lobe",
+           "Subpleural ground glass opacity in the posterobasal segment of the left lower lobe",
+           "Subpleural ground glass opacity"],
+     "1": ["..."]},
+   "categories": {"0": "2c", "1": "2c"}}
+
+The first prompt of every list is the original challenge sentence. Lists have
+between 1 and 10 prompts (3,288 prompts over the 582 findings). Treat every
+prompt exactly as you treated a finding sentence in the challenge, even if it
+looks unusual: some prompts are deliberately altered.
+
+OUTPUT: one ZIP archive
+
+One NIfTI file per test scan, named exactly as the scan (for example
+train_13195_a_1.nii.gz), on the scan's own voxel grid, containing a 4-D binary
+array (0/1, uint8) whose first axis has one mask per prompt, in file order: all
+prompts of finding "0" in list order, then all prompts of finding "1", and so
+on. For the example above, the first axis has 5 masks for finding "0" followed
+by the masks for finding "1".
+
+This is the challenge submission format with one difference: the first axis
+runs over prompts rather than findings. All 300 scans must be present.
+
+Please name the archive <TEAM>_prompts.zip and reply to our email with a
+Google Drive link. We will score all prompts ourselves with the official
+evaluation code.
+
+Deadline: Friday, 30 October 2026.

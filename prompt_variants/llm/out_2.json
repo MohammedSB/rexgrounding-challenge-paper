@@ -1,0 +1,1166 @@
+[
+ {
+  "id": "train_13514_a_2.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in both lungs",
+  "no_laterality": "Linear atelectasis in the lower lobes",
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_13033_a_2.nii.gz#1",
+  "no_lobe_segment": "Pleuroparenchymal fibroatelectasis and scarring in the right lung",
+  "no_laterality": "Pleuroparenchymal fibroatelectasis and scarring in the lower lobe medial segment",
+  "finding_only": "Pleuroparenchymal fibroatelectasis and scarring"
+ },
+ {
+  "id": "train_13432_d_2.nii.gz#1",
+  "no_lobe_segment": "Areas of consolidation in both lungs",
+  "no_laterality": "Areas of consolidation in the upper and lower lobes",
+  "finding_only": "Areas of consolidation"
+ },
+ {
+  "id": "train_13479_f_1.nii.gz#1",
+  "no_lobe_segment": "Newly emerging focal consolidation areas in the right lung",
+  "no_laterality": "Newly emerging focal consolidation areas in the upper lobe anterior segment",
+  "finding_only": "Newly emerging focal consolidation areas"
+ },
+ {
+  "id": "train_13285_b_2.nii.gz#1",
+  "no_lobe_segment": "Stable linear pleuroparenchymal opacities in the right lung",
+  "no_laterality": "Stable linear pleuroparenchymal opacities in the lower lobe",
+  "finding_only": "Stable linear pleuroparenchymal opacities"
+ },
+ {
+  "id": "train_13285_b_2.nii.gz#4",
+  "no_lobe_segment": null,
+  "no_laterality": "Presence of air cysts in the lungs",
+  "finding_only": "Presence of air cysts"
+ },
+ {
+  "id": "train_13334_a_5.nii.gz#0",
+  "no_lobe_segment": "Subsegmental linear atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Subsegmental linear atelectasis"
+ },
+ {
+  "id": "train_13147_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Peripheral localized crazy paving patterns in the lungs",
+  "finding_only": "Peripheral localized crazy paving patterns"
+ },
+ {
+  "id": "train_13192_a_1.nii.gz#1",
+  "no_lobe_segment": "Subpleural minimal focal ground glass opacity in the right lung",
+  "no_laterality": "Subpleural minimal focal ground glass opacity in the anterior segment of the upper lobe",
+  "finding_only": "Subpleural minimal focal ground glass opacity"
+ },
+ {
+  "id": "train_13463_a_1.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in both lungs",
+  "no_laterality": "Linear atelectasis in the lower lobes",
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_13463_a_1.nii.gz#3",
+  "no_lobe_segment": "Increased density in the lungs",
+  "no_laterality": null,
+  "finding_only": "Increased density"
+ },
+ {
+  "id": "train_13014_a_2.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter non-specific nodule in the right lung",
+  "no_laterality": "Subcentimeter non-specific nodule in the upper lobe",
+  "finding_only": "Non-specific nodule"
+ },
+ {
+  "id": "train_13355_c_2.nii.gz#1",
+  "no_lobe_segment": "Consolidated areas in the left lung consistent with pneumonic infiltration",
+  "no_laterality": "Consolidated areas in the lower lobe consistent with pneumonic infiltration",
+  "finding_only": "Consolidated areas consistent with pneumonic infiltration"
+ },
+ {
+  "id": "train_13203_a_2.nii.gz#0",
+  "no_lobe_segment": "Areas of increased density consistent with linear atelectasis in both lungs",
+  "no_laterality": "Areas of increased density consistent with linear atelectasis in the lower lobes",
+  "finding_only": "Areas of increased density consistent with linear atelectasis"
+ },
+ {
+  "id": "train_13067_a_5.nii.gz#2",
+  "no_lobe_segment": "Scarring changes in the right lung",
+  "no_laterality": "Scarring changes in the apex of the lung",
+  "finding_only": "Scarring changes"
+ },
+ {
+  "id": "train_13025_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Multiple metastatic nodules with irregular borders in the subpleural regions of the lungs",
+  "finding_only": "Multiple metastatic nodules with irregular borders in the subpleural regions"
+ },
+ {
+  "id": "train_13376_a_2.nii.gz#1",
+  "no_lobe_segment": "Nodule in the left lung",
+  "no_laterality": "Nodule in the anterior segment of the upper lobe",
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_13182_a_2.nii.gz#0",
+  "no_lobe_segment": "Sequelae changes in the right lung",
+  "no_laterality": null,
+  "finding_only": "Sequelae changes"
+ },
+ {
+  "id": "train_13085_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Patchy ground-glass opacities in the lungs",
+  "finding_only": "Patchy ground-glass opacities"
+ },
+ {
+  "id": "train_13479_g_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": "New small patchy ground glass opacities"
+ },
+ {
+  "id": "train_13253_a_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": "Cylindrical bronchiectasis"
+ },
+ {
+  "id": "train_13290_a_2.nii.gz#0",
+  "no_lobe_segment": "Ground glass opacities in the left lung",
+  "no_laterality": "Ground glass opacities in the superior segment of the lower lobe",
+  "finding_only": "Ground glass opacities"
+ },
+ {
+  "id": "train_13490_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter non-specific nodules in the lungs",
+  "finding_only": "Non-specific nodules"
+ },
+ {
+  "id": "train_13223_a_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Minimal emphysematous changes in the lungs",
+  "finding_only": "Minimal emphysematous changes"
+ },
+ {
+  "id": "train_13172_a_2.nii.gz#1",
+  "no_lobe_segment": "Subcentimeter nonspecific parenchymal nodule accompanied by linear atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Nonspecific parenchymal nodule accompanied by linear atelectasis"
+ },
+ {
+  "id": "train_13380_a_1.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter calcific nodules in the right lung",
+  "no_laterality": null,
+  "finding_only": "Calcific nodules"
+ },
+ {
+  "id": "train_13100_a_1.nii.gz#0",
+  "no_lobe_segment": "Soft tissue density in the right lung, compatible with consolidation or mass",
+  "no_laterality": "Soft tissue density in the lower lobe, mediobasal segment, compatible with consolidation or mass",
+  "finding_only": "Soft tissue density compatible with consolidation or mass"
+ },
+ {
+  "id": "train_12975_a_1.nii.gz#0",
+  "no_lobe_segment": "Scattered patchy consolidation areas in both lungs",
+  "no_laterality": "Scattered patchy consolidation areas in the lungs, more prominent towards the bases",
+  "finding_only": "Scattered patchy consolidation areas"
+ },
+ {
+  "id": "train_12977_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Mild emphysematous changes in the lungs",
+  "finding_only": "Mild emphysematous changes"
+ },
+ {
+  "id": "train_12977_a_2.nii.gz#3",
+  "no_lobe_segment": "Pleuroparenchymal scarring in the left lung",
+  "no_laterality": null,
+  "finding_only": "Pleuroparenchymal scarring"
+ },
+ {
+  "id": "train_13592_a_2.nii.gz#0",
+  "no_lobe_segment": "Scarring in the right lung",
+  "no_laterality": "Scarring in the apical segment of the upper lobe",
+  "finding_only": "Scarring"
+ },
+ {
+  "id": "train_13592_a_2.nii.gz#3",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": null
+ },
+ {
+  "id": "train_13233_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Linear atelectasis in the lungs",
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_13448_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter nonspecific nodules in the lungs",
+  "finding_only": "Nonspecific nodules"
+ },
+ {
+  "id": "train_13583_a_2.nii.gz#0",
+  "no_lobe_segment": "Consolidations with air bronchogram and ground glass areas in the right lung",
+  "no_laterality": "Consolidations with air bronchogram and ground glass areas in the upper lobe, most prominently in the posterior segment",
+  "finding_only": "Consolidations with air bronchogram and ground glass areas"
+ },
+ {
+  "id": "train_13583_a_2.nii.gz#3",
+  "no_lobe_segment": "Centriacinar nodules in both lungs",
+  "no_laterality": "Centriacinar nodules in the lower lobes",
+  "finding_only": "Centriacinar nodules"
+ },
+ {
+  "id": "train_13583_a_2.nii.gz#6",
+  "no_lobe_segment": "Tree-in-bud appearance in the right lung",
+  "no_laterality": "Tree-in-bud appearance in the upper lobe",
+  "finding_only": "Tree-in-bud appearance"
+ },
+ {
+  "id": "train_13056_a_2.nii.gz#2",
+  "no_lobe_segment": "Subpleural reticular and fibrotic densities in the right lung",
+  "no_laterality": null,
+  "finding_only": "Subpleural reticular and fibrotic densities"
+ },
+ {
+  "id": "train_13241_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": "Ground glass opacities"
+ },
+ {
+  "id": "train_13278_a_2.nii.gz#2",
+  "no_lobe_segment": "Band-like fibrotic changes in the right lung",
+  "no_laterality": null,
+  "finding_only": "Band-like fibrotic changes"
+ },
+ {
+  "id": "train_13407_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Minimal peribronchial thickening in the lungs",
+  "finding_only": "Minimal peribronchial thickening"
+ },
+ {
+  "id": "train_13121_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Emphysematous changes in the lungs",
+  "finding_only": "Emphysematous changes"
+ },
+ {
+  "id": "train_13047_a_2.nii.gz#0",
+  "no_lobe_segment": "Increased density consistent with scarring in both lungs",
+  "no_laterality": "Increased density consistent with scarring in the apices of the lungs",
+  "finding_only": "Increased density consistent with scarring"
+ },
+ {
+  "id": "train_13247_a_2.nii.gz#0",
+  "no_lobe_segment": "Fibrotic changes in the lungs",
+  "no_laterality": null,
+  "finding_only": "Fibrotic changes"
+ },
+ {
+  "id": "train_13586_a_1.nii.gz#0",
+  "no_lobe_segment": "Subsegmental atelectatic changes in the left lung",
+  "no_laterality": null,
+  "finding_only": "Subsegmental atelectatic changes"
+ },
+ {
+  "id": "train_13586_a_1.nii.gz#3",
+  "no_lobe_segment": "Nonspecific minimal ground-glass density increase in the right lung",
+  "no_laterality": "Nonspecific minimal ground-glass density increase in the posterior segment of the upper lobe",
+  "finding_only": "Nonspecific minimal ground-glass density increase"
+ },
+ {
+  "id": "train_13119_b_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Diffuse ground-glass opacities in the lungs",
+  "finding_only": "Diffuse ground-glass opacities"
+ },
+ {
+  "id": "train_13484_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Several subcentimeter nonspecific nodules in the lung",
+  "finding_only": "Several nonspecific nodules"
+ },
+ {
+  "id": "train_13345_b_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "A few subcentimeter nonspecific parenchymal nodules in the lungs",
+  "finding_only": "A few nonspecific parenchymal nodules"
+ },
+ {
+  "id": "train_13371_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Mild emphysematous changes in the lungs",
+  "finding_only": "Mild emphysematous changes"
+ },
+ {
+  "id": "train_13124_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Pleuroparenchymal linear densities in the lungs",
+  "finding_only": "Pleuroparenchymal linear densities"
+ },
+ {
+  "id": "train_13030_a_1.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in the right lung",
+  "no_laterality": null,
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_12972_a_2.nii.gz#0",
+  "no_lobe_segment": "Pleural and parenchymal scarring in the left lung",
+  "no_laterality": null,
+  "finding_only": "Pleural and parenchymal scarring"
+ },
+ {
+  "id": "train_12972_a_2.nii.gz#3",
+  "no_lobe_segment": "Nonspecific nodules, 2-3 mm, in the right lung within the fissure",
+  "no_laterality": null,
+  "finding_only": "Nonspecific nodules"
+ },
+ {
+  "id": "train_12972_a_2.nii.gz#6",
+  "no_lobe_segment": "3 mm nodule in the left lung",
+  "no_laterality": null,
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_13218_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Nonspecific nodules in the lungs",
+  "finding_only": "Nonspecific nodules"
+ },
+ {
+  "id": "train_13000_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Calcified subcentimeter nodules in the lung",
+  "finding_only": "Calcified nodules"
+ },
+ {
+  "id": "train_12980_b_2.nii.gz#1",
+  "no_lobe_segment": "Scarring in both lungs",
+  "no_laterality": "Scarring in the apical segments of the upper lobes",
+  "finding_only": "Scarring"
+ },
+ {
+  "id": "train_12980_b_2.nii.gz#4",
+  "no_lobe_segment": "Nonspecific nodular densities in the left lung",
+  "no_laterality": "Nonspecific nodular densities in the superior segment of the lower lobe",
+  "finding_only": "Nonspecific nodular densities"
+ },
+ {
+  "id": "train_12974_a_2.nii.gz#1",
+  "no_lobe_segment": "2-3 mm nodule in the right lung",
+  "no_laterality": null,
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_13156_a_2.nii.gz#1",
+  "no_lobe_segment": "Largest nodule measuring 7x4 mm in the right lung",
+  "no_laterality": "Largest nodule measuring 7x4 mm in the anterior upper lobe",
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_13087_a_2.nii.gz#0",
+  "no_lobe_segment": "Linear subsegmental atelectasis in the left lung",
+  "no_laterality": "Linear subsegmental atelectasis in the lower lobe",
+  "finding_only": "Linear subsegmental atelectasis"
+ },
+ {
+  "id": "train_13436_d_1.nii.gz#1",
+  "no_lobe_segment": "Sequelae parenchymal changes in both lungs",
+  "no_laterality": "Sequelae parenchymal changes in the lower lobes",
+  "finding_only": "Sequelae parenchymal changes"
+ },
+ {
+  "id": "train_13043_a_1.nii.gz#0",
+  "no_lobe_segment": "Calcified nodule in the right lung",
+  "no_laterality": "Calcified nodule in the laterobasal segment of the lower lobe",
+  "finding_only": "Calcified nodule"
+ },
+ {
+  "id": "train_13589_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Pneumothorax",
+  "finding_only": "Pneumothorax"
+ },
+ {
+  "id": "train_13003_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Small amount of pleural effusion in the lungs",
+  "finding_only": "Small amount of pleural effusion"
+ },
+ {
+  "id": "train_13003_a_2.nii.gz#3",
+  "no_lobe_segment": "Patchy ground-glass opacities in both lungs",
+  "no_laterality": "Patchy ground-glass opacities in the lungs, predominantly in the lower lobes",
+  "finding_only": "Patchy ground-glass opacities"
+ },
+ {
+  "id": "train_13233_c_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Local areas of atelectasis in the lungs",
+  "finding_only": "Local areas of atelectasis"
+ },
+ {
+  "id": "train_13188_a_2.nii.gz#1",
+  "no_lobe_segment": "Minimal ground-glass opacities in both lungs",
+  "no_laterality": "Minimal ground-glass opacities at the bases of the lungs",
+  "finding_only": "Minimal ground-glass opacities"
+ },
+ {
+  "id": "train_13285_a_2.nii.gz#1",
+  "no_lobe_segment": "Air cyst in the right lung",
+  "no_laterality": "Air cyst in the basal segment of the lower lobe",
+  "finding_only": "Air cyst"
+ },
+ {
+  "id": "train_13034_a_1.nii.gz#0",
+  "no_lobe_segment": "Pleuroparenchymal scarring in both lungs",
+  "no_laterality": "Pleuroparenchymal scarring in the lung apices",
+  "finding_only": "Pleuroparenchymal scarring"
+ },
+ {
+  "id": "train_13006_a_2.nii.gz#1",
+  "no_lobe_segment": "Dependent atelectasis in both lungs",
+  "no_laterality": "Dependent atelectasis in the lower lobe basal segments",
+  "finding_only": "Dependent atelectasis"
+ },
+ {
+  "id": "train_13051_a_1.nii.gz#0",
+  "no_lobe_segment": "Subpleural consolidation area with air bronchograms in the left lung",
+  "no_laterality": "Subpleural consolidation area with air bronchograms in the lower lobe superior segment",
+  "finding_only": "Subpleural consolidation area with air bronchograms"
+ },
+ {
+  "id": "train_13051_a_1.nii.gz#3",
+  "no_lobe_segment": "Linear atelectasis areas in the left lung",
+  "no_laterality": null,
+  "finding_only": "Linear atelectasis areas"
+ },
+ {
+  "id": "train_13240_b_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter nonspecific stable nodules in the lung parenchyma",
+  "finding_only": "Nonspecific stable nodules"
+ },
+ {
+  "id": "train_3032_a_1.nii.gz#0",
+  "no_lobe_segment": "Minimal ground-glass opacities in both lungs",
+  "no_laterality": "Minimal ground-glass opacities in the posterior basal segments of the lower lobes",
+  "finding_only": "Minimal ground-glass opacities"
+ },
+ {
+  "id": "train_3040_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Pleural effusion measuring up to 40 mm in maximal thickness",
+  "finding_only": "Pleural effusion"
+ },
+ {
+  "id": "train_3050_a_2.nii.gz#0",
+  "no_lobe_segment": "Multiple indeterminate subpleural nodules in the lungs bilaterally, largest measuring 5 mm on the right",
+  "no_laterality": "Multiple indeterminate subpleural nodules in the lower lobes, largest measuring 5 mm",
+  "finding_only": "Multiple indeterminate subpleural nodules"
+ },
+ {
+  "id": "train_3061_a_2.nii.gz#1",
+  "no_lobe_segment": "Mild air bronchogram within the left lung consolidation",
+  "no_laterality": "Mild air bronchogram within the lower lobe consolidation",
+  "finding_only": "Mild air bronchogram within the consolidation"
+ },
+ {
+  "id": "train_3066_d_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": null
+ },
+ {
+  "id": "train_3071_a_2.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Emphysematous changes",
+  "finding_only": "Emphysematous changes"
+ },
+ {
+  "id": "train_3089_a_1.nii.gz#0",
+  "no_lobe_segment": "Focal ground-glass opacity in the left lung",
+  "no_laterality": "Focal ground-glass opacity in the anterior segment of the upper lobe",
+  "finding_only": "Focal ground-glass opacity"
+ },
+ {
+  "id": "train_3091_a_2.nii.gz#2",
+  "no_lobe_segment": "6 mm nodule in the right lung",
+  "no_laterality": "6 mm nodule in the lower lobe lateral basal segment",
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_3103_a_1.nii.gz#0",
+  "no_lobe_segment": "Subtle patchy ground-glass opacities in the right lung adjacent to the fissure",
+  "no_laterality": "Subtle patchy ground-glass opacities in the superior segment of the lower lobe adjacent to the fissure",
+  "finding_only": "Subtle patchy ground-glass opacities"
+ },
+ {
+  "id": "train_3106_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Several subcentimeter indeterminate pulmonary nodules in the lung",
+  "finding_only": "Several indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3112_i_1.nii.gz#0",
+  "no_lobe_segment": "Posterior-predominant consolidations in both lungs, greater on the right",
+  "no_laterality": "Posterior-predominant consolidations in the lower lobes",
+  "finding_only": "Posterior-predominant consolidations"
+ },
+ {
+  "id": "train_3131_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Fissure-based nodules in the lungs, measuring 7 x 2 mm and 2 mm",
+  "finding_only": "Fissure-based nodules"
+ },
+ {
+  "id": "train_3143_a_1.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter calcified nodules in both lungs",
+  "no_laterality": "Subcentimeter calcified nodules in the lower lobes",
+  "finding_only": "Calcified nodules"
+ },
+ {
+  "id": "train_3150_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter indeterminate pulmonary nodules in the lungs",
+  "finding_only": "Indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3157_a_2.nii.gz#1",
+  "no_lobe_segment": "Halo sign in the right lung",
+  "no_laterality": "Halo sign in the lower lobe",
+  "finding_only": "Halo sign"
+ },
+ {
+  "id": "train_3178_a_1.nii.gz#0",
+  "no_lobe_segment": "Pleuroparenchymal scarring in both lungs, minimal to mild",
+  "no_laterality": "Pleuroparenchymal scarring in the lungs, apices, minimal to mild",
+  "finding_only": "Pleuroparenchymal scarring, minimal to mild"
+ },
+ {
+  "id": "train_3181_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Calcified nodules present in the lungs",
+  "finding_only": "Calcified nodules present"
+ },
+ {
+  "id": "train_3203_a_1.nii.gz#0",
+  "no_lobe_segment": "Peripheral consolidations in both lungs, more prominent on the right",
+  "no_laterality": "Peripheral consolidations in the lower lobes",
+  "finding_only": "Peripheral consolidations"
+ },
+ {
+  "id": "train_3213_a_2.nii.gz#0",
+  "no_lobe_segment": "Subpleural patchy ground-glass opacity in the right lung",
+  "no_laterality": "Subpleural patchy ground-glass opacity in the anterior lower lobe",
+  "finding_only": "Subpleural patchy ground-glass opacity"
+ },
+ {
+  "id": "train_3226_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Diffuse patchy ground-glass opacities in the lungs",
+  "finding_only": "Diffuse patchy ground-glass opacities"
+ },
+ {
+  "id": "train_3226_b_1.nii.gz#1",
+  "no_lobe_segment": "Areas of consolidation, more prominent in the peripheral regions of both lungs, with slight interval increase",
+  "no_laterality": "Areas of consolidation, more prominent in the lower lobes and peripheral regions of the lungs, with slight interval increase",
+  "finding_only": "Areas of consolidation, more prominent in the peripheral regions, with slight interval increase"
+ },
+ {
+  "id": "train_3228_a_2.nii.gz#0",
+  "no_lobe_segment": "Ground-glass opacities in the lungs",
+  "no_laterality": null,
+  "finding_only": "Ground-glass opacities"
+ },
+ {
+  "id": "train_3232_a_2.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in the left lung",
+  "no_laterality": "Linear atelectasis in the basal segment of the lower lobe",
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_3242_a_2.nii.gz#2",
+  "no_lobe_segment": "Subcentimeter parenchymal air cyst in the left lung",
+  "no_laterality": "Subcentimeter parenchymal air cyst in the lateral basal segment of the lower lobe",
+  "finding_only": "Parenchymal air cyst"
+ },
+ {
+  "id": "train_3250_a_2.nii.gz#0",
+  "no_lobe_segment": "Peripheral subpleural ground-glass opacities in both lungs",
+  "no_laterality": null,
+  "finding_only": "Peripheral subpleural ground-glass opacities"
+ },
+ {
+  "id": "train_3253_a_2.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Trace pleural effusion",
+  "finding_only": "Trace pleural effusion"
+ },
+ {
+  "id": "train_3267_a_1.nii.gz#0",
+  "no_lobe_segment": "Ground-glass opacity in the right lung extending to the subpleural region",
+  "no_laterality": "Ground-glass opacity in the anterior segment of the upper lobe extending to the subpleural region",
+  "finding_only": "Ground-glass opacity extending to the subpleural region"
+ },
+ {
+  "id": "train_3267_a_1.nii.gz#3",
+  "no_lobe_segment": "Consolidation in the aerated parenchyma of the right lung",
+  "no_laterality": "Consolidation in the aerated parenchyma of the lower lobe",
+  "finding_only": "Consolidation"
+ },
+ {
+  "id": "train_3272_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "One or two subcentimeter nonspecific nodules in the lungs",
+  "finding_only": "One or two nonspecific nodules"
+ },
+ {
+  "id": "train_3280_a_1.nii.gz#0",
+  "no_lobe_segment": "6 mm nodule in the perihilar right lung",
+  "no_laterality": null,
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_3309_a_2.nii.gz#0",
+  "no_lobe_segment": "Large mass centered in the right lung, measuring 10.0 x 8.9 x 10.3 cm",
+  "no_laterality": null,
+  "finding_only": "Mass"
+ },
+ {
+  "id": "train_3310_a_2.nii.gz#1",
+  "no_lobe_segment": "Emphysematous changes",
+  "no_laterality": null,
+  "finding_only": "Emphysematous changes"
+ },
+ {
+  "id": "train_3310_a_2.nii.gz#4",
+  "no_lobe_segment": "5 mm nodule in the anterior subpleural region of the right lung",
+  "no_laterality": null,
+  "finding_only": "Subpleural nodule"
+ },
+ {
+  "id": "train_3321_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Large pleural effusions measuring up to 7.0 cm and 5.0 cm",
+  "finding_only": "Large pleural effusions"
+ },
+ {
+  "id": "train_3326_b_5.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Small pleural effusion with maximal thickness up to 15 mm",
+  "finding_only": "Small pleural effusion"
+ },
+ {
+  "id": "train_3333_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Nonspecific subcentimeter pulmonary nodules in the lungs",
+  "finding_only": "Nonspecific pulmonary nodules"
+ },
+ {
+  "id": "train_3348_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Mild bronchiectasis in the lungs with central predominance",
+  "finding_only": "Mild bronchiectasis with central predominance"
+ },
+ {
+  "id": "train_3353_a_1.nii.gz#0",
+  "no_lobe_segment": "New right pulmonary nodule, 4 x 3 mm, with minimal peripheral ground-glass halo",
+  "no_laterality": "New upper lobe anterior segment pulmonary nodule, 4 x 3 mm, with minimal peripheral ground-glass halo",
+  "finding_only": "New pulmonary nodule with minimal peripheral ground-glass halo"
+ },
+ {
+  "id": "train_3357_c_2.nii.gz#1",
+  "no_lobe_segment": "New nodular consolidations in both lungs",
+  "no_laterality": "New nodular consolidations in the anterior and posterior segments of the upper lobes",
+  "finding_only": "New nodular consolidations"
+ },
+ {
+  "id": "train_3370_a_2.nii.gz#0",
+  "no_lobe_segment": "Predominant peripheral ground-glass opacities involving both lungs",
+  "no_laterality": "Predominant peripheral ground-glass opacities involving all segments of the lungs",
+  "finding_only": "Predominant peripheral ground-glass opacities"
+ },
+ {
+  "id": "train_3371_a_2.nii.gz#0",
+  "no_lobe_segment": "Multiple indeterminate pulmonary nodules in both lungs measuring up to 7 mm, largest in the right lung",
+  "no_laterality": "Multiple indeterminate pulmonary nodules in the lungs measuring up to 7 mm, largest in the anterior basal segment of the lower lobe",
+  "finding_only": "Multiple indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3383_a_2.nii.gz#1",
+  "no_lobe_segment": "Subsegmental atelectasis in both lungs",
+  "no_laterality": "Subsegmental atelectasis in the posterobasal segments of the lower lobes",
+  "finding_only": "Subsegmental atelectasis"
+ },
+ {
+  "id": "train_3393_a_2.nii.gz#0",
+  "no_lobe_segment": "Emphysema in both lungs",
+  "no_laterality": "Emphysema in the upper lobes",
+  "finding_only": "Emphysema"
+ },
+ {
+  "id": "train_3393_a_2.nii.gz#3",
+  "no_lobe_segment": "Subpleural nodule 5 mm in the right lung",
+  "no_laterality": "Subpleural nodule 5 mm in the lateral basal segment of the lower lobe",
+  "finding_only": "Subpleural nodule"
+ },
+ {
+  "id": "train_3409_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Several subcentimeter indeterminate pulmonary nodules in the lungs",
+  "finding_only": "Several indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3415_a_2.nii.gz#1",
+  "no_lobe_segment": "Multiple subcentimeter pulmonary nodules in both lungs with peripheral ground-glass halos, largest approximately 8 x 6 mm adjacent to a bronchovascular structure in the left lung",
+  "no_laterality": "Multiple subcentimeter pulmonary nodules in the lungs with peripheral ground-glass halos, largest approximately 8 x 6 mm adjacent to a bronchovascular structure in the lateral basal segment of the lower lobe",
+  "finding_only": "Multiple pulmonary nodules with peripheral ground-glass halos"
+ },
+ {
+  "id": "train_3417_a_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Multiple scattered calcified pulmonary nodules in the lungs",
+  "finding_only": "Multiple scattered calcified pulmonary nodules"
+ },
+ {
+  "id": "train_3419_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter nonspecific pulmonary nodules in the lungs",
+  "finding_only": "Nonspecific pulmonary nodules"
+ },
+ {
+  "id": "train_3438_a_1.nii.gz#1",
+  "no_lobe_segment": "Centriacinar nodules with asymmetric involvement of both lungs",
+  "no_laterality": "Centriacinar nodules with asymmetric involvement of the lower lobes",
+  "finding_only": "Centriacinar nodules"
+ },
+ {
+  "id": "train_3438_a_1.nii.gz#4",
+  "no_lobe_segment": "Subpleural ground-glass opacity in the right lung",
+  "no_laterality": null,
+  "finding_only": "Subpleural ground-glass opacity"
+ },
+ {
+  "id": "train_3439_b_1.nii.gz#1",
+  "no_lobe_segment": "Subpleural increased attenuation in both lungs",
+  "no_laterality": "Subpleural increased attenuation in the basal segments of the lower lobes",
+  "finding_only": "Subpleural increased attenuation"
+ },
+ {
+  "id": "train_3440_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter indeterminate parenchymal nodules in the lungs",
+  "finding_only": "Indeterminate parenchymal nodules"
+ },
+ {
+  "id": "train_3454_a_2.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter indeterminate nodules in the left lung adjacent to the major fissure",
+  "no_laterality": "Subcentimeter indeterminate nodules in the posterior segment of the upper lobe adjacent to the major fissure",
+  "finding_only": "Indeterminate nodules"
+ },
+ {
+  "id": "train_3496_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter nonspecific pulmonary nodules in the lungs",
+  "finding_only": "Nonspecific pulmonary nodules"
+ },
+ {
+  "id": "train_3506_b_1.nii.gz#0",
+  "no_lobe_segment": "Diffuse subsegmental atelectasis in both lungs",
+  "no_laterality": null,
+  "finding_only": "Diffuse subsegmental atelectasis"
+ },
+ {
+  "id": "train_3508_b_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter pulmonary nodule in the lung",
+  "finding_only": "Pulmonary nodule"
+ },
+ {
+  "id": "train_3525_a_2.nii.gz#1",
+  "no_lobe_segment": "Surrounding patchy ground-glass opacities (halo sign) in both lungs",
+  "no_laterality": "Surrounding patchy ground-glass opacities (halo sign) in the basal segments of the lower lobes",
+  "finding_only": "Surrounding patchy ground-glass opacities (halo sign)"
+ },
+ {
+  "id": "train_3541_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Multiple calcified subcentimeter nodules in the lungs, some measuring greater than 3 mm",
+  "finding_only": "Multiple calcified nodules"
+ },
+ {
+  "id": "train_3565_a_1.nii.gz#0",
+  "no_lobe_segment": "Parenchymal scarring in both lungs",
+  "no_laterality": "Parenchymal scarring in the apices",
+  "finding_only": "Parenchymal scarring"
+ },
+ {
+  "id": "train_3577_a_2.nii.gz#0",
+  "no_lobe_segment": "Multilobar involvement in both lungs, most prominent in the left lung",
+  "no_laterality": "Multilobar involvement in the lungs, most prominent in basal segments of the lower lobe",
+  "finding_only": "Multilobar involvement"
+ },
+ {
+  "id": "train_3577_a_2.nii.gz#3",
+  "no_lobe_segment": "Patchy consolidations containing air bronchograms in both lungs, most prominent in the left lung",
+  "no_laterality": "Patchy consolidations containing air bronchograms in the lungs, most prominent in basal segments of the lower lobe",
+  "finding_only": "Patchy consolidations containing air bronchograms"
+ },
+ {
+  "id": "train_3578_a_1.nii.gz#1",
+  "no_lobe_segment": "Indeterminate subpleural parenchymal nodule in the left lung, 4 mm",
+  "no_laterality": "Indeterminate subpleural parenchymal nodule in the upper lobe, 4 mm",
+  "finding_only": "Indeterminate subpleural parenchymal nodule"
+ },
+ {
+  "id": "train_3595_a_2.nii.gz#0",
+  "no_lobe_segment": "Fibrotic scarring in both lungs",
+  "no_laterality": "Fibrotic scarring at the apices of the lungs",
+  "finding_only": "Fibrotic scarring"
+ },
+ {
+  "id": "train_3595_b_2.nii.gz#1",
+  "no_lobe_segment": "Bilateral pleuroparenchymal scarring",
+  "no_laterality": "Apical pleuroparenchymal scarring",
+  "finding_only": "Pleuroparenchymal scarring"
+ },
+ {
+  "id": "train_3598_a_2.nii.gz#1",
+  "no_lobe_segment": "Increased pleuroparenchymal reticulonodular scarring in both lungs",
+  "no_laterality": "Increased pleuroparenchymal reticulonodular scarring in the apices",
+  "finding_only": "Increased pleuroparenchymal reticulonodular scarring"
+ },
+ {
+  "id": "train_3623_a_1.nii.gz#1",
+  "no_lobe_segment": "Pulmonary nodules in both lungs, some calcified; largest in the right lung",
+  "no_laterality": "Pulmonary nodules in the anterior segments of the upper lobes, some calcified; largest in the upper lobe anterior segment",
+  "finding_only": "Pulmonary nodules, some calcified"
+ },
+ {
+  "id": "train_3645_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Minimal dependent atelectasis in the lungs",
+  "finding_only": "Minimal dependent atelectasis"
+ },
+ {
+  "id": "train_3655_a_2.nii.gz#1",
+  "no_lobe_segment": "Right pulmonary nodule measuring 7 x 3 mm",
+  "no_laterality": "Upper lobe pulmonary nodule at the junction of the anterior and posterior segments measuring 7 x 3 mm",
+  "finding_only": "Pulmonary nodule"
+ },
+ {
+  "id": "train_3663_a_2.nii.gz#0",
+  "no_lobe_segment": "Bilateral peripheral and central ground-glass opacities",
+  "no_laterality": "Peripheral and central ground-glass opacities, more pronounced in the lower lobes",
+  "finding_only": "Peripheral and central ground-glass opacities"
+ },
+ {
+  "id": "train_3663_a_2.nii.gz#3",
+  "no_lobe_segment": null,
+  "no_laterality": "Trace pleural effusion",
+  "finding_only": "Trace pleural effusion"
+ },
+ {
+  "id": "train_3675_d_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter pulmonary nodules in the lungs",
+  "finding_only": "Pulmonary nodules"
+ },
+ {
+  "id": "train_3689_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Nonspecific focal thickening of the major fissure",
+  "finding_only": null
+ },
+ {
+  "id": "train_3696_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Localized linear atelectasis in the lungs",
+  "finding_only": "Localized linear atelectasis"
+ },
+ {
+  "id": "train_3703_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter indeterminate parenchymal nodules present in the lungs",
+  "finding_only": "Indeterminate parenchymal nodules present"
+ },
+ {
+  "id": "train_3737_a_1.nii.gz#0",
+  "no_lobe_segment": "Prominent peribronchial wall thickening involving both lungs",
+  "no_laterality": null,
+  "finding_only": "Prominent peribronchial wall thickening"
+ },
+ {
+  "id": "train_3737_a_1.nii.gz#3",
+  "no_lobe_segment": "Mass-like nodule in the right lung, 12 x 10 mm",
+  "no_laterality": "Mass-like nodule in the superior segment of the lower lobe, 12 x 10 mm",
+  "finding_only": "Mass-like nodule"
+ },
+ {
+  "id": "train_3747_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Minimal peribronchial thickening in the lungs",
+  "finding_only": "Minimal peribronchial thickening"
+ },
+ {
+  "id": "train_3747_a_1.nii.gz#3",
+  "no_lobe_segment": null,
+  "no_laterality": "Subcentimeter pulmonary nodules in the lungs",
+  "finding_only": "Pulmonary nodules"
+ },
+ {
+  "id": "train_3749_a_1.nii.gz#0",
+  "no_lobe_segment": "4 mm subpleural nodule in the right lung",
+  "no_laterality": null,
+  "finding_only": "Subpleural nodule"
+ },
+ {
+  "id": "train_3762_a_1.nii.gz#1",
+  "no_lobe_segment": "Subsegmental linear atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Subsegmental linear atelectasis"
+ },
+ {
+  "id": "train_3771_a_2.nii.gz#1",
+  "no_lobe_segment": "Subpleural indeterminate parenchymal nodule measuring 5 mm in the right lung",
+  "no_laterality": "Subpleural indeterminate parenchymal nodule measuring 5 mm in the superior segment of the lower lobe",
+  "finding_only": "Subpleural indeterminate parenchymal nodule"
+ },
+ {
+  "id": "train_3783_a_2.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in the right lung",
+  "no_laterality": null,
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_3783_b_2.nii.gz#2",
+  "no_lobe_segment": "Parenchymal scarring in the left lung",
+  "no_laterality": null,
+  "finding_only": "Parenchymal scarring"
+ },
+ {
+  "id": "train_3788_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Peripheral subpleural nodules in the lung",
+  "finding_only": "Peripheral subpleural nodules"
+ },
+ {
+  "id": "train_3796_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Localized linear atelectasis in the lungs",
+  "finding_only": "Localized linear atelectasis"
+ },
+ {
+  "id": "train_3813_b_2.nii.gz#1",
+  "no_lobe_segment": "Irregular left pleural thickening, measuring up to 14 mm, present on prior exam",
+  "no_laterality": "Irregular pleural thickening, most pronounced adjacent to the upper lobe, measuring up to 14 mm at the upper lobe, present on prior exam",
+  "finding_only": "Irregular pleural thickening, present on prior exam"
+ },
+ {
+  "id": "train_3813_b_2.nii.gz#4",
+  "no_lobe_segment": "Consolidations in the right lung",
+  "no_laterality": null,
+  "finding_only": "Consolidations"
+ },
+ {
+  "id": "train_3824_a_2.nii.gz#0",
+  "no_lobe_segment": "Atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Atelectasis"
+ },
+ {
+  "id": "train_3838_a_2.nii.gz#0",
+  "no_lobe_segment": "Nonspecific subpleural subcentimeter nodules in both lungs",
+  "no_laterality": "Nonspecific subpleural subcentimeter nodules in the lungs, predominantly in the upper lobes",
+  "finding_only": "Nonspecific subpleural nodules"
+ },
+ {
+  "id": "train_3841_a_2.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Calcified pleural plaques",
+  "finding_only": "Calcified pleural plaques"
+ },
+ {
+  "id": "train_3867_a_1.nii.gz#1",
+  "no_lobe_segment": "Subcentimeter calcified nodule in the right lung",
+  "no_laterality": "Subcentimeter calcified nodule in the lower lobe",
+  "finding_only": "Calcified nodule"
+ },
+ {
+  "id": "train_3877_a_1.nii.gz#2",
+  "no_lobe_segment": "4 x 2 mm nodule in the medial subpleural region of the left lung",
+  "no_laterality": "4 x 2 mm nodule in the medial subpleural region of the anterior segment of the upper lobe",
+  "finding_only": "Subpleural nodule"
+ },
+ {
+  "id": "train_3879_b_1.nii.gz#0",
+  "no_lobe_segment": "Atelectatic changes in the left lung",
+  "no_laterality": null,
+  "finding_only": "Atelectatic changes"
+ },
+ {
+  "id": "train_3885_a_2.nii.gz#0",
+  "no_lobe_segment": "Indeterminate perifissural nodule in the left lung, 4 mm",
+  "no_laterality": null,
+  "finding_only": "Indeterminate perifissural nodule"
+ },
+ {
+  "id": "train_3891_a_1.nii.gz#1",
+  "no_lobe_segment": "Adjacent opacity in the right lung",
+  "no_laterality": null,
+  "finding_only": "Adjacent opacity"
+ },
+ {
+  "id": "train_3902_a_2.nii.gz#0",
+  "no_lobe_segment": "Fibrotic scarring in both lungs",
+  "no_laterality": null,
+  "finding_only": "Fibrotic scarring"
+ },
+ {
+  "id": "train_3913_a_1.nii.gz#0",
+  "no_lobe_segment": "Minimal dependent atelectasis in both lungs",
+  "no_laterality": "Minimal dependent atelectasis in the posterobasal segments of the lower lobes",
+  "finding_only": "Minimal dependent atelectasis"
+ },
+ {
+  "id": "train_3915_a_1.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Areas of consolidation in the lungs",
+  "finding_only": "Areas of consolidation"
+ },
+ {
+  "id": "train_3929_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": "Parenchymal scarring"
+ },
+ {
+  "id": "train_3931_a_1.nii.gz#1",
+  "no_lobe_segment": "Consolidation in the left lung with surrounding ground-glass opacity",
+  "no_laterality": null,
+  "finding_only": "Consolidation with surrounding ground-glass opacity"
+ },
+ {
+  "id": "train_3938_a_2.nii.gz#1",
+  "no_lobe_segment": "Ground-glass opacities with tree-in-bud pattern surrounding the left lung consolidation",
+  "no_laterality": null,
+  "finding_only": "Ground-glass opacities with tree-in-bud pattern surrounding the consolidation"
+ },
+ {
+  "id": "train_3940_a_2.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Several subcentimeter indeterminate pulmonary nodules in the lungs",
+  "finding_only": "Several indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3947_a_1.nii.gz#2",
+  "no_lobe_segment": null,
+  "no_laterality": "Several indeterminate pulmonary nodules each measuring less than 5 mm",
+  "finding_only": "Several indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3954_a_1.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter indeterminate pulmonary nodules in the right lung, largest 5 mm",
+  "no_laterality": null,
+  "finding_only": "Indeterminate pulmonary nodules"
+ },
+ {
+  "id": "train_3961_a_1.nii.gz#1",
+  "no_lobe_segment": "Peripheral subpleural nodular consolidations in both lungs",
+  "no_laterality": "Peripheral subpleural nodular consolidations in the lungs, most pronounced in the upper lobes and diffusely involving the basal segments of the lower lobes",
+  "finding_only": "Peripheral subpleural nodular consolidations"
+ },
+ {
+  "id": "train_3963_f_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": "Mosaic attenuation throughout the lungs",
+  "finding_only": "Mosaic attenuation"
+ },
+ {
+  "id": "train_3972_b_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Multiple patchy peripheral ground-glass opacities in the lungs",
+  "finding_only": "Multiple patchy peripheral ground-glass opacities"
+ },
+ {
+  "id": "train_3981_a_1.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": null
+ },
+ {
+  "id": "train_3984_a_1.nii.gz#0",
+  "no_lobe_segment": "Minimal pleuroparenchymal scarring in both lungs",
+  "no_laterality": "Minimal pleuroparenchymal scarring at the apices",
+  "finding_only": "Minimal pleuroparenchymal scarring"
+ },
+ {
+  "id": "train_4001_a_2.nii.gz#0",
+  "no_lobe_segment": "Subcentimeter parenchymal air cysts in both lungs",
+  "no_laterality": "Subcentimeter parenchymal air cysts in the superior segments of the lower lobes",
+  "finding_only": "Parenchymal air cysts"
+ },
+ {
+  "id": "train_4005_a_2.nii.gz#0",
+  "no_lobe_segment": null,
+  "no_laterality": "Multiple subcentimeter pulmonary nodules in the lungs",
+  "finding_only": "Multiple pulmonary nodules"
+ },
+ {
+  "id": "train_4045_a_1.nii.gz#0",
+  "no_lobe_segment": "3 mm nodule in the right lung",
+  "no_laterality": null,
+  "finding_only": "Nodule"
+ },
+ {
+  "id": "train_4058_a_2.nii.gz#1",
+  "no_lobe_segment": "Scarring in both lungs",
+  "no_laterality": "Apical scarring in the lungs",
+  "finding_only": "Scarring"
+ },
+ {
+  "id": "train_4064_a_2.nii.gz#1",
+  "no_lobe_segment": "Near-complete atelectasis in both lungs adjacent to the pleural effusions",
+  "no_laterality": "Near-complete atelectasis of the lower lobes adjacent to the pleural effusions",
+  "finding_only": "Near-complete atelectasis"
+ },
+ {
+  "id": "train_4074_a_1.nii.gz#0",
+  "no_lobe_segment": "Mild pleuroparenchymal scarring in both lungs",
+  "no_laterality": "Mild apical pleuroparenchymal scarring in the lungs",
+  "finding_only": "Mild pleuroparenchymal scarring"
+ },
+ {
+  "id": "train_4079_a_1.nii.gz#1",
+  "no_lobe_segment": "Atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Atelectasis"
+ },
+ {
+  "id": "train_4084_a_1.nii.gz#0",
+  "no_lobe_segment": "Linear atelectasis in the left lung",
+  "no_laterality": null,
+  "finding_only": "Linear atelectasis"
+ },
+ {
+  "id": "train_4092_a_2.nii.gz#0",
+  "no_lobe_segment": "Subsegmental atelectasis in both lungs",
+  "no_laterality": null,
+  "finding_only": "Subsegmental atelectasis"
+ },
+ {
+  "id": "train_4099_a_2.nii.gz#1",
+  "no_lobe_segment": null,
+  "no_laterality": null,
+  "finding_only": "A few nonspecific pulmonary nodules"
+ }
+]

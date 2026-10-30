@@ -1,0 +1,52 @@
+% ReXGrounding Challenge paper: team method description (Appendix A)
+% ---------------------------------------------------------------
+% Please keep this to about half a page of text (300-450 words) plus one optional
+% figure. Keep the headings below in this order; write "none" where something
+% does not apply. We will typeset and may
+% lightly edit for length and style. Citations: please list the reference at
+% the end of the file in plain text; we will add them to the bibliography.
+
+\subsection{<Team name> (rank <N>)}
+\label{app:<teamname>}
+
+% Everything the model saw in training, with sizes and licences. Include the
+% challenge data, public datasets, in-house data, pretrained weights, and any
+% derived labels (pseudo-labels, LLM-extracted text, anatomy masks). State
+% explicitly whether any test-set scans, in image or text form, were used at any
+% stage, including pretraining of components you did not train yourselves.
+\paragraph{Data} <Challenge training set (2,992 scans) and validation set (200 scans); external data: ...; in-house data: ...; pretrained weights: ...; test-set exposure: none / describe.>
+
+% Resampling, orientation, intensity windowing or normalisation, cropping, patch size.
+\paragraph{Pre-processing} <...>
+
+% Image backbone, text encoder, how the text conditions the image model, number
+% of parameters if known. Name the base framework (for example VoxTell, nnU-Net).
+\paragraph{Architecture and text encoder} <...>
+
+% Loss, optimiser, learning-rate schedule, batch size, epochs or steps, data
+% augmentation (image and text), hardware and training time, whether the
+% validation set was used for training and how.
+\paragraph{Training} <...>
+
+% Number of models in the final submission, how they differ, how predictions were combined.
+\paragraph{Ensembling} <...>
+
+% Thresholding, component selection, anatomical restriction (lobe or side),
+% any use of an LLM at inference.
+\paragraph{Post-processing} <...>
+
+% Average time per scan per finding at inference, and the hardware used.
+\paragraph{Inference time and hardware} <...>
+
+% Which submission is the final one (model name as shown on the leaderboard),
+% and one or two sentences on what helped most and what did not help.
+\paragraph{Final submission and lessons} <...>
+
+% Link(s) to code and weights, with licence; or state that they are not released.
+\paragraph{Code and weights availability} <...>
+
+% Optional: one figure of the architecture or pipeline (vector PDF preferred).
+% \begin{figure}[h]\centering\includegraphics[width=\textwidth]{<file>.pdf}\caption{<...>}\end{figure}
+
+% References (plain text, we will format them):
+% 1. ...

@@ -1,0 +1,1253 @@
+% =============================================================================
+%  ReXGrounding Challenge @ MICCAI 2026 -- challenge overview paper (SKELETON)
+%
+%  Structure follows the BIAS reporting guideline (Maier-Hein et al., 2020):
+%    Introduction -> Methods (= challenge design) -> Results -> Discussion.
+%  Subsection layout is modelled on FLARE22/FLARE23 (Ma et al.).
+%  See bias_checklist.md for the item-by-item mapping.
+%
+%  Conventions in this draft:
+%    \todo{...}   = missing content / decision needed (renders red)
+%    \chk{...}  = pre-filled from final_results_MICCAI2026.json or the
+%                   ReXGroundingCT dataset paper -- verify before submission
+%
+%  Template: elsarticle (Medical Image Analysis, the usual venue for MICCAI
+%  challenge papers). Swap the class if targeting another journal.
+% =============================================================================
+
+\documentclass[final,5p,times,twocolumn,authoryear,numafflabel]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+% Run the affiliations together as one paragraph, separated by semicolons, so the long
+% author list leaves room for the abstract on the first page
+\usepackage{etoolbox}
+\makeatletter
+\def\endinlineaddr{}
+\newcommand\inlineaddress{\begingroup\def\par{\unskip\@ifnextchar\endinlineaddr{}{;\ }}\elsaddress\endinlineaddr\endgroup}
+\patchcmd{\MaketitleBox}{\footnotesize\itshape\elsaddress\par}{\footnotesize\itshape\inlineaddress\par}{}{\PackageWarning{main}{affiliation patch failed}}
+\makeatother
+% Allow tall double-column figures (Figs. 3-4) at the top of a page or on a float page
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.8}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\chk}[1]{\textcolor{blue}{#1}}
+\newcommand{\citesugg}[1]{\textcolor{orange}{[cite: #1]}}  % citation suggestions; replace with real \cite manually
+
+\journal{Medical Image Analysis}
+
+\AtBeginDocument{\def\thefnote{\ensuremath{\dagger}}} % only footnote is the co-senior note; a dagger avoids clashing with numbered affiliations
+\begin{document}
+
+\begin{frontmatter}
+
+% Title options (BIAS item 1: convey the essential information on the challenge)
+%  A) Grounding free-text radiology findings in 3D chest CT: results of the
+%     ReXGrounding Challenge at MICCAI 2026
+%  B) The ReXGrounding Challenge: benchmarking text-guided 3D segmentation
+%     of chest CT findings
+%  C) Can models localize what radiologists describe? Results of the
+%     ReXGrounding 2026 Challenge
+\title{\LARGE Grounding Radiology Reports in 3D Chest CT:\\
+Results of the ReXGrounding Challenge}
+
+% Author order: organizers' placement still to decide. Team blocks are in
+% final-rank order; within-team order as requested by each team.
+% Tracking sheet: authors.csv
+\author[hms]{Mohammed Baharoon}
+\author[kfh]{Mahmoud Hussain Alabbad}
+\author[hms]{Sung Eun Kim}
+\author[hms]{Xiaoman Zhang}
+
+% --- CIRCLE Team (1st) ---
+\author[uii]{Zirong Chen}
+\author[uii]{Jiayu Wang}
+\author[uii]{Xi Ouyang}
+\author[shanghaitech]{Mingyang Yu}
+\author[zsrad,sim,zscc]{Weiqiu Jin}
+\author[zsrad,sim,zscc]{Xiaodan Ye}
+\author[uii]{Dijia Wu}
+
+% --- AIMHI (2nd) ---
+\author[gachon,medai]{Kwang-Hyun Uhm}
+\author[gachon]{Inhwa Son}
+
+% --- fomofo (3rd); Rachel van 't Hull is the team's first author ---
+\author[nki]{Rachel van 't Hull}
+\author[nki]{Tim Veenboer}
+\author[nki]{Kevin Groot Lipman}
+\author[uva]{Cees Snoek}
+
+% --- needpaper (4th) ---
+\author[yonsei]{Daesung Kim}
+\author[yuhs]{Junha Im}
+\author[kaist]{Youngjun Jun}
+\author[yuhs]{Sangwon Lee}
+\author[cmu]{Katelyn Morrison}
+\author[cmu]{Adam Perer}
+\author[yuhs]{Mijin Yun}
+
+% --- ReXGroundingCTv2 annotators who completed their annotation ---
+\author[slu]{Ali Piracha}
+\author[kamc]{Reem Alwasiah}
+\author[kamc]{Talal Yahyan}
+\author[kamc]{Abdulrahman Alamoudi}
+\author[kamc]{Mashael Alshehri}
+\author[kamc]{Rayan Alsager}
+\author[nmcp]{Hannah Hancock}
+\author[mhh]{Anna M. Hunkemöller}
+\author[jlu]{Peter Youssef}
+\author[rastanura]{Mona A. Alhammad}
+\author[rastanura]{Afnan Aljumayan}
+\author[kul]{Lucas Bijnens}
+\author[jessa]{Brecht Van Berkel}
+\author[jessa]{Eric Bijnens}
+\author[kfsh]{Saud Alhussain}
+\author[uzl]{Maarten Steyvers}
+\author[imelda]{Rolf Symons}
+\author[kul]{Bryan Eelen}
+\author[psmmc]{Ayed Alaklubi}
+\author[kfsh]{Maha Buraykan Alshammari}
+\author[uoh]{Amirah Fahad Alshammeri}
+\author[slu]{Tomas Gilvydis}
+\author[ksumc]{Ibrahim AlTurki}
+\author[ksumc]{Monerah Almohideb}
+\author[kamc]{Ali Alburkani}
+
+% --- VoxTell authors (invited; Benjamin Hamm and Yannick Kirchhoff to be added once details arrive) ---
+\author[dkfz,uhdmath,hidss]{Maximilian Rokuss}
+\author[dkfz,uhdmath]{Moritz Langenberg}
+\author[dkfz,uhdmath,uhdmed,helmimg,hidss,palg]{Klaus Maier-Hein}
+
+\author[slu,ssm]{Michael Moritz}
+\author[kamc]{Hassan R. Alomaish}
+
+% --- Senior authors ---
+\author[hms,yale]{Luyang Luo\fnref{cosenior}}
+\author[hms]{Pranav Rajpurkar\fnref{cosenior}}
+
+\affiliation[hms]{organization={Department of Biomedical Informatics, Harvard Medical School},
+            city={Boston}, state={MA}, country={USA}}
+\affiliation[kfh]{organization={King Fahad Hospital, Al-Ahsa Health Cluster}, city={Al Hofuf}, country={Saudi Arabia}}
+\affiliation[uii]{organization={Shanghai United Imaging Intelligence},
+            city={Shanghai}, country={China}}
+\affiliation[shanghaitech]{organization={ShanghaiTech University},
+            city={Shanghai}, country={China}}
+\affiliation[zsrad]{organization={Department of Radiology, Zhongshan Hospital, Fudan University},
+            city={Shanghai}, country={China}}
+\affiliation[sim]{organization={Shanghai Institute of Medical Imaging},
+            city={Shanghai}, country={China}}
+\affiliation[zscc]{organization={Cancer Center, Zhongshan Hospital, Fudan University},
+            city={Shanghai}, country={China}}
+\affiliation[gachon]{organization={Department of Artificial Intelligence, Gachon University},
+            country={South Korea}}
+\affiliation[medai]{organization={MEDAI}, country={South Korea}}
+\affiliation[nki]{organization={Netherlands Cancer Institute},
+            city={Amsterdam}, country={The Netherlands}}
+\affiliation[uva]{organization={University of Amsterdam},
+            city={Amsterdam}, country={The Netherlands}}
+\affiliation[yonsei]{organization={Yonsei University},
+            city={Seoul}, country={South Korea}}
+\affiliation[yuhs]{organization={Yonsei University College of Medicine},
+            city={Seoul}, country={South Korea}}
+\affiliation[kaist]{organization={Korea Advanced Institute of Science and Technology},
+            city={Daejeon}, country={South Korea}}
+\affiliation[cmu]{organization={Carnegie Mellon University},
+            city={Pittsburgh}, state={PA}, country={USA}}
+\affiliation[kamc]{organization={Medical Imaging Department, King Abdulaziz Medical City, Ministry of National Guard Health Affairs},
+            city={Riyadh}, country={Saudi Arabia}}
+\affiliation[slu]{organization={Saint Louis University}, city={St. Louis}, state={MO}, country={USA}}
+\affiliation[ssm]{organization={SSM Health}, city={St. Louis}, state={MO}, country={USA}}
+\affiliation[nmcp]{organization={Naval Medical Center Portsmouth}, city={Portsmouth}, state={VA}, country={USA}}
+\affiliation[mhh]{organization={Institute of Diagnostic and Interventional Radiology, Hannover Medical School},
+            city={Hannover}, country={Germany}}
+\affiliation[jlu]{organization={Justus Liebig University Giessen}, city={Giessen}, country={Germany}}
+\affiliation[rastanura]{organization={Ras Tanura General Hospital, Ministry of Health}, country={Saudi Arabia}}
+\affiliation[kul]{organization={KU Leuven}, city={Leuven}, country={Belgium}}
+\affiliation[jessa]{organization={Jessa Hospital}, country={Belgium}}
+\affiliation[kfsh]{organization={King Fahad Specialist Hospital}, city={Buraydah}, country={Saudi Arabia}}
+\affiliation[uzl]{organization={University Hospitals Leuven}, city={Leuven}, country={Belgium}}
+\affiliation[imelda]{organization={Imelda Hospital}, country={Belgium}}
+\affiliation[psmmc]{organization={Prince Sultan Military Medical City}, city={Riyadh}, country={Saudi Arabia}}
+\affiliation[uoh]{organization={University of Hail}, city={Hail}, country={Saudi Arabia}}
+\affiliation[ksumc]{organization={King Saud University Medical City}, city={Riyadh}, country={Saudi Arabia}}
+\affiliation[dkfz]{organization={Division of Medical Image Computing, German Cancer Research Center (DKFZ)}, city={Heidelberg}, country={Germany}}
+\affiliation[uhdmath]{organization={Faculty of Mathematics and Computer Science, Heidelberg University}, city={Heidelberg}, country={Germany}}
+\affiliation[hidss]{organization={Helmholtz Information and Data Science School for Health (HIDSS4Health)}, city={Heidelberg}, country={Germany}}
+\affiliation[uhdmed]{organization={Medical Faculty, Heidelberg University}, city={Heidelberg}, country={Germany}}
+\affiliation[helmimg]{organization={Helmholtz Imaging}, country={Germany}}
+\affiliation[palg]{organization={Pattern Analysis and Learning Group, Heidelberg University Hospital}, city={Heidelberg}, country={Germany}}
+
+\affiliation[yale]{organization={Department of Biostatistics, Yale School of Public Health}, city={New Haven}, state={CT}, country={USA}}
+\fntext[cosenior]{These authors contributed equally as senior authors.}
+% ---------------------------------------------------------------------------
+\begin{abstract}
+\small
+\textbf{Background.} Radiology reports describe the location of findings
+through language, using anatomical terms or slice numbers, but do not record their 3D
+extent, which leaves referring physicians to search the scan for each finding again.
+Segmenting each reported finding in 3D would make reports easier to
+communicate and visualize, allow findings to be measured and tracked over time, and let AI
+systems generate reports whose findings are grounded in the volume and
+verifiable. However, no benchmark existed for localizing free-text
+findings in volumetric CT.
+
+\textbf{Methods.} Given a non-contrast chest CT scan from CT-RATE and a free-text
+finding, participants produced a 3D segmentation of that finding. Teams trained
+on \chk{2,992} scans and validated on \chk{200} scans from the ReXGroundingCT
+dataset, and were evaluated on a held-out test set of \chk{300} scans with
+\chk{582} findings in \chk{13} categories, exhaustively annotated by
+board-certified radiologists. The primary metric was the mean Dice per finding
+per case, with hit rate (Dice $\geq$ \chk{0.1}) and instance F1 reported as
+secondary metrics. We
+organized the ReXGrounding Challenge as part of MICCAI 2026.
+
+\textbf{Results.} The best method reached a Dice of \chk{0.375} and a hit
+rate of \chk{0.77}, matching agreement between two independent radiologist
+groups (Dice \chk{0.32}, hit rate \chk{0.76}, on a \chk{50}-scan subset) and
+exceeding the best pre-challenge model (Dice \chk{0.285}). Five of the six best teams fine-tuned VoxTell, a pretrained text-promptable
+segmentation model, and several restricted their masks to the lobe or side
+named in the sentence. Non-focal findings remained far harder to segment than focal
+ones (Dice \chk{0.18--0.24} vs.\ \chk{0.35--0.38} among the top six teams),
+instance F1 stayed below inter-reader agreement (\chk{0.34} vs.\ \chk{0.47}),
+and qualitative failure analysis showed models segmenting the right abnormality
+in the wrong location.
+In total, \chk{48} teams from \chk{15} countries made \chk{760} submissions
+to the challenge.
+
+\textbf{Conclusions.} Top methods reach Dice values in the range of agreement
+between independent radiologist groups, but non-focal findings and adherence
+to the anatomical location described in the text remain open problems. The
+test set remains available for benchmarking through a public leaderboard.
+\end{abstract}
+
+\begin{keyword}
+% BIAS item 3
+Challenge \sep Chest CT \sep Visual grounding \sep Text-guided segmentation
+\sep Radiology reports \sep Vision--language models
+\end{keyword}
+
+\end{frontmatter}
+
+% =============================================================================
+\section{Introduction}
+\label{sec:intro}
+% =============================================================================
+
+% BIAS 4a -- biomedical motivation (general problem)
+AI systems for medical image interpretation are advancing quickly, but their
+use in clinical practice depends on more than accuracy: their outputs must
+also be explainable and verifiable
+\citep{rajpurkar2023current,silcox2024potential,abgrall2024should}.
+Radiology reports fall short of this because they describe the location of
+each finding only in words, such as a ``5\,mm nodule in the posterior segment
+of the right upper lobe'', without marking it on the scan, so a reader has to
+find it again before it can be measured, compared with prior studies or
+checked. Grounding each finding, that is, segmenting the
+region a sentence describes, would make reports, whether written by
+radiologists or generated by AI, verifiable against the image
+\citep{bannur2024maira,baharoon2026rexgroundingct}. The need is greatest in
+chest CT, which is performed in large volumes (about \chk{20 million}
+examinations a year in the United States alone \citep{smith2025projected})
+and in which a single scan often contains many co-occurring findings, from
+small nodules to diffuse parenchymal change.
+
+% BIAS 4b, 4c -- technical motivation and gap (specific problem)
+Grounding a free-text finding in 3D differs from the fixed-class segmentation
+evaluated by most medical imaging benchmarks and challenges
+\citep{antonelli2022medical,bilic2023liver,heller2021state,ma2024unleashing,heller2023kits21,kavur2021chaos,dorent2024lnq,luo2025segrap2023,ma2024automatic}:
+a model must read a sentence that specifies the target by size, laterality, lobe
+or segment and morphology, and decide which of several similar lesions it refers
+to. Existing datasets, models and challenges do not
+support this task. Large chest CT datasets pair scans
+with reports but lack voxel-level labels \citep{hamamci2026generalist}, and grounding datasets either link
+sentences to anatomical regions rather than to findings
+\citep{zhang2025development}, have fewer than \chk{250} cases \citep{bai2024m3d}, or focus on 2D
+modalities such as chest X-ray with bounding boxes instead of segmentation annotations
+\citep{boecking2022making,de2025padchest}. Current text-promptable
+segmentation models, trained mostly on short category-level prompts, fail on the descriptive findings
+written in radiology reports
+\citep{zhao2025large,zhao2025foundation,zhao2025biomedparse,du2024segvol,subramanian2026open,baharoon2025state}.
+Recent challenges that pair images with radiology
+reports evaluate report generation
+or the localization of fixed classes of abnormalities, rather than grounding
+the findings described in a report directly in the image
+\citep{xu2024overview,hamamci_2025_15052708,hamamci_2026_19847782}. We previously released ReXGroundingCT, the
+first large-scale dataset linking findings from radiology reports to 3D
+segmentations in chest CT \citep{baharoon2026rexgroundingct}.
+
+% BIAS 4c -- challenge purpose, design and outcomes (solution)
+To address this gap, we organized the ReXGrounding Challenge
+(Figure~\ref{fig:overview}) at MICCAI 2026 as the first challenge on 3D segmentation conditioned on free-text
+findings. Given a non-contrast chest CT and one finding from its report,
+participants segmented that finding in 3D. Methods were evaluated on
+\chk{300} held-out scans with \chk{582} findings, exhaustively annotated by
+board-certified radiologists, and \chk{48} teams from \chk{15} countries made
+\chk{760} submissions. The challenge led to four main findings, which this paper
+reports following the BIAS guideline \citep{maier2020bias}. First, the best method reached a Dice of \chk{0.375}, up from \chk{0.285}
+for the best model before the challenge \citep{rokuss2026voxtell}, and a hit rate of \chk{0.77}, matching the agreement
+between two independent radiologist groups. Second,
+the top four teams were within \chk{0.015} Dice and could not be separated
+statistically, so the choice of ranking scheme determined the winner. Third,
+the top methods converged on a common recipe: fine-tuning a pretrained
+text-promptable model, large anatomical context, text augmentation,
+ensembling, and post-processing to restrict masks to the lobe
+or side named in the sentence.
+Fourth, the overall Dice hides clear remaining gaps
+(Figure~\ref{fig:category-perf}), in non-focal findings,
+in finding every instance of a multi-instance finding, and in following the
+location stated in the sentence. This challenge has established the first benchmark for grounding
+report findings in 3D CT and substantially advanced the state of the art,
+while making clear where further progress is needed. The test-set masks remain withheld behind a
+public leaderboard (\url{https://rexrank.ai/ReXGroundingCT}), so that
+new methods can be compared directly with the challenge entries.
+
+
+\begin{figure*}[p]
+\centering
+\includegraphics[width=\textwidth]{figures/fig1.pdf}
+\caption{Overview of the ReXGrounding Challenge. \textbf{A)} The task: given a
+non-contrast chest CT volume and one free-text finding from its report, a model
+must segment that finding in 3D. Each sentence is a separate query against the
+same volume, and the shown masks are the radiologist reference annotations of a
+test case (scan from CT-RATE \citep{hamamci2026generalist}). \textbf{B)} Challenge workflow. During the development phase, teams trained on the
+ReXGroundingCT training set (\chk{2,992} scans with partial-instance masks)
+and the validation set (\chk{200} scans with exhaustive radiologist masks), and
+submitted predictions for the test set (\chk{300} scans, all visible to participants, with reference
+masks withheld), and the leaderboard reported scores on a fixed subset of \chk{150} scans. After the
+deadline, each team's final submission was scored on all \chk{300} scans and the final ranking was
+announced at MICCAI 2026. \textbf{C)} Participating teams by country (\chk{48} teams from \chk{15}
+countries). Circle area is proportional to the number of teams. Boundaries are from Natural Earth (naturalearthdata.com, version 5.1.1) and do not imply any position on the legal status of any territory.}
+\label{fig:overview}
+\end{figure*}
+
+% =============================================================================
+\section{Challenge design}
+\label{sec:methods}
+% BIAS: "Methods" section = challenge design (items 5--31)
+% =============================================================================
+
+The ReXGrounding Challenge was held as part of MICCAI 2026 and hosted on the
+ReXrank leaderboard platform \citep{zhang2024rexrank}
+(\url{https://rexrank.ai/ReXGroundingCT}). Its design was registered in advance
+with MICCAI \citep{baharoon2026design}. The organizers, timeline, submission
+procedure and policies are described in \ref{app:organization}.
+
+% -----------------------------------------------------------------------------
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_data.pdf}
+\caption{Challenge data. A) Finding categories as a share of all findings in
+the training set (left, \chk{7,687} findings in \chk{2,992} scans) and the
+test set (right, \chk{582} findings in \chk{300} scans), grouped into focal and
+non-focal categories. Numbers give the share in percent. B) Reference volume of every test-set finding by category (dots). For categories
+with at least five findings, the bar spans the interquartile range and the open
+circle marks the median. The dashed line marks 1\,mL. C) Number of findings per
+scan. D) Length of the finding sentences. In C and D, dark bars show the test
+set and light bars the training set.}
+\label{fig:categories}
+\end{figure*}
+
+\subsection{Task definition}
+\label{sec:mission}
+% BIAS 17--23
+
+\paragraph{Task}
+Given a non-contrast chest CT volume and a free-text description of a
+single finding, produce a 3D binary segmentation of all regions described
+by that finding. Each finding receives one mask, and when a finding has
+several instances, such as multiple nodules, all of them are segmented
+together in that mask. Instances are recovered afterwards as connected
+components for the instance-level metrics (Section~\ref{sec:metrics}).
+
+\paragraph{Assessment aim}
+% BIAS 23
+The challenge assessed how well each finding described in the text was
+localized and delineated in 3D. The primary metric was Dice, the overlap between
+the predicted and reference masks of each finding, which reflects both whether
+the finding was found and how well its extent was captured. The secondary
+metrics were the hit rate, which measures whether a model localized each finding
+at all regardless of how precisely it outlined it, and instance F1, which
+measures whether it found each lesion of findings made up of several lesions.
+All metrics are defined in Section~\ref{sec:metrics}.
+
+% -----------------------------------------------------------------------------
+\subsection{Challenge data}
+\label{sec:data}
+% BIAS 24--28
+
+\paragraph{Data source}
+Scans and reports come from CT-RATE, a public dataset of
+de-identified non-contrast chest CT scans and their radiology reports acquired
+during routine care at Istanbul Medipol University Mega Hospital, Turkey
+\citep{hamamci2026generalist}. The original Turkish reports had been
+machine-translated into English and corrected by bilingual medical students in
+CT-RATE. For ReXGroundingCT, GPT-4 rewrote each report into standard US
+radiology terminology and split it into individual findings, and GPT-4o
+assigned each finding to a category \citep{baharoon2026rexgroundingct}. A board-certified radiologist reviewed both steps on random
+samples. All \chk{50} rewritten reports were judged acceptable, extraction
+had a false-positive rate of \chk{0} and a false-negative rate of
+\chk{0.01}, and categorization of lung and pleural findings reached a
+precision and recall of \chk{0.99}. The finding sentences used in the challenge
+are the outputs of this pipeline and were not edited further.
+
+\paragraph{Data splits}
+% BIAS 25a--d
+A case is one CT volume with its set of findings.
+The training set contains \chk{2,992} scans (\chk{7,687} findings) with partial-instance
+annotations (up to three instances per finding). The validation set
+(\chk{200} scans, \chk{381} findings) and the test set (\chk{300} scans, \chk{582} findings) were
+exhaustively annotated by board-certified radiologists. During the challenge,
+the leaderboard showed results on a fixed random half of the test set
+(\chk{150} scans, \chk{302} findings), and the final ranking used all
+\chk{300} scans.
+Figure~\ref{fig:categories} summarizes the composition of the training and
+test sets. Most findings in both are focal, and the reference masks span
+five orders of magnitude in volume, from sub-millilitre nodules to effusions
+and diffuse ground-glass opacities of more than a litre.
+The training set is identical to that of the original ReXGroundingCT release
+\citep{baharoon2026rexgroundingct}. The challenge
+validation set contains the \chk{50} original validation scans plus \chk{150}
+new scans, and the challenge test set contains
+the \chk{100} original test scans plus \chk{200} new scans. No scan appears in
+more than one split. The new scans were annotated
+with the same exhaustive protocol as the original ones, by an additional group of
+annotators.
+
+\paragraph{Annotation}
+% BIAS 26a--d
+All masks were drawn on a cloud-based, HIPAA-compliant annotation platform
+with brush, polygon and region-growing tools, adjustable window settings and
+free navigation across slices \citep{baharoon2026rexgroundingct}. Training scans followed a
+partial-instance protocol, in which at most three representative instances of
+each finding were segmented. \chk{1,400} training scans were annotated by
+professional annotators and accepted, corrected or returned by board-certified
+radiologists, and \chk{1,592} by trained medical students supervised by
+radiologists until they could annotate independently. Validation and test scans
+followed an exhaustive protocol, in which every visible instance was segmented.
+The original \chk{150} validation and test scans were annotated by four
+board-certified radiologists, and the \chk{350} scans added for the challenge by
+an additional group of annotators under the same protocol. Findings that could
+not be localized on the scan, were too diffuse to outline
+(for example, mosaic attenuation throughout the lungs), or described
+normal anatomy were excluded.
+
+\paragraph{Pre-processing}
+% BIAS 27
+No pre-processing was applied. Scans were distributed as NIfTI
+volumes in their native resolution, orientation and Hounsfield units, and the
+reference masks share the voxel grid of their scan. Participants chose their
+own resampling, cropping and intensity normalization.
+
+\paragraph{Sources of error}
+% BIAS 28a--b
+The main source of error in the reference standard is variability between
+annotators. In an inter-rater study on \chk{50} validation and test scans
+(\chk{96} findings) annotated twice by non-overlapping groups of radiologists,
+agreement reached a Dice of \chk{0.32}, a hit rate of \chk{0.76} and an instance
+F1 of \chk{0.47} \citep{baharoon2026rexgroundingct}.
+For focal findings, agreement reached a Dice of \chk{0.34} and a hit rate of
+\chk{0.84}. For non-focal findings it was lower (Dice \chk{0.15}, hit rate
+\chk{0.41}), although with only \chk{17} such findings in the study this
+estimate is imprecise. The lower agreement is consistent with the extent of a
+diffuse abnormality being inherently ambiguous. Errors can also enter
+through the reports themselves: translation from Turkish, the LLM rewriting and
+extraction steps, and occasional mismatches between a sentence and the scan.
+One participating team reported correcting more than \chk{100} training
+annotations, including masks on the wrong side and findings absent from the
+source report (Section~\ref{sec:top-methods}). Finally, the training and
+evaluation sets were annotated under different protocols. Training masks
+cover at most three instances of each finding, so further instances are
+unlabelled and appear as background, whereas the evaluation masks include
+every instance. A model trained on the partial masks can therefore learn to
+leave some instances unsegmented and is penalized for missing them at test time.
+
+\paragraph{Cohort}\label{sec:cohorts}
+The target cohort is adult patients undergoing non-contrast chest CT in routine
+clinical practice, and the challenge cohort was drawn from this population. Test-set
+patients had a median age of \chk{41} years (interquartile
+range \chk{31--52}, range \chk{18--89}) and \chk{42\%} were female, similar to
+the training set (median \chk{40} years, \chk{44\%} female) and the validation
+set (median \chk{37} years, \chk{44\%} female). Test scans were acquired between
+\chk{2016} and \chk{2022} on \chk{six} scanner models from Philips, Siemens and
+Philips--Neusoft, with a median slice spacing of \chk{1.0}~mm (range
+\chk{0.75--2.0}) and a median in-plane spacing of \chk{0.71}~mm (range
+\chk{0.39--0.98}). Each scan covers the full chest, and the
+segmentation targets are the lung and pleural findings described in its
+report, grouped into \chk{14} categories
+spanning focal and non-focal patterns (Figure~\ref{fig:categories}). No clinical information
+beyond age and sex was provided.
+
+% -----------------------------------------------------------------------------
+\subsection{Challenge rules}
+\label{sec:organization}
+% BIAS 9a--b; organizational items 5--14 are in \ref{app:organization}
+
+All predictions on the test set had to be fully automatic, without manual
+editing or case-specific tuning. Participants could use any public or private
+training data, pretrained models, and additional annotations, provided these
+were described in their method submission. Training on test cases, including
+self-supervised training, was not allowed. The challenge had two tracks, which differed in how the finding text could
+be processed. In the Main track (free-text grounding), methods had to take the
+finding text exactly as provided, optionally supplemented by its category label.
+The Overall track also admitted methods that first converted the text into a
+structured representation, for example by extracting location, morphology or
+size with a language model or parser, and every eligible Main-track submission
+was also ranked in the Overall track. In both tracks, each mask had to be
+derived from the text of its finding: methods that segmented only by category,
+ignoring the rest of the sentence, were not allowed. A method counted as text-conditioned if the mask it produced for a finding
+could depend on the wording of the sentence beyond its category, so that two
+findings of the same category with different descriptions, for example in
+different lobes, could receive different masks. A fixed-class model that maps
+each category label to a single mask was therefore not allowed, even though
+the category labels were provided. Methods could use anatomical segmentations as
+additional inputs and post-process masks, for example by restricting them to the
+anatomical region named in the finding. All six best-performing
+teams submitted to the Main track, so the two tracks produced the same winners,
+and we report a single ranking.
+
+
+% -----------------------------------------------------------------------------
+\subsection{Assessment method}
+\label{sec:assessment}
+% BIAS 29--31
+
+\paragraph{Metrics}\label{sec:metrics}
+% BIAS 29a--b
+The primary metric was Dice, computed for each finding over its whole mask,
+averaged over the findings in each case, and then averaged over cases. Before
+any metric was computed, predicted connected components smaller than \chk{10}
+voxels were removed and at most the \chk{50} largest components per finding were
+kept. An empty prediction for a finding therefore scored a Dice
+of zero. We defined the hit rate as the proportion of findings
+with a Dice of at least \chk{0.1}. For the instance-level metrics, the reference
+and filtered predicted masks were split into connected components, which were
+matched one to one in order of decreasing Dice, and a match counted as a true
+positive when its Dice was at least \chk{0.2}. Instance precision, recall and F1
+follow from these matches. Mean Dice per finding and mean Dice over matched
+instances were also reported but not used for ranking.
+
+Dice was used as the single primary metric so that all findings could be
+ranked on a common scale, and it was computed over the whole mask of each
+finding, which avoids defining instances for diffuse patterns where boundaries
+between lesions are arbitrary. As recommended by Metrics Reloaded
+\citep{maier2024metrics}, Dice was complemented by the detection metrics hit rate
+and instance F1.
+Averaging per case before averaging over cases gives every scan equal weight,
+so scans with many findings do not dominate. Dice is, however, a poor fit for
+diffuse findings, whose extent is inherently ambiguous
+(Section~\ref{sec:data}). Results for these findings should therefore be read
+alongside the hit rate, and we return to this in the Discussion.
+
+\paragraph{Ranking}
+% BIAS 30a--c
+For each team we ranked the submission it declared as final or, if none was
+declared, its best-scoring submission on the public half of the test set.
+\chk{8} of the \chk{48} leaderboard entries (teams) declared a final
+submission, and the remaining \chk{40} defaulted to their best public-half
+submission. Teams were ranked by the primary metric computed on the full
+\chk{300}-scan test set, following an aggregate-then-rank scheme: each
+team's Dice was first averaged over all findings and cases, and teams were
+then ordered by this mean. Missing cases could not occur in the ranking, because a submission was scored
+only if, for each of the \chk{300} test scans, it contained one mask per
+finding with the same dimensions as the scan.
+No two teams had the same mean Dice, so there were no ties. We chose aggregate-then-rank because it reflects how much better one method is than
+another, whereas ranking teams on each scan and averaging their ranks
+(rank-then-aggregate) reflects only how often it is better. As a sensitivity analysis, we also ranked
+the teams with rank-then-aggregate (Section~\ref{sec:stability}).
+
+\paragraph{Statistical analysis}
+% BIAS 31a--b
+The precision of each team's mean Dice, hit rate and instance F1 was estimated
+with \chk{1,000} bootstrap replicates that resampled the \chk{300} test cases
+with replacement and recomputed each score with the same aggregation as the
+ranking. The resulting 95\% percentile confidence intervals are given in
+Table~\ref{tab:leaderboard} and Table~\ref{tab:leaderboard-full}. Ranking
+variability was assessed by re-ranking all teams in each replicate and
+reporting the distribution of each team's rank and the range covering 95\% of
+its bootstrap ranks (Figure~\ref{fig:ranking}A), and agreement between
+bootstrap and observed rankings was summarized with Kendall's $\tau$
+(Section~\ref{sec:stability})
+\citep{maier2018rankings,wiesenfarth2021methods}. For each pair among the ten best teams, the proportion of
+replicates in which the higher-ranked team scored higher is reported in
+Figure~\ref{fig:ranking}B, together with whether it scored significantly
+higher in a one-sided paired Wilcoxon signed-rank test on per-case Dice, with
+Holm correction for the \chk{45} comparisons. All
+analyses used Python with NumPy and SciPy.
+
+\paragraph{Controlled prompt experiment}
+\label{sec:prompt-exp}
+To test how the location, size and other details given in a finding sentence
+affect the predicted mask, the final methods of the
+best teams were run on edited versions of the test
+sentences. Each edit changed one aspect of a sentence and
+left the scan and the reference mask unchanged. Information was removed by
+deleting the stated size, the lobe or segment, or the side, or by keeping only
+the name of the finding. Wrong information was introduced by swapping left and
+right, naming a different lobe in the same lung, or changing a small stated size
+to \chk{30}\,mm and a large one to \chk{3}\,mm. Findings in both lungs were also
+prompted once for each side. Size and side edits were made with rules, and the
+other edits were made by a large language model (Claude Opus 5.5, Anthropic).
+Each edit was evaluated only on the findings it changed, against the same team's result for the
+original sentence, using the paired difference in Dice with a 95\% bootstrap
+confidence interval over scans and a two-sided Wilcoxon signed-rank test. For
+the location edits we also measured the share of the predicted mask that lay on
+each side of the body. The effect of each edit on Dice and on the location of the
+mask is reported in Section~\ref{sec:further} and summarized in
+Figure~\ref{fig:further}C, and Figure~\ref{fig:prompt-examples} shows example
+masks predicted for original and edited sentences.
+
+% =============================================================================
+\section{Results}
+\label{sec:results}
+% BIAS 32--36
+% =============================================================================
+
+Throughout this paper, teams are numbered by their final rank, so Team 1 is the
+winning team and Team 10 the tenth-placed team (Table~\ref{tab:leaderboard}).
+
+\subsection{Participation}
+\label{sec:participation}
+Submissions came from \chk{53} team registrations. Some groups had registered
+more than once, so we merged registrations that shared team members or
+institutional contact details into a single team, keeping that team's
+best-scoring final submission. After merging, \chk{48} teams from \chk{15}
+countries had made \chk{760} submissions in total (median \chk{4} per team).
+The largest contingents came from China (\chk{10} teams, including one from Hong Kong and
+one joint China--USA team) and South Korea (\chk{10}) (Figure~\ref{fig:overview}C).
+We classified each team by the affiliations it listed at registration for
+the team and its members. \chk{35} of the \chk{48} teams listed only
+universities, research institutes or hospitals, \chk{6} listed only
+companies, and \chk{4} listed both a company and a university or hospital. Industry involvement was concentrated at the
+top of the ranking: five of the six best-performing teams included a
+company, and the only one without industry involvement was Team~3. Submissions were concentrated at the end of the development
+phase: the first test-set submission arrived on \chk{5 July}, three weeks after the
+leaderboard opened, and \chk{74\%} of all submissions were made in the final
+two weeks (Figure~\ref{fig:timeline}A). The best score on the public half rose
+from \chk{0.28} for the first submission to \chk{0.386} on \chk{13 September},
+the day before the deadline (Figure~\ref{fig:timeline}B).
+
+\begin{figure}[!tp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_categories_perf.pdf}
+\caption{Mean Dice per finding of the ten best teams by finding category on the
+full test set. Numbers in cells give the Dice, and colour shows how far each team is
+above (blue) or below (orange) the mean of the ten teams for that category. The last column gives that mean.
+Numbers in brackets give the number of test findings. Pneumothorax (\chk{1}
+finding) and other focal findings (\chk{2}) are included in the focal total but
+not shown.}
+\label{fig:category-perf}
+\end{figure}
+
+\begin{figure}[!tp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_timeline.pdf}
+\caption{Submissions over the development phase. A) Scored submissions per
+week, in seven-day windows ending at the deadline. B) Dice on the public half of the test set for every scored
+submission (dots) and the best score reached so far (line). Dashed lines mark
+the opening of the leaderboard and the submission deadline.}
+\label{fig:timeline}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Final ranking on the full \chk{300}-scan test set (top 10). Teams are numbered by their final rank. CI,
+95\% bootstrap confidence interval over the test scans (\chk{1,000} replicates,
+Section~\ref{sec:stability}). The full leaderboard is in \ref{app:leaderboard}.}
+\label{tab:leaderboard}
+\renewcommand{\baselinestretch}{1}\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lccc}
+\toprule
+Team & Dice {\scriptsize[95\% CI]} & Hit rate {\scriptsize[95\% CI]} & Instance F1 {\scriptsize[95\% CI]} \\
+\midrule
+Team 1 & \chk{0.3755} {\scriptsize[\chk{0.352--0.399}]} & \chk{0.7680} {\scriptsize[\chk{0.732--0.802}]} & \chk{0.3410} {\scriptsize[\chk{0.312--0.369}]} \\
+Team 2 & \chk{0.3654} {\scriptsize[\chk{0.344--0.387}]} & \chk{0.7629} {\scriptsize[\chk{0.730--0.797}]} & \chk{0.3428} {\scriptsize[\chk{0.316--0.371}]} \\
+Team 3 & \chk{0.3621} {\scriptsize[\chk{0.342--0.383}]} & \chk{0.7646} {\scriptsize[\chk{0.737--0.795}]} & \chk{0.3336} {\scriptsize[\chk{0.306--0.364}]} \\
+Team 4 & \chk{0.3605} {\scriptsize[\chk{0.339--0.382}]} & \chk{0.7766} {\scriptsize[\chk{0.744--0.809}]} & \chk{0.3116} {\scriptsize[\chk{0.285--0.341}]} \\
+\midrule
+Team 5 & \chk{0.3526} {\scriptsize[\chk{0.330--0.375}]} & \chk{0.7457} {\scriptsize[\chk{0.713--0.781}]} & \chk{0.1899} {\scriptsize[\chk{0.166--0.216}]} \\
+Team 6 & \chk{0.3519} {\scriptsize[\chk{0.332--0.373}]} & \chk{0.7646} {\scriptsize[\chk{0.732--0.799}]} & \chk{0.2435} {\scriptsize[\chk{0.217--0.271}]} \\
+Team 7 & \chk{0.3432} {\scriptsize[\chk{0.322--0.366}]} & \chk{0.7526} {\scriptsize[\chk{0.721--0.785}]} & \chk{0.2611} {\scriptsize[\chk{0.238--0.288}]} \\
+Team 8 & \chk{0.3393} {\scriptsize[\chk{0.317--0.362}]} & \chk{0.7423} {\scriptsize[\chk{0.708--0.777}]} & \chk{0.2463} {\scriptsize[\chk{0.220--0.275}]} \\
+Team 9 & \chk{0.3329} {\scriptsize[\chk{0.313--0.354}]} & \chk{0.7165} {\scriptsize[\chk{0.683--0.750}]} & \chk{0.2481} {\scriptsize[\chk{0.222--0.278}]} \\
+Team 10 & \chk{0.3329} {\scriptsize[\chk{0.311--0.355}]} & \chk{0.6890} {\scriptsize[\chk{0.654--0.726}]} & \chk{0.2985} {\scriptsize[\chk{0.269--0.328}]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Overview of the top-performing methods}
+\label{sec:top-methods}
+% BIAS 33a--b. Summarised from the slides presented at the MICCAI session on 27 Sep 2026.
+All three winning teams followed the same recipe. A frozen Qwen3-Embedding
+text encoder \citep{zhang2025qwen3} turns the finding sentence into a single
+embedding vector, and a 3D segmentation network takes the CT volume together
+with this vector and outputs the mask of that finding. The teams differed in
+three places. The first is the image encoder, which was the chest CT foundation
+model CIRCLE for Team 1, a residual-encoder nnU-Net trained from scratch for
+Team 2, and the VoxTell encoder together with TAP-CT \citep{veenboer2025tap}
+for Team 3. The second is how the text enters
+the network. Teams 1 and 3 kept the VoxTell decoder \citep{rokuss2026voxtell}, in
+which the text embedding acts as the query of a small transformer that
+cross-attends to the image features at the bottleneck. Its output is projected
+to every decoder stage, where it is multiplied channel-wise with the image
+features and the product is concatenated back onto them, so the text steers
+the mask at every resolution. Team 2, and Team 3's TAP-CT branch, used FiLM
+\citep{perez2018film} instead, in which small networks map the embedding to a
+per-channel scale and shift that are applied to the image features, with no
+cross-attention between text and image. The
+third is everything around the model. Team 1 added \chk{950} in-house annotated
+scans and averaged checkpoints, Team 2 used only the challenge data and averaged
+13 models, and Team 3 averaged 17 models and post-processed each mask by
+restricting it to the lobe named in the sentence, choosing a threshold per
+finding and removing components predicted to lower Dice. More detailed descriptions of each method are given in \ref{app:methods}.
+
+\paragraph{Team 1} The winning entry paired the image
+encoder of CIRCLE, a chest CT foundation model pretrained on \chk{403,500}
+non-contrast scans with paired reports from \chk{288,740} patients through
+image--report contrastive learning and supervised classification of 37
+abnormalities, with the text-prompted segmentation framework of VoxTell
+\citep{rokuss2026voxtell}. The image encoder and the VoxTell
+decoder were fine-tuned on the challenge training set, and the text encoder was
+kept frozen. Scans were resampled to \chk{0.65 $\times$ 0.65 $\times$ 1.15}~mm
+and trained on \chk{384 $\times$ 320 $\times$ 224} voxel inputs with a
+Dice--cross-entropy (DiceCE) loss. On a 50-case validation subset, pretraining raised
+mean Dice from \chk{0.277} (same architecture from scratch) to \chk{0.327}, and
+adding in-house data (\chk{800} pulmonary-nodule segmentations and \chk{150}
+cases of less common thoracic disease) raised it further to \chk{0.356}. The
+final submission averaged checkpoints of a single model from several epochs.
+
+\paragraph{Team 2} The second-placed team used no external data
+and a deliberately simple architecture they called Grounder: a 3D nnU-Net with
+the residual-encoder ``L'' configuration \citep{isensee2021nnu,isensee2024nnu}, conditioned on the finding
+text through feature-wise linear modulation \citep{perez2018film}. The sentence was embedded with Qwen3-Embedding-4B
+\citep{zhang2025qwen3}, and a two-layer MLP mapped the embedding to
+scale and shift parameters applied at every decoder stage. Two choices drove
+most of the gain. First, a large input patch of \chk{448 $\times$ 448 $\times$
+256} voxels gave the network enough anatomical context to resolve location
+phrases. Second, in-distribution text augmentation replaced each finding
+sentence, with some probability, by a real sentence from another training case
+that described the same finding type at the same location. The final
+submission averaged \chk{13} Grounder models trained with different patch
+sizes, which the team found to be complementary. Adding lung-lobe masks from
+TotalSegmentator as input channels, an explicit finding-category embedding, and
+negative text examples did not help.
+
+\paragraph{Team 3} The third-placed team combined two model
+families. The main branch was an ensemble of \chk{12} VoxTell models, in which
+the text embedding (Qwen3-Embedding-4B) enters an nnU-Net decoder as a query
+through cross-attention, trained on \chk{192$^3$} patches. A second branch,
+TAP-CT \citep{veenboer2025tap}, a 3D vision transformer
+pretrained in the style of DINOv2 \citep{oquab2023dinov2} with a
+convolutional skip decoder and FiLM conditioning on Qwen3-Embedding-0.6B, was
+weaker alone but added diversity, and the two were fused with weights of
+\chk{0.8} and \chk{0.2}. Beyond the provided data, the team added \chk{8,000}
+CT-RATE sentence--mask pairs with pseudo-masks of pleural effusions and nodules
+from TotalSegmentator \citep{wasserthal2023totalsegmentator}, added
+lobe segmentation as an auxiliary task, used synonym-based text augmentation
+(\chk{43} synonym groups) and copy-paste augmentation, and trained on the
+validation set with five-fold oversampling. Post-processing restricted
+each mask to the lobe named in the sentence (mapped offline with an LLM and
+segmented with TotalSegmentator) and set a separate threshold for each finding
+with a learned model. The team found these two steps, together with TAP-CT as a
+second architecture, to be the most helpful.
+
+\paragraph{Team 4} The fourth-placed team also fine-tuned
+VoxTell, on \chk{288 $\times$ 288 $\times$ 192} crops at \chk{0.75 $\times$ 0.75
+$\times$ 1.25}~mm, and reported that fine-tuning beat training the same
+architecture from scratch by more than \chk{0.05} Dice. Three further steps
+improved performance. They audited the training annotations and corrected more
+than \chk{100} cases, including masks on the wrong side, drawing artifacts,
+and findings that the source report did not contain. They extracted
+\chk{62,705} finding sentences from \chk{18,627} CT-RATE reports with MedGemma
+\citep{sellergren2026open} and used these scans for mean-teacher
+semi-supervised training, together with external segmentation datasets and a
+presence loss on pooled voxel logits. Finally, each model was fine-tuned for
+a further \chk{500} steps on the validation set alone, whose exhaustive
+annotation protocol is closest to the test set. As a post-processing step,
+predictions for sentences naming a side were trimmed to that lung. The team reported no gain from a Tversky loss
+intended to tolerate partial annotations, and no improvement on
+bronchiectasis and micronodules, which they attributed to annotation
+variability. Their entry had the highest hit rate of all teams
+(\chk{0.777}).
+
+\paragraph{Teams 5 and 6} The next two teams were within \chk{0.01} Dice of
+fourth place. Team 5 combined two VoxTell-based 3D models with a model that
+segments native-resolution axial slices. Both 3D models also received a coarse
+map of where the finding is likely to lie, from a vision--language model the
+team pretrained on CT-RATE. Because the training masks cover at most three
+instances of a finding, the team excluded uncertain lung voxels from the loss
+rather than treating them as background, and at inference an LLM was used to
+trim each mask to the lobe or side named in the sentence. Team 6 extended
+VoxTell with several queries formed from the individual words of the sentence,
+weighted by the whole-sentence embedding, and trained with a loss that
+penalises predictions inside a finding of another category in the same scan. They used
+specialist models for selected categories such as nodules, and removed
+predictions outside the named lobe.
+
+\subsection{Final ranking}
+\label{sec:ranking}
+% BIAS 34, 35a
+Dice across all teams ranged from \chk{0.146} to \chk{0.375} (median
+\chk{0.280}). The top four teams lay within \chk{0.015} Dice, and
+3rd and 4th place were separated by \chk{0.0016}. The overall ranking also masks large
+differences between finding categories, which are shown in
+Figure~\ref{fig:category-perf}.
+
+\paragraph{Comparison with models before the challenge} Before the challenge,
+the public ReXGroundingCT leaderboard evaluated models on a \chk{100}-scan
+subset of the challenge test set \citep{baharoon2026rexgroundingct}. General
+text-promptable segmentation models, which are trained on names of anatomical
+structures and lesion classes rather than on descriptive findings, failed out
+of the box. SAT \citep{zhao2025large}, SegVol \citep{du2024segvol} and
+BiomedParse-V \citep{zhao2025biomedparse} all reached a Dice close to 0. Fine-tuning SAT on the ReXGroundingCT training set raised its Dice
+to \chk{0.205} (hit rate \chk{0.473}), and the best entry at the time, VoxTell
+\citep{rokuss2026voxtell}, reached \chk{0.285} (hit rate \chk{0.615}). On the
+same \chk{100} scans, the winning team reached a Dice of \chk{0.390} (hit rate
+\chk{0.712}), and \chk{23} of the 48 teams scored above VoxTell.
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_qualitative3d_success.pdf}
+\caption{Examples of successful grounding by the three winning teams. Masks are rendered
+in 3D inside the lungs and viewed from the front (patient's right on the left).
+The reference is shown in green, solid in the first column and translucent in
+the others. Predicted surfaces are blue where they lie within \chk{3}\,mm of the
+reference and orange elsewhere. Lesions smaller than \chk{1}\,mL are circled.
+Dice is computed over the whole 3D mask of the finding.}
+\label{fig:qual-success}
+\end{figure*}
+
+\subsection{Ranking stability}
+\label{sec:stability}
+% BIAS 35b
+The ranking on the public half of the test set closely matched the final
+ranking on all \chk{300} scans. The first two places were unchanged,
+and places three to eight changed only by swaps between neighbouring pairs.
+The ranking was stable overall (Figure~\ref{fig:ranking}): bootstrap
+rankings agreed closely with the observed one (median Kendall's
+$\tau = \chk{0.95}$, interquartile range \chk{0.94--0.96}). At the top, however,
+the margins were within the uncertainty of the test set. Team 1 ranked
+first in \chk{89\%} of bootstrap replicates and within the top three in
+\chk{99\%}, but the
+95\% confidence intervals of the top four teams overlapped (Table~\ref{tab:leaderboard}), and none of the differences among them was
+significant after correction. Team 1 scored higher than Team 2 in
+\chk{91\%} of replicates, whereas Team 3 beat Team 4 in only \chk{57\%}. The
+winner was significantly better than the fifth- and sixth-placed teams
+(adjusted $p = \chk{0.017}$ and \chk{0.009}).
+Ranking with rank-then-aggregate instead of the official aggregate-then-rank
+scheme (Section~\ref{sec:metrics}) gave a similar ranking overall (Kendall's
+$\tau = \chk{0.96}$) and the same four teams at the top, but in a different
+order: Team 2 ranked first, Team 3 second and Team 1 third, with
+Team 4 fourth. Team 1 had the highest mean Dice, whereas Team 2 had
+the best average rank across scans, so the choice of scheme decided the winner
+among teams whose scores were statistically indistinguishable.
+
+\subsection{Performance by finding type}
+\label{sec:by-category}
+% BIAS 36
+
+Focal findings were segmented far better than non-focal findings by all
+top teams: across the six best teams, Dice on focal findings (\chk{n=509}) ranged from
+\chk{0.348} to \chk{0.378} with hit rates of \chk{0.78--0.82}, whereas Dice on non-focal
+findings (\chk{n=73}) ranged from \chk{0.176} to \chk{0.243} with hit rates of
+\chk{0.47--0.53}. Focal performance was therefore tightly clustered, and the winner's
+margin came largely from non-focal findings (\chk{0.243} vs.\ at most \chk{0.216} for the
+other top-six teams).
+Figure~\ref{fig:category-perf} breaks these results down by category. Among
+focal findings, pleural effusion and thickening was segmented best (Dice
+\chk{0.35--0.50}) and linear opacities worst (\chk{0.27--0.32}). Non-focal categories varied far
+more between teams than focal ones. The winner's non-focal lead came mainly from emphysema,
+where Team 1 reached \chk{0.33} and no other top-ten team exceeded
+\chk{0.25}. Bronchiectasis and septal thickening were hard for every team (Dice at most
+\chk{0.18}), and the smallest non-focal
+categories, with \chk{4} to \chk{9} findings each, were too small to rank teams
+reliably.
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_further.pdf}
+\caption{Further analyses. A) Hit rate against mean Dice on localized findings
+(Dice $\geq$ \chk{0.1}) for the ten best teams. Numbers give the final rank. The
+three winning teams are shown in darker blue. B) Dice (filled) and hit rate
+(outlined) by reference volume of the finding, pooled over the ten best teams.
+C) Controlled prompt experiment. Dice of Team 2 on the findings changed by each
+edit, with the original sentence (open) and the edited sentence (filled).
+Numbers give the number of edited findings.}
+\label{fig:further}
+\end{figure*}
+
+\subsection{Qualitative comparison}
+\label{sec:qualitative}
+Figures~\ref{fig:qual-success} and~\ref{fig:qual-failure} show the final
+submissions of the three winning teams on five findings that were grounded
+well and five that were not, chosen to cover different finding types. A
+consolidation in the left lower lobe and a 5\,mm subpleural nodule were
+localized by all three teams (Dice \chk{0.58--0.82}), with differences mainly in
+boundary detail. The teams' solutions also followed longer, more detailed sentences. For
+consolidations with air bronchograms and ground-glass areas in the right upper
+lobe, most prominent in the posterior segment, all three reached a Dice above
+\chk{0.80}. For subsegmental atelectasis at three named sites in both lungs,
+Teams 1 and 3 placed a mask at every named site and Team 2 at two of them (Dice
+\chk{0.49--0.66}). Other findings separated the teams. Team 1 segmented an
+air cyst in the lingula almost completely (Dice \chk{0.85}), whereas Teams 2 and
+3 marked only part of it.
+
+The failures show several distinct problems. Team 1 was the only team to
+capture a \chk{10}\,cm mass in the right upper lobe (Dice \chk{0.71}), although its
+mask extended beyond the reference, while Team 2 missed it entirely. For focal consolidation described
+in the lateral segment of the right middle lobe, Teams 1 and 2 instead
+segmented a consolidation in the right upper lobe that the same report lists as
+a separate finding (Dice \chk{0.19} and \chk{0.46} against that finding), so the
+models recognized the abnormality but not the location named in the sentence.
+For subsegmental atelectasis in the medial segment of the right middle lobe, all
+three teams segmented a thin neighbouring structure rather than the atelectatic
+segment (Dice at most \chk{0.02}). Calcified pleural plaques were found only in
+part by Team 1 (Dice \chk{0.52}) and largely missed by the other two teams.
+For minimal emphysema, a non-focal finding, Team 1 predicted nothing and the
+other two teams marked regions away from the annotated foci.
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_qualitative3d_failure.pdf}
+\caption{Examples of grounding failures by the three winning teams, shown as in
+Figure~\ref{fig:qual-success}. In the first row, other reference findings of the
+same scan are shown in grey: two of the teams segmented a consolidation that the
+report describes as a separate finding in the right upper lobe.}
+\label{fig:qual-failure}
+\end{figure*}
+
+\subsection{Further analyses}
+\label{sec:further}
+Three further analyses examine what separated the teams and which findings
+were hard. First, detection and delineation. Across all \chk{48} teams, hit
+rate and Dice were closely related (Spearman $\rho = \chk{0.97}$), so teams
+that localized more findings also segmented them better. Among the ten best
+teams, however, hit rates lay within a narrow band (\chk{0.69--0.78}) and the
+winner's margin came from delineation: Team 1 reached a mean Dice of
+\chk{0.46} on the findings it localized, against at most \chk{0.44} for any
+other team (Figure~\ref{fig:further}A). Team 4 had the highest hit rate of
+all teams (\chk{0.78}) but a lower Dice on localized findings (\chk{0.43}),
+which left it fourth.
+
+Second, finding size. Pooling the ten best teams, performance was not worst
+on the smallest findings. Nodules below \chk{0.1}\,mL were localized in
+\chk{78\%} of cases with a mean Dice of \chk{0.39}, similar to nodules of
+\chk{0.1--1}\,mL (\chk{85\%}, \chk{0.38}). The lowest scores were for findings
+of \chk{1--10}\,mL (Dice \chk{0.27}, hit rate \chk{0.69}), a range dominated
+by linear opacities, and the highest for findings above \chk{100}\,mL
+(\chk{0.46}, \chk{0.86}), mostly ground-glass opacities, consolidations and
+pleural effusions (Figure~\ref{fig:further}B). Size and finding type are
+therefore entangled, and the dip reflects the difficulty of thin linear
+opacities more than volume itself.
+
+Third, language. To test whether the methods follow the wording of a sentence,
+Team 2 reran its final method on edited sentences (Section~\ref{sec:prompt-exp},
+Figure~\ref{fig:further}C).\todo{Results of the other teams, due 30 October. Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially; ask why.}
+Removing the stated size did not change Dice (\chk{0.390} vs.\ \chk{0.393},
+\chk{163} findings), whereas removing the side (\chk{0.339} to \chk{0.320}) or
+the lobe or segment (\chk{0.363} to \chk{0.325}) lowered it, and keeping only the
+name of the finding lowered it most (\chk{0.341} to \chk{0.292}). Wrong
+locations misled the model. With left and right swapped, Dice fell from
+\chk{0.397} to \chk{0.109} and the hit rate from \chk{0.77} to \chk{0.24}, and
+the share of the predicted mask on the side of the finding fell from \chk{93\%}
+to \chk{24\%}. Naming the wrong lobe in the same lung lowered Dice from
+\chk{0.368} to \chk{0.120} (Figure~\ref{fig:prompt-examples}). A wrong size, in
+contrast, left the masks almost unchanged (\chk{0.430} vs.\ \chk{0.433}). When a
+finding in both lungs was prompted for one side only, \chk{91\%} (left) and
+\chk{96\%} (right) of the predicted mask lay on the named side, and the union of
+the two masks scored as well as the original sentence (\chk{0.310} vs.\
+\chk{0.305}). The model therefore relied on the stated side and lobe but not on
+the stated size.
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_prompt_examples.pdf}
+\caption{Examples from the controlled prompt experiment (Team 2). Each row shows
+one test finding segmented with its original sentence (left) and with edited
+sentences. Masks are rendered in 3D inside the lungs and viewed from the front
+(patient's right on the left). The reference is shown in translucent green, and
+predicted surfaces are blue where they lie within \chk{3}\,mm of the reference
+and orange elsewhere. Circles mark masks smaller than \chk{1}\,mL. Dice is
+computed against the unchanged reference, so a prompt for one side of a
+bilateral finding (last row) can cover at most part of it.}
+\label{fig:prompt-examples}
+\end{figure*}
+
+% =============================================================================
+\section{Discussion}
+\label{sec:discussion}
+% BIAS 37--41
+% =============================================================================
+
+\subsection{Interpretation of results}
+% BIAS 37, 38a--b, 39a--b
+The ReXGrounding Challenge was organized to advance the 3D grounding of
+radiology report findings. Such grounding is a step towards tools that let
+clinicians see, measure and track each reported finding in the image. It is also
+a step towards the ultimate goal of grounded radiology report generation, in
+which AI systems pair each finding they generate with its location in the volume
+so that their output can be verified.
+
+The challenge substantially advanced the state of the art. On the \chk{100}
+scans of the pre-challenge benchmark, the winning team reached a Dice of
+\chk{0.390}, against \chk{0.285} for the best model before the challenge. On the
+full test set, the best entries reached a Dice of \chk{0.375} and found up to
+\chk{78\%} of findings. Performance depended strongly on
+the type of finding. Focal findings with a clear boundary, such as nodules,
+consolidation and pleural effusion, were segmented far better than diffuse
+non-focal findings, and the winner's margin came mostly from non-focal
+findings, in particular emphysema (Figure~\ref{fig:category-perf}).
+
+Measured by Dice and hit rate, the best methods now match the agreement between
+two independent groups of radiologists, who reached a Dice of \chk{0.32} and a
+hit rate of \chk{0.76} when annotating the same \chk{50} scans
+(Section~\ref{sec:data}). The same holds for focal findings: focal Dice of the
+top teams (\chk{0.35--0.38}) is at or above inter-reader agreement on focal
+findings (\chk{0.34}), and non-focal Dice (\chk{0.18--0.24}) is above the
+\chk{0.15} reached by radiologists, although that figure rests on only \chk{17}
+non-focal findings. The comparison is approximate, because the
+inter-reader study used a different set of scans, but it suggests that Dice
+against a single reference is close to saturating against annotation
+variability.
+
+The task is nonetheless not solved. Instance F1 remained well below inter-reader
+agreement (\chk{0.34} for the best team against \chk{0.47}), so models often
+found part of a multi-instance finding but not every lesion, and findings with
+four or more instances had a lower Dice than single-instance findings
+(Section~\ref{sec:further}). The top teams also localized fewer focal findings
+than radiologists did (hit rate \chk{0.78--0.82} against \chk{0.84}). Finally,
+the qualitative failures show that models sometimes segmented the right
+abnormality at a location other than the one stated in the sentence, which is
+the failure that grounding is meant to prevent and which an overall Dice does
+not reveal.
+
+For radiology, the results show that grounding a report sentence in 3D is now
+feasible for focal findings, which make up most of the test set. A model that
+localizes a reported nodule or consolidation could link each sentence of a
+report to the image, so that referring physicians can find what the report
+describes, and could support measurement and comparison over time. The current
+level of performance is not sufficient for unsupervised clinical use, in
+particular for diffuse findings and for findings described at a specific
+location, but it is sufficient for tools that propose a region for a reader to
+confirm. For method development, the challenge provides the first public
+benchmark of this task at scale, with exhaustive radiologist annotation and a
+public leaderboard that keeps the test masks hidden, so that new methods can be
+compared directly with the entries reported here.
+
+\subsection{Limitations and future work}
+% BIAS 40, 41
+The challenge has several limitations. All scans come from a single source,
+CT-RATE, and are non-contrast chest CT acquired at one centre, so the results
+may not transfer to other institutions, protocols or body regions. The test set
+is dominated by focal findings, non-focal findings make up only \chk{12.5\%} of
+it, and several categories contain fewer than ten findings, so per-category
+results for rare findings are imprecise. Dice is a poor fit for diffuse
+findings, whose extent varies even between radiologists. More broadly, agreement between radiologists was itself
+modest (Dice \chk{0.32} on the same \chk{50} scans), because the annotation
+protocol left room for interpretation, for example in how far a diffuse finding
+extends or which of several lesions a sentence refers to. A single reference
+mask is therefore an uncertain target, and small differences between teams are
+hard to interpret. The training masks cover at most three instances of each
+finding whereas the test masks are exhaustive, which penalizes models for
+instances that the training data left unlabelled. Because the test scans and
+their reports are publicly available in CT-RATE, models pretrained on CT-RATE
+may have seen the test images and reports, although never the reference masks.
+Finally, the rule for which submission counted differed between the challenge
+design document and the challenge website, and teams that had registered more
+than once were identified and merged only after the deadline.
+
+A future edition could address these limitations in four ways. First, a
+more standardized annotation protocol, with explicit rules for the extent of
+diffuse findings and for which instances a sentence covers, together with
+several independent annotators for each test finding, would raise inter-rater
+agreement and allow methods to be compared against a consensus reference.
+Second, data
+from several centres, including contrast-enhanced CT, would test how well
+methods generalize. Third, the task could be extended beyond chest CT and
+beyond lung and pleural findings to other organs, body regions and imaging
+modalities. Fourth, it could move from grounding given
+findings to grounded report generation, in which a model both writes the
+report and segments every finding it describes.
+
+% =============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% =============================================================================
+The ReXGrounding Challenge was the first challenge on segmenting findings
+described in free-text radiology reports in 3D chest CT. The best
+methods, built on pretrained text-promptable models with large anatomical
+context, ensembling and anatomy-aware post-processing, reached the level of
+agreement between independent radiologists on overall Dice. Three gaps remain.
+Models often find only some of the lesions of a multi-instance finding, segment
+diffuse findings far less accurately than focal ones, and sometimes place the
+mask at a location other than the one the sentence names. These remaining gaps, rather
+than overall Dice, should guide the next generation of grounding methods. The public
+leaderboard at \url{https://rexrank.ai/ReXGroundingCT} remains open, so that
+new methods can be evaluated on the same hidden test set.
+
+% =============================================================================
+\section*{Declarations}
+% =============================================================================
+\paragraph{Author contributions} \todo{Organizer and annotator contributions (BIAS 16).}
+Team~1. Zirong Chen: Data curation, Methodology, Software, Validation. Jiayu Wang: Formal analysis, Investigation, Methodology, Software. Xi Ouyang: Methodology, Software, Validation, Visualization. Xiaodan Ye: Data curation, Formal analysis, Investigation. Weiqiu Jin: Data curation, Formal analysis, Investigation. Mingyang Yu: Formal analysis, Investigation, Software. Dijia Wu: Formal analysis, Investigation, Methodology, Writing (review and editing).
+Team~2. Kwang-Hyun Uhm: Conceptualization, Formal analysis, Investigation, Methodology, Project administration, Software, Supervision, Validation. Inhwa Son: Data curation, Formal analysis, Validation.
+Team~3. Rachel van~'t Hull: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Validation, Visualization, Writing (original draft). Kevin Groot Lipman: Conceptualization, Methodology, Resources, Software, Supervision, Writing (review and editing). Tim Veenboer: Methodology, Resources. Cees Snoek: Supervision.
+Team~4. Daesung Kim: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Project administration. Junha Im: Data curation, Formal analysis, Investigation. Youngjun Jun: Formal analysis, Investigation. Sangwon Lee: Funding acquisition. Katelyn Morrison: Conceptualization, Supervision. Adam Perer: Funding acquisition, Supervision. Mijin Yun: Funding acquisition, Supervision.
+VoxTell. Maximilian Rokuss: Writing (review and editing). Moritz Langenberg: Writing (review and editing). Klaus Maier-Hein: Writing (review and editing).
+\paragraph{Conflicts of interest} Kwang-Hyun Uhm is Chief Technology Officer
+of and holds equity in MEDAI Inc., a company developing medical imaging AI
+software. MEDAI Inc. provided no funding for this work. Daesung Kim is an
+employee of NewcureM Inc., a medical AI and radiopharmaceutical company, and
+Mijin Yun is its Chief Technology Officer. The remaining authors declare no
+conflicts of interest.
+\paragraph{Data availability} The ReXGroundingCT training and validation data,
+including the findings and reference masks, and the test scans with their
+findings are available at
+\url{https://huggingface.co/datasets/rajpurkarlab/ReXGroundingCT} under a
+CC BY-NC-SA 4.0 licence. The CT scans and reports originate from CT-RATE
+\citep{hamamci2026generalist}. The test-set reference masks remain withheld so
+that the public leaderboard at \url{https://rexrank.ai/ReXGroundingCT} can
+continue to evaluate new methods on the same test set.
+\paragraph{Code availability} The evaluation code that produced the rankings
+is available with the dataset at
+\url{https://huggingface.co/datasets/rajpurkarlab/ReXGroundingCT}. The code of
+Team~1 is
+available at \url{https://github.com/uii-open-source/CIRCLE/}, and its model
+weights are not publicly released. The code of Team~2 will be released at
+\url{https://github.com/khuhm/Grounder}. The code of Team~3 is available at
+\url{https://github.com/nki-radiology/TAGS-ReXGroundingCT} under the Apache-2.0
+licence, and its model weights at
+\url{https://huggingface.co/fomofo/TAGS-ReXGroundingCT} (CC BY-NC-SA 4.0 for the
+VoxTell models and CC BY-NC 4.0 for the TAP-CT models). The code of Team~4 is
+available from the team on request.
+\paragraph{Acknowledgements} \todo{}
+
+% Remaining \citesugg placeholders have no entry in references.bib yet.
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+% =============================================================================
+\appendix
+% =============================================================================
+
+\section{Challenge organization}
+\label{app:organization}
+% BIAS items 5--14
+
+\paragraph{Name and organizers}
+The ReXGrounding Challenge was held as part of MICCAI 2026. It was organized
+by Mohammed Baharoon, Pranav Rajpurkar, Luyang Luo, Xiaoman Zhang, and
+Sung Eun Kim (Harvard Medical School, USA) and Mahmoud Hussain Alabbad (King
+Fahad Hospital, Saudi Arabia). The challenge design was registered in advance
+with MICCAI and is publicly available \citep{baharoon2026design}.
+
+\paragraph{Life cycle and platform}
+% BIAS 7, 8a--c
+The challenge was a one-time event with a fixed submission deadline of
+\chk{14 September 2026, 11:59 PM ET}, at which the official rankings were
+fixed. It was hosted on the ReXrank leaderboard platform
+\citep{zhang2024rexrank}
+(\url{https://rexrank.ai/ReXGroundingCT}), where teams registered, submitted
+predictions for the test set, and followed their scores on a public half of the
+test set during the development phase. Results were announced at a dedicated
+session at MICCAI 2026 in Strasbourg, France, on \chk{27 September 2026}, after which
+the leaderboard reopened for new submissions as an ongoing benchmark.
+
+\paragraph{Participation, awards and publication}
+% BIAS 9c--e
+Members of the organizers' institutions could participate and were eligible
+for awards, although none took part. The six best-performing teams received
+certificates and presented their methods at the challenge session at MICCAI
+2026 in Strasbourg, France, on \chk{27 September 2026}. Co-authorship of this
+paper was originally offered to the top three teams. Because the fourth-placed
+team finished only \chk{0.0016} Dice behind the third, a margin too small to
+separate them meaningfully, we extended co-authorship to the top \chk{four}
+teams (up to eight members per team). Teams were free to
+publish their own results with no embargo.
+
+\paragraph{Submission}
+% BIAS 10a--b
+Teams registered on the ReXrank leaderboard and submitted predictions as a link
+to a single ZIP archive on Google Drive. The archive held one NIfTI file per
+test scan, with one binary mask channel per finding in the order given in the
+test file. Submissions were downloaded and scored automatically every two
+hours, and the leaderboard showed each submission's scores on the public half
+of the test set. There was no separate test phase and no limit on the number
+of submissions, but teams were asked not to submit again until their previous
+submission had been scored. Teams made between \chk{1} and \chk{242}
+submissions (median \chk{4}). The submission used for the final ranking is
+described in Section~\ref{sec:assessment}.
+
+\paragraph{Timeline}
+% BIAS 11
+The ReXGroundingCT training set and original validation scans had been public
+since \chk{28 July 2025}, and the \chk{150} additional validation scans were
+released on \chk{13 June 2026}. Registration and submission opened on
+\chk{14 June 2026}, and the first submission was scored on \chk{2 July 2026}.
+By the deadline of \chk{14 September 2026, 11:59 PM ET},
+\chk{120} teams had registered. Results were announced at the MICCAI 2026 session on \chk{27 September 2026}.
+
+\paragraph{Ethics, data use, code, and conflicts of interest}
+% BIAS 12--15
+All scans come from CT-RATE, a public dataset of de-identified chest CT scans
+released under its own ethics approval \citep{hamamci2026generalist}, so
+no additional approval was required for the challenge. The ReXGroundingCT data,
+including the annotations used in the challenge, are distributed under a
+CC BY-NC-SA 4.0 licence. The evaluation code that produced the rankings is
+public with the dataset (\url{https://huggingface.co/datasets/rajpurkarlab/ReXGroundingCT}).
+Teams were encouraged but not required to release their code, and the top teams
+were required to describe their methods in sufficient detail for this paper. The
+challenge had no sponsors or prizes. Access to the test-set reference masks was
+restricted to members of the Rajpurkar Lab at Harvard Medical School, who were not
+eligible to participate.
+
+\section{Participating team method descriptions}
+\label{app:methods}
+\setcounter{figure}{0}
+Each of the four winning teams described its method using a common template
+whose headings follow the BIAS guideline. We edited the descriptions lightly
+for length and style, and report scores on the full test set.
+
+\input{appendix/team1}
+\input{appendix/team2}
+\input{appendix/team3}
+\input{appendix/team4}
+
+\section{Full leaderboard}
+\label{app:leaderboard}
+\setcounter{table}{0}\setcounter{figure}{0}
+Table~\ref{tab:leaderboard-full} lists all \chk{48} ranked teams, and
+Figure~\ref{fig:ranking} shows how stable the ranking was under bootstrap
+resampling of the test scans.
+\input{tables/leaderboard_full.tex}
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_ranking.pdf}
+\caption{Ranking stability, from \chk{1,000} bootstrap replicates of the
+\chk{300} test scans. A) Rank of the twenty best teams across replicates. Circle
+area is the share of replicates with that rank, the line spans the central 95\%
+of ranks, and the dashed diagonal marks the observed rank; the three winning
+teams are shown in darker blue. B) Pairwise comparisons among the ten best
+teams, labelled by rank. Each number is the share of replicates in which the
+higher-ranked team scored higher. Filled cells are significant in a one-sided
+paired Wilcoxon test after Holm correction ($p < 0.05$). Confidence intervals of
+the mean Dice are given in Table~\ref{tab:leaderboard}.}
+\label{fig:ranking}
+\end{figure*}
+
+
+\section{BIAS checklist}
+\label{app:bias}
+\input{tables/bias_checklist.tex}
+
+\end{document}

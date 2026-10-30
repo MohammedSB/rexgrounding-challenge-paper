@@ -1,0 +1,36 @@
+# Allowlist: only the paper, analysis code and small derived data are tracked.
+/*
+!/.gitignore
+!/FINDINGS.md
+!/paper/
+!/prompt_variants/
+
+# participant / co-author personal data
+paper/authors.csv
+
+# imaging data, predictions and archives
+*.nii
+*.nii.gz
+*.zip
+paper/figures/data/case*/
+paper/figures/data/qual/
+prompt_variants/returns/*/split/
+prompt_variants/returns/*/raw/
+
+# unrelated or bulky files
+paper/XDMoD*
+paper/AIdbp2501220.pdf
+*.docx
+
+# LaTeX and OS clutter
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+.DS_Store
+__pycache__/

@@ -1,0 +1,57 @@
+\subsection{Team 2}
+\label{app:team2}
+
+\paragraph{Data} The challenge training set (\chk{2,992} scans with findings and
+masks), with the \chk{200}-scan validation set used only for model selection.
+Annotations were used unmodified. No external or in-house CT data, pseudo-labels
+or derived anatomy masks were used in the final system. The only externally
+pretrained component was Qwen3-Embedding-4B \citep{zhang2025qwen3} (Apache 2.0),
+used frozen, and the image network was trained from scratch. Test-set scans and
+finding texts were not used for training or model selection. Whether any such
+material was part of the text encoder's own pretraining data is not known.
+
+\paragraph{Pre-processing} Following nnU-Net preprocessing \citep{isensee2021nnu},
+volumes were oriented to LPS and resampled to about
+\chk{0.7 $\times$ 0.7 $\times$ 1.0}\,mm. Intensities were clipped to
+$[-1000, 197]$\,HU and normalized with a mean of $-549$\,HU and a standard
+deviation of 313\,HU. Training used random foreground-centred crops with zero
+padding, with patch sizes from \chk{224 $\times$ 224 $\times$ 128} to
+\chk{448 $\times$ 448 $\times$ 256} voxels.
+
+\paragraph{Architecture and text encoder} The model, Grounder, uses a 3D nnU-Net
+residual-encoder (ResEnc-L) encoder \citep{isensee2024nnu} and a five-stage
+decoder. The frozen Qwen3-Embedding-4B converts each finding into a
+2,560-dimensional embedding, and two-layer MLPs generate scale and shift
+parameters that condition the decoder features through FiLM
+\citep{perez2018film}, $F' = \gamma F + \beta$.
+
+\paragraph{Training} Dice plus cross-entropy loss, AdamW with a fixed learning
+rate of $10^{-4}$, and a batch size of one. Models generally converged within
+20--30 epochs. Image augmentation included rotation, scaling and intensity
+transformations, but no flipping. In-distribution text augmentation replaced a
+finding with a real finding from another training case that matched it in
+location and finding type, keeping the original CT and mask. Each model trained
+on one H200 GPU for about 4--7 days, depending on patch size.
+
+\paragraph{Ensembling} Thirteen independently trained models differing in patch
+size, selected on validation performance, with voxel-wise probabilities averaged
+equally.
+
+\paragraph{Post-processing} Probabilities were thresholded at 0.5. No
+connected-component filtering, anatomical restriction, or rewriting of the text
+at inference was applied.
+
+\paragraph{Inference time and hardware} About 5\,s per scan per finding on one
+H200 GPU.
+
+\paragraph{Final submission and lessons} The final submission was
+Grounder\_1.4n (full test set: Dice \chk{0.365}, hit rate \chk{0.763}, instance
+F1 \chk{0.343}). Larger anatomical context, in-distribution text augmentation
+and diverse patch sizes improved grounding. Adding lobe maps from
+TotalSegmentator \citep{wasserthal2023totalsegmentator} or category embeddings
+did not help, and augmentation with negative text was unreliable because the
+training annotations are partial.
+
+\paragraph{Code and weights} The repository \url{https://github.com/khuhm/Grounder}
+(MIT licence) will hold the code and trained weights, which have not yet been
+released.

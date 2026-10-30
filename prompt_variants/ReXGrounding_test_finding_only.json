@@ -1,0 +1,5068 @@
+{
+ "test": [
+  {
+   "name": "train_13195_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural ground glass opacity",
+    "1": "Subpleural ground glass opacity"
+   },
+   "shape": [
+    512,
+    512,
+    202
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13514_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Subpleural reticular densities"
+   },
+   "shape": [
+    512,
+    512,
+    229
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "1d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13033_a_2.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal fibroatelectasis and scarring",
+    "1": "Pleuroparenchymal fibroatelectasis and scarring",
+    "2": "Scarring"
+   },
+   "shape": [
+    512,
+    512,
+    267
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b",
+    "2": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13432_d_2.nii.gz",
+   "findings": {
+    "0": "Peripheral and centrally located ground-glass opacities",
+    "1": "Areas of consolidation",
+    "2": "Interlobular septal thickening"
+   },
+   "shape": [
+    512,
+    512,
+    447
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "1d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13479_f_1.nii.gz",
+   "findings": {
+    "0": "Newly emerging focal consolidation areas",
+    "1": "Newly emerging focal consolidation areas"
+   },
+   "shape": [
+    512,
+    512,
+    398
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13515_a_1.nii.gz",
+   "findings": {
+    "0": "Mild emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    210
+   ],
+   "categories": {
+    "0": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13285_b_2.nii.gz",
+   "findings": {
+    "0": "Stable fibrotic changes causing slight retraction",
+    "1": "Stable linear pleuroparenchymal opacities",
+    "2": "Stable focal ground glass density",
+    "3": "Stable nonspecific nodules",
+    "4": "Presence of air cysts",
+    "5": "Air cysts",
+    "6": "Linear opacity in the subpleural area, possibly post-operative or calcification"
+   },
+   "shape": [
+    512,
+    512,
+    279
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a",
+    "2": "2c",
+    "3": "2d",
+    "4": "1c",
+    "5": "1c",
+    "6": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13334_a_5.nii.gz",
+   "findings": {
+    "0": "Subsegmental linear atelectasis",
+    "1": "Nonspecific nodular lesion"
+   },
+   "shape": [
+    512,
+    512,
+    357
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13147_a_1.nii.gz",
+   "findings": {
+    "0": "Central localized crazy paving patterns",
+    "1": "Peripheral localized crazy paving patterns",
+    "2": "Nodular ground glass consolidations"
+   },
+   "shape": [
+    512,
+    512,
+    320
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2c",
+    "2": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13192_a_1.nii.gz",
+   "findings": {
+    "0": "Peripheral subpleural focal consolidation area",
+    "1": "Subpleural minimal focal ground glass opacity"
+   },
+   "shape": [
+    512,
+    512,
+    282
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13521_a_1.nii.gz",
+   "findings": {
+    "0": "Two nonspecific parenchymal nodules",
+    "1": "Parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    220
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13463_a_1.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Increased density",
+    "2": "Linear atelectasis",
+    "3": "Increased density",
+    "4": "More prominent changes",
+    "5": "Atypical pneumonic infiltration areas with peribronchial and subpleural ground glass density"
+   },
+   "shape": [
+    512,
+    512,
+    320
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2b",
+    "2": "2a",
+    "3": "2b",
+    "4": "2b",
+    "5": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13014_a_2.nii.gz",
+   "findings": {
+    "0": "Non-specific nodule"
+   },
+   "shape": [
+    512,
+    512,
+    354
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13365_a_2.nii.gz",
+   "findings": {
+    "0": "Several nonspecific subpleural nodules"
+   },
+   "shape": [
+    512,
+    512,
+    457
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13355_c_2.nii.gz",
+   "findings": {
+    "0": "Minimal pleural effusion",
+    "1": "Consolidated areas consistent with pneumonic infiltration",
+    "2": "Consolidated areas consistent with pneumonic infiltration",
+    "3": "Mosaic attenuation pattern"
+   },
+   "shape": [
+    512,
+    512,
+    434
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b",
+    "2": "2b",
+    "3": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13203_a_2.nii.gz",
+   "findings": {
+    "0": "Areas of increased density consistent with linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    447
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13067_a_5.nii.gz",
+   "findings": {
+    "0": "Mosaic attenuation pattern",
+    "1": "Occasional atelectasis",
+    "2": "Scarring changes"
+   },
+   "shape": [
+    512,
+    512,
+    487
+   ],
+   "categories": {
+    "0": "1e",
+    "1": "2b",
+    "2": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13359_a_1.nii.gz",
+   "findings": {
+    "0": "Nonspecific parenchymal nodule",
+    "1": "Minimal bronchiectatic changes in the central regions"
+   },
+   "shape": [
+    512,
+    512,
+    378
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "1b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13025_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple metastatic nodules with irregular borders in the subpleural regions"
+   },
+   "shape": [
+    512,
+    512,
+    504
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13478_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis areas"
+   },
+   "shape": [
+    512,
+    512,
+    255
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13376_a_2.nii.gz",
+   "findings": {
+    "0": "Several nodules",
+    "1": "Nodule",
+    "2": "Nodule",
+    "3": "Occasional scarring"
+   },
+   "shape": [
+    512,
+    512,
+    261
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d",
+    "2": "2d",
+    "3": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13182_a_2.nii.gz",
+   "findings": {
+    "0": "Sequelae changes",
+    "1": "Sequelae changes"
+   },
+   "shape": [
+    512,
+    512,
+    446
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13085_a_2.nii.gz",
+   "findings": {
+    "0": "Several halo signs",
+    "1": "Patchy ground-glass opacities",
+    "2": "Associated vascular enlargement"
+   },
+   "shape": [
+    512,
+    512,
+    424
+   ],
+   "categories": {
+    "0": "2h",
+    "1": "2c",
+    "2": "1f"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13479_g_1.nii.gz",
+   "findings": {
+    "0": "Significant regression in consolidation areas",
+    "1": "New small patchy ground glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    397
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13253_a_1.nii.gz",
+   "findings": {
+    "0": "Patchy, peripheral-subpleural ground glass opacities",
+    "1": "Consolidations",
+    "2": "Cylindrical bronchiectasis"
+   },
+   "shape": [
+    512,
+    512,
+    244
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "1b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13536_a_2.nii.gz",
+   "findings": {
+    "0": "Ground glass opacities in all segments of both lungs, predominantly in the lower lobes and peripheral lung tissue"
+   },
+   "shape": [
+    512,
+    512,
+    437
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13593_b_2.nii.gz",
+   "findings": {
+    "0": "Nodules"
+   },
+   "shape": [
+    512,
+    512,
+    416
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13290_a_2.nii.gz",
+   "findings": {
+    "0": "Ground glass opacities",
+    "1": "Consolidation areas"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13479_i_1.nii.gz",
+   "findings": {
+    "0": "Subpleural ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    377
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13490_a_1.nii.gz",
+   "findings": {
+    "0": "Non-specific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    190
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13223_a_1.nii.gz",
+   "findings": {
+    "0": "Calcified nodules",
+    "1": "Areas of linear subsegmental atelectasis",
+    "2": "Minimal emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    300
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a",
+    "2": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13604_a_1.nii.gz",
+   "findings": {
+    "0": "Two nonspecific subpleural nodules"
+   },
+   "shape": [
+    512,
+    512,
+    349
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13172_a_2.nii.gz",
+   "findings": {
+    "0": "Reticulonodular fibrotic density increases",
+    "1": "Nonspecific parenchymal nodule accompanied by linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    498
+   ],
+   "categories": {
+    "0": "1d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13097_b_2.nii.gz",
+   "findings": {
+    "0": "Stable subpleural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    397
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13011_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    447
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13380_a_1.nii.gz",
+   "findings": {
+    "0": "Calcific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    344
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13374_a_1.nii.gz",
+   "findings": {
+    "0": "A few nonspecific nodules",
+    "1": "Scarring"
+   },
+   "shape": [
+    512,
+    512,
+    360
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13100_a_1.nii.gz",
+   "findings": {
+    "0": "Soft tissue density compatible with consolidation or mass",
+    "1": "Emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    234
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13449_a_1.nii.gz",
+   "findings": {
+    "0": "Mild linear density increases in posterior subpleural areas"
+   },
+   "shape": [
+    512,
+    512,
+    199
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12975_a_1.nii.gz",
+   "findings": {
+    "0": "Scattered patchy consolidation areas",
+    "1": "Inverted halo sign"
+   },
+   "shape": [
+    512,
+    512,
+    249
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13012_a_1.nii.gz",
+   "findings": {
+    "0": "Mild scarring"
+   },
+   "shape": [
+    512,
+    512,
+    378
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12977_a_2.nii.gz",
+   "findings": {
+    "0": "Mild emphysematous changes",
+    "1": "Nonspecific ground-glass opacities",
+    "2": "Nonspecific parenchymal nodule",
+    "3": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    491
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2c",
+    "2": "2d",
+    "3": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13233_b_1.nii.gz",
+   "findings": {
+    "0": "Collapsed air passages",
+    "1": "Subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    261
+   ],
+   "categories": {
+    "0": "1f",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13592_a_2.nii.gz",
+   "findings": {
+    "0": "Scarring",
+    "1": "Several nonspecific nodules",
+    "2": "Minimal ground-glass opacities in a few areas",
+    "3": "Non-specific ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    215
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d",
+    "2": "2c",
+    "3": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13348_a_2.nii.gz",
+   "findings": {
+    "0": "Subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    368
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13233_a_1.nii.gz",
+   "findings": {
+    "0": "Consolidation with an air bronchogram",
+    "1": "Linear atelectasis",
+    "2": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    251
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13448_a_1.nii.gz",
+   "findings": {
+    "0": "Ground-glass appearance in the central and peripheral areas",
+    "1": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    324
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13204_a_2.nii.gz",
+   "findings": {
+    "0": "Mosaic attenuation"
+   },
+   "shape": [
+    512,
+    512,
+    241
+   ],
+   "categories": {
+    "0": "1f"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13451_a_1.nii.gz",
+   "findings": {
+    "0": "Areas of parenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    345
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13583_a_2.nii.gz",
+   "findings": {
+    "0": "Consolidations with air bronchogram and ground glass areas",
+    "1": "Ground glass areas",
+    "2": "Ground glass areas",
+    "3": "Centriacinar nodules",
+    "4": "Centriacinar nodules",
+    "5": "Tree-in-bud appearance",
+    "6": "Tree-in-bud appearance"
+   },
+   "shape": [
+    512,
+    512,
+    434
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c",
+    "2": "2c",
+    "3": "1e",
+    "4": "1e",
+    "5": "1e",
+    "6": "1e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13056_a_2.nii.gz",
+   "findings": {
+    "0": "Mild emphysematous changes",
+    "1": "Calcific and subpleural fibrotic changes",
+    "2": "Subpleural reticular and fibrotic densities",
+    "3": "Subpleural reticular and fibrotic densities"
+   },
+   "shape": [
+    512,
+    512,
+    489
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2a",
+    "2": "2a",
+    "3": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13241_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural patchy consolidation areas",
+    "1": "Ground glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    404
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13278_a_2.nii.gz",
+   "findings": {
+    "0": "Scarring",
+    "1": "Band-like fibrotic changes",
+    "2": "Band-like fibrotic changes",
+    "3": "Well-circumscribed, nonspecific parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    456
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a",
+    "2": "2a",
+    "3": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13025_b_2.nii.gz",
+   "findings": {
+    "0": "Large nodular consolidation area containing air bronchograms"
+   },
+   "shape": [
+    512,
+    512,
+    483
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13407_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal peribronchial thickening",
+    "1": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    435
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13218_b_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    448
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13121_a_2.nii.gz",
+   "findings": {
+    "0": "Emphysematous changes",
+    "1": "Slight pleural irregularities",
+    "2": "One or two nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    342
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2e",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13047_a_2.nii.gz",
+   "findings": {
+    "0": "Increased density consistent with scarring"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13520_a_2.nii.gz",
+   "findings": {
+    "0": "Atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    459
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13518_a_2.nii.gz",
+   "findings": {
+    "0": "Fibrotic changes"
+   },
+   "shape": [
+    512,
+    512,
+    288
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13247_a_2.nii.gz",
+   "findings": {
+    "0": "Fibrotic changes",
+    "1": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    181
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13125_a_2.nii.gz",
+   "findings": {
+    "0": "A few subpleural nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    443
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13586_a_1.nii.gz",
+   "findings": {
+    "0": "Subsegmental atelectatic changes",
+    "1": "Subpleural bullae formation",
+    "2": "Nonspecific parenchymal nodule",
+    "3": "Nonspecific minimal ground-glass density increase"
+   },
+   "shape": [
+    512,
+    512,
+    300
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1c",
+    "2": "2d",
+    "3": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13608_a_2.nii.gz",
+   "findings": {
+    "0": "Mild dependent atelectatic changes",
+    "1": "Paraseptal emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13119_b_1.nii.gz",
+   "findings": {
+    "0": "Diffuse ground-glass opacities",
+    "1": "Interlobular septal thickening"
+   },
+   "shape": [
+    512,
+    512,
+    292
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "1d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13278_c_1.nii.gz",
+   "findings": {
+    "0": "Non-specific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13484_a_2.nii.gz",
+   "findings": {
+    "0": "Several nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    443
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13345_b_1.nii.gz",
+   "findings": {
+    "0": "Calcified pleural plaques",
+    "1": "Fibroatelectatic changes",
+    "2": "A few nonspecific parenchymal nodules",
+    "3": "Minimal pleural effusion"
+   },
+   "shape": [
+    512,
+    512,
+    343
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b",
+    "2": "2d",
+    "3": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13371_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal focal nonspecific ground glass density increase",
+    "1": "Mild emphysematous changes",
+    "2": "Nonspecific parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    311
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "1c",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13124_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral ground glass opacities",
+    "1": "Pleuroparenchymal linear densities"
+   },
+   "shape": [
+    512,
+    512,
+    526
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13382_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal emphysematous change",
+    "1": "Fibrotic bands"
+   },
+   "shape": [
+    512,
+    512,
+    285
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13030_a_1.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Linear atelectasis",
+    "2": "Minimal emphysematous changes"
+   },
+   "shape": [
+    768,
+    768,
+    218
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a",
+    "2": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12972_a_2.nii.gz",
+   "findings": {
+    "0": "Pleural and parenchymal scarring",
+    "1": "Subsegmental atelectasis",
+    "2": "Thin-walled bullae formation",
+    "3": "Nonspecific nodules",
+    "4": "Nodule",
+    "5": "Subpleural nodule",
+    "6": "Nodule",
+    "7": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    484
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2b",
+    "2": "1c",
+    "3": "2d",
+    "4": "2d",
+    "5": "2d",
+    "6": "2d",
+    "7": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13112_a_2.nii.gz",
+   "findings": {
+    "0": "Central and peripheral ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13218_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific nodules",
+    "1": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "1e",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13000_a_2.nii.gz",
+   "findings": {
+    "0": "Nodules",
+    "1": "Calcified nodules"
+   },
+   "shape": [
+    512,
+    512,
+    221
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13492_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral patch-like consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12980_b_2.nii.gz",
+   "findings": {
+    "0": "Increased pleuroparenchymal thickening and density",
+    "1": "Scarring",
+    "2": "Mild traction bronchiectasis",
+    "3": "Nonspecific nodular densities",
+    "4": "Nonspecific nodular densities",
+    "5": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a",
+    "2": "1b",
+    "3": "2d",
+    "4": "2d",
+    "5": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12974_a_2.nii.gz",
+   "findings": {
+    "0": "1-2 subpleural nonspecific nodules",
+    "1": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    493
+   ],
+   "categories": {
+    "0": "1e",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13571_a_2.nii.gz",
+   "findings": {
+    "0": "Paravertebral dependent atelectasis secondary to tapering of the vertebral endplates"
+   },
+   "shape": [
+    512,
+    512,
+    400
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13156_a_2.nii.gz",
+   "findings": {
+    "0": "Nodules",
+    "1": "Nodule",
+    "2": "Nodule",
+    "3": "Minimal emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    220
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d",
+    "2": "2d",
+    "3": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13087_a_2.nii.gz",
+   "findings": {
+    "0": "Linear subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    239
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13220_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    337
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13436_d_1.nii.gz",
+   "findings": {
+    "0": "Sequelae parenchymal changes",
+    "1": "Sequelae parenchymal changes"
+   },
+   "shape": [
+    512,
+    512,
+    303
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13052_a_1.nii.gz",
+   "findings": {
+    "0": "Patchy areas of ground-glass consolidation",
+    "1": "Nonspecific nodule in ground-glass density"
+   },
+   "shape": [
+    512,
+    512,
+    202
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13043_a_1.nii.gz",
+   "findings": {
+    "0": "Calcified nodule"
+   },
+   "shape": [
+    512,
+    512,
+    214
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13423_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific nodules",
+    "1": "Nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    452
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13589_a_1.nii.gz",
+   "findings": {
+    "0": "Pneumothorax",
+    "1": "Emphysematous air densities"
+   },
+   "shape": [
+    512,
+    512,
+    364
+   ],
+   "categories": {
+    "0": "2g",
+    "1": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13459_a_2.nii.gz",
+   "findings": {
+    "0": "Calcified nonspecific parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    232
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13003_a_2.nii.gz",
+   "findings": {
+    "0": "Small amount of pleural effusion",
+    "1": "Thickening and mild edematous changes in the interlobular septa",
+    "2": "Small fluid loculations",
+    "3": "Patchy ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    524
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "1d",
+    "2": "2e",
+    "3": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13233_c_1.nii.gz",
+   "findings": {
+    "0": "Minimal pleural effusion",
+    "1": "Interlobular septal thickenings, some locally nodular",
+    "2": "Local areas of atelectasis",
+    "3": "Emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    300
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "1d",
+    "2": "2b",
+    "3": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13188_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Minimal ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    406
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_12999_a_2.nii.gz",
+   "findings": {
+    "0": "Peripherally located patchy ground glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    452
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13285_a_2.nii.gz",
+   "findings": {
+    "0": "Linear coarse calcification",
+    "1": "Air cyst",
+    "2": "Air cyst",
+    "3": "Ground-glass density nodular area"
+   },
+   "shape": [
+    512,
+    512,
+    257
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d",
+    "2": "2d",
+    "3": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13034_a_1.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring",
+    "1": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    216
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13006_a_2.nii.gz",
+   "findings": {
+    "0": "Areas of subpleural ground-glass density",
+    "1": "Dependent atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    377
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13485_b_1.nii.gz",
+   "findings": {
+    "0": "Widespread and patchy ground-glass opacities",
+    "1": "Consolidation areas"
+   },
+   "shape": [
+    512,
+    512,
+    307
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13051_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural consolidation area with air bronchograms",
+    "1": "Tubular bronchiectasis",
+    "2": "Linear atelectasis areas",
+    "3": "Linear atelectasis areas",
+    "4": "Significant increase in dependent density"
+   },
+   "shape": [
+    512,
+    512,
+    337
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1b",
+    "2": "2a",
+    "3": "2a",
+    "4": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13240_b_2.nii.gz",
+   "findings": {
+    "0": "Diffuse ground glass opacities have significantly regressed",
+    "1": "Nonspecific stable nodules"
+   },
+   "shape": [
+    512,
+    512,
+    187
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_13605_a_1.nii.gz",
+   "findings": {
+    "0": "Nonspecific nodule"
+   },
+   "shape": [
+    512,
+    512,
+    343
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_302_a_2.nii.gz",
+   "findings": {
+    "0": "Several indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    501
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3032_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    336
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3033_a_1.nii.gz",
+   "findings": {
+    "0": "Mild bronchial wall thickening",
+    "1": "Nonspecific focal thickening of the left major fissure"
+   },
+   "shape": [
+    512,
+    512,
+    370
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3040_a_2.nii.gz",
+   "findings": {
+    "0": "Pleural effusion",
+    "1": "Atelectasis, nearly complete",
+    "2": "Ground-glass opacities, nonspecific"
+   },
+   "shape": [
+    512,
+    512,
+    477
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b",
+    "2": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3050_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate subpleural nodules"
+   },
+   "shape": [
+    512,
+    512,
+    490
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3057_a_2.nii.gz",
+   "findings": {
+    "0": "Pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3061_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural consolidation",
+    "1": "Mild air bronchogram within the consolidation",
+    "2": "Patchy ground-glass opacities surrounding the consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    510
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b",
+    "2": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3066_d_2.nii.gz",
+   "findings": {
+    "0": "Patchy ground-glass opacities with a crazy-paving pattern",
+    "1": "Thick bandlike atelectatic changes"
+   },
+   "shape": [
+    512,
+    512,
+    214
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3071_a_2.nii.gz",
+   "findings": {
+    "0": "Nodule, decreased in size compared with prior, with large post-treatment cavitation",
+    "1": "Multiple nonspecific pulmonary parenchymal nodules, stable",
+    "2": "Emphysematous changes",
+    "3": "New irregular focus, scarring versus small parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    194
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d",
+    "2": "1c",
+    "3": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3079_a_1.nii.gz",
+   "findings": {
+    "0": "Diffuse ground-glass opacities and widespread infiltrates"
+   },
+   "shape": [
+    512,
+    512,
+    294
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3089_a_1.nii.gz",
+   "findings": {
+    "0": "Focal ground-glass opacity"
+   },
+   "shape": [
+    512,
+    512,
+    320
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3091_a_2.nii.gz",
+   "findings": {
+    "0": "Scattered indeterminate pulmonary nodules",
+    "1": "Nodule",
+    "2": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    517
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3094_a_2.nii.gz",
+   "findings": {
+    "0": "Patchy ground-glass opacities, predominantly subpleural",
+    "1": "Consolidation, predominantly subpleural"
+   },
+   "shape": [
+    512,
+    512,
+    557
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3103_a_1.nii.gz",
+   "findings": {
+    "0": "Subtle patchy ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    512
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3104_b_1.nii.gz",
+   "findings": {
+    "0": "New atelectasis",
+    "1": "Mild atelectatic changes"
+   },
+   "shape": [
+    512,
+    512,
+    262
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3106_a_1.nii.gz",
+   "findings": {
+    "0": "Several indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    251
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3109_a_1.nii.gz",
+   "findings": {
+    "0": "Pulmonary scarring present",
+    "1": "Thin-walled air-filled cyst"
+   },
+   "shape": [
+    1024,
+    1024,
+    206
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3112_i_1.nii.gz",
+   "findings": {
+    "0": "Posterior-predominant consolidations",
+    "1": "Two areas of consolidation with predominantly patchy nodular pattern"
+   },
+   "shape": [
+    768,
+    768,
+    215
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3112_j_2.nii.gz",
+   "findings": {
+    "0": "Areas of consolidation with air bronchograms"
+   },
+   "shape": [
+    512,
+    512,
+    448
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3131_a_1.nii.gz",
+   "findings": {
+    "0": "Fissure-based nodules in both lungs, right measuring 7 x 2 mm and left measuring 2 mm"
+   },
+   "shape": [
+    512,
+    512,
+    247
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3142_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate low-attenuation nodule",
+    "1": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    768,
+    768,
+    236
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3143_a_1.nii.gz",
+   "findings": {
+    "0": "Calcified nodules",
+    "1": "Subpleural fibrosis"
+   },
+   "shape": [
+    512,
+    512,
+    281
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3149_a_1.nii.gz",
+   "findings": {
+    "0": "Centrally located nonspecific focal opacity"
+   },
+   "shape": [
+    512,
+    512,
+    184
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3150_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    477
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3154_a_2.nii.gz",
+   "findings": {
+    "0": "A few indeterminate nodules"
+   },
+   "shape": [
+    512,
+    512,
+    460
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3157_a_2.nii.gz",
+   "findings": {
+    "0": "Patchy ground-glass opacities",
+    "1": "Halo sign"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3159_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple peripherally located indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    428
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3175_a_1.nii.gz",
+   "findings": {
+    "0": "A few indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    306
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3178_a_1.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring, minimal to mild",
+    "1": "Multiple indeterminate parenchymal nodules, some calcified"
+   },
+   "shape": [
+    768,
+    768,
+    205
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3181_a_2.nii.gz",
+   "findings": {
+    "0": "A few subpleural nodules",
+    "1": "Calcified nodules present"
+   },
+   "shape": [
+    512,
+    512,
+    447
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3182_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate nodules"
+   },
+   "shape": [
+    512,
+    512,
+    470
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3189_a_5.nii.gz",
+   "findings": {
+    "0": "Subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    433
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3203_a_1.nii.gz",
+   "findings": {
+    "0": "Peripheral consolidations",
+    "1": "Ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    200
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3205_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    495
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3213_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural patchy ground-glass opacity"
+   },
+   "shape": [
+    512,
+    512,
+    460
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3220_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodule"
+   },
+   "shape": [
+    512,
+    512,
+    488
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3225_a_1.nii.gz",
+   "findings": {
+    "0": "Multiple nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    312
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3226_a_1.nii.gz",
+   "findings": {
+    "0": "Diffuse patchy ground-glass opacities",
+    "1": "Consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    297
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3226_b_1.nii.gz",
+   "findings": {
+    "0": "Pleural effusion",
+    "1": "Areas of consolidation, more prominent in the peripheral regions, with slight interval increase"
+   },
+   "shape": [
+    512,
+    512,
+    281
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3226_c_1.nii.gz",
+   "findings": {
+    "0": "Predominantly calcified pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    249
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3227_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    521
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3228_a_2.nii.gz",
+   "findings": {
+    "0": "Ground-glass opacities",
+    "1": "Nodular consolidations",
+    "2": "Subpleural band-like atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    455
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3232_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    450
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3242_a_2.nii.gz",
+   "findings": {
+    "0": "Emphysema",
+    "1": "Focal bronchiectasis",
+    "2": "Parenchymal air cyst"
+   },
+   "shape": [
+    512,
+    512,
+    497
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "1b",
+    "2": "1f"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3244_a_2.nii.gz",
+   "findings": {
+    "0": "Patchy subpleural ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    431
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3249_a_1.nii.gz",
+   "findings": {
+    "0": "Subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    228
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3250_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral subpleural ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3253_a_2.nii.gz",
+   "findings": {
+    "0": "Diffuse peripheral and central pulmonary consolidations",
+    "1": "Peripheral and central ground-glass opacities",
+    "2": "Trace pleural effusion"
+   },
+   "shape": [
+    512,
+    512,
+    492
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c",
+    "2": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3257_a_2.nii.gz",
+   "findings": {
+    "0": "Diffuse peripheral subpleural ground-glass opacities with a tendency to coalesce",
+    "1": "Focal areas of consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3267_a_1.nii.gz",
+   "findings": {
+    "0": "Ground-glass opacity extending to the subpleural region",
+    "1": "Pleural effusion",
+    "2": "Soft tissue densities",
+    "3": "Consolidation",
+    "4": "Ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    233
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2e",
+    "2": "2h",
+    "3": "2b",
+    "4": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3272_a_2.nii.gz",
+   "findings": {
+    "0": "Nodule",
+    "1": "One or two nonspecific nodules"
+   },
+   "shape": [
+    512,
+    512,
+    503
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3276_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple subpleural and intraparenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    484
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3276_b_1.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate subpleural and intraparenchymal pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    318
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3280_a_1.nii.gz",
+   "findings": {
+    "0": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    234
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3295_a_2.nii.gz",
+   "findings": {
+    "0": "Pleural calcifications"
+   },
+   "shape": [
+    512,
+    512,
+    448
+   ],
+   "categories": {
+    "0": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3306_a_2.nii.gz",
+   "findings": {
+    "0": "A few pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    477
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3309_a_2.nii.gz",
+   "findings": {
+    "0": "Mass",
+    "1": "Multiple pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    260
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3310_a_2.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring",
+    "1": "Emphysematous changes",
+    "2": "Peripheral lateral nodule",
+    "3": "Subpleural nodule",
+    "4": "Subpleural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    424
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "1c",
+    "2": "2d",
+    "3": "2d",
+    "4": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3319_a_1.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    290
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3319_b_1.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    249
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3321_a_2.nii.gz",
+   "findings": {
+    "0": "Large pleural effusions",
+    "1": "Linear subsegmental atelectasis",
+    "2": "Pleural thickening"
+   },
+   "shape": [
+    512,
+    512,
+    464
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2a",
+    "2": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3326_b_5.nii.gz",
+   "findings": {
+    "0": "Small pleural effusion",
+    "1": "Small pleural effusion"
+   },
+   "shape": [
+    512,
+    512,
+    395
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3332_d_1.nii.gz",
+   "findings": {
+    "0": "Nodules with nonspecific calcification"
+   },
+   "shape": [
+    512,
+    512,
+    323
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3333_a_1.nii.gz",
+   "findings": {
+    "0": "Nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    390
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3346_a_2.nii.gz",
+   "findings": {
+    "0": "Calcified pleuroparenchymal scarring",
+    "1": "A few nonspecific calcified nodules"
+   },
+   "shape": [
+    512,
+    512,
+    329
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3348_a_2.nii.gz",
+   "findings": {
+    "0": "Mild bronchiectasis with central predominance"
+   },
+   "shape": [
+    512,
+    512,
+    562
+   ],
+   "categories": {
+    "0": "1b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3350_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal atelectatic changes/scarring",
+    "1": "Ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    449
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3353_a_1.nii.gz",
+   "findings": {
+    "0": "New pulmonary nodule with minimal peripheral ground-glass halo",
+    "1": "New pulmonary nodule with minimal peripheral ground-glass halo"
+   },
+   "shape": [
+    512,
+    512,
+    289
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3357_c_2.nii.gz",
+   "findings": {
+    "0": "Pleural effusions",
+    "1": "New nodular consolidations"
+   },
+   "shape": [
+    512,
+    512,
+    464
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3360_a_2.nii.gz",
+   "findings": {
+    "0": "Scattered and patchy ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    473
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3365_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    341
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3370_a_2.nii.gz",
+   "findings": {
+    "0": "Predominant peripheral ground-glass opacities",
+    "1": "Predominant peripheral consolidations",
+    "2": "Subpleural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3371_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    417
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3377_a_1.nii.gz",
+   "findings": {
+    "0": "A few nonspecific pulmonary nodules present"
+   },
+   "shape": [
+    512,
+    512,
+    322
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3383_a_2.nii.gz",
+   "findings": {
+    "0": "Diffuse ground-glass opacities with confluent peripheral subpleural predominance",
+    "1": "Subsegmental atelectasis",
+    "2": "Calcified parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    406
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3390_a_2.nii.gz",
+   "findings": {
+    "0": "Multifocal ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    486
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3393_a_2.nii.gz",
+   "findings": {
+    "0": "Emphysema",
+    "1": "Fibrotic scarring",
+    "2": "Calcified nodules",
+    "3": "Subpleural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    489
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2a",
+    "2": "2d",
+    "3": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3407_a_2.nii.gz",
+   "findings": {
+    "0": "Linear pleuroparenchymal scarring",
+    "1": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    490
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3409_a_2.nii.gz",
+   "findings": {
+    "0": "Several indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    230
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3410_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral and subpleural ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    463
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3415_a_2.nii.gz",
+   "findings": {
+    "0": "Diffuse mild atelectasis",
+    "1": "Multiple pulmonary nodules with peripheral ground-glass halos"
+   },
+   "shape": [
+    512,
+    512,
+    225
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3417_a_1.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Ill-defined ground-glass pulmonary nodules, predominantly subpleural",
+    "2": "Multiple scattered calcified pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    312
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3418_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules",
+    "1": "Minimal ground-glass opacity surrounding the nodule"
+   },
+   "shape": [
+    768,
+    768,
+    223
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3419_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    415
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3436_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural indeterminate nodule"
+   },
+   "shape": [
+    512,
+    512,
+    282
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3438_a_1.nii.gz",
+   "findings": {
+    "0": "Mild bronchial wall thickening involving the segmental bronchi",
+    "1": "Centriacinar nodules",
+    "2": "Endobronchiolar prominence",
+    "3": "Atypical pneumonic infiltration, subpleural region",
+    "4": "Subpleural ground-glass opacity",
+    "5": "Intralobular septal thickening in the subpleural region"
+   },
+   "shape": [
+    768,
+    768,
+    215
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "1e",
+    "2": "1e",
+    "3": "2b",
+    "4": "2c",
+    "5": "1d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3439_b_1.nii.gz",
+   "findings": {
+    "0": "Mild ground-glass opacities",
+    "1": "Subpleural increased attenuation",
+    "2": "Dependent changes present"
+   },
+   "shape": [
+    768,
+    768,
+    210
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2a",
+    "2": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3440_a_1.nii.gz",
+   "findings": {
+    "0": "Fibrotic scarring, including reticulonodular scarring and pleuroparenchymal scarring with retraction",
+    "1": "Indeterminate parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    335
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3448_a_2.nii.gz",
+   "findings": {
+    "0": "Faint peripheral subpleural nodular ground-glass opacities",
+    "1": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    556
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3454_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate nodules"
+   },
+   "shape": [
+    512,
+    512,
+    237
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3490_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral patchy ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    407
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3496_a_2.nii.gz",
+   "findings": {
+    "0": "Scattered linear atelectasis",
+    "1": "Nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    486
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3500_a_1.nii.gz",
+   "findings": {
+    "0": "Ground-glass nodule"
+   },
+   "shape": [
+    768,
+    768,
+    218
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3503_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple intrapulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    466
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3506_b_1.nii.gz",
+   "findings": {
+    "0": "Diffuse subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    323
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3508_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural calcified nodule"
+   },
+   "shape": [
+    512,
+    512,
+    561
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3508_b_2.nii.gz",
+   "findings": {
+    "0": "Minimal pleuroparenchymal scarring",
+    "1": "Pulmonary nodule"
+   },
+   "shape": [
+    512,
+    512,
+    617
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3515_a_2.nii.gz",
+   "findings": {
+    "0": "Ground-glass opacities, predominantly peripheral"
+   },
+   "shape": [
+    512,
+    512,
+    531
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3525_a_2.nii.gz",
+   "findings": {
+    "0": "Nodules",
+    "1": "Surrounding patchy ground-glass opacities (halo sign)",
+    "2": "Fibrotic scarring"
+   },
+   "shape": [
+    512,
+    512,
+    277
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2c",
+    "2": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3535_a_2.nii.gz",
+   "findings": {
+    "0": "Ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    475
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3541_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple calcified nodules",
+    "1": "Minimal fibrotic scarring"
+   },
+   "shape": [
+    512,
+    512,
+    276
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3551_a_2.nii.gz",
+   "findings": {
+    "0": "Focal nodular pleural thickening"
+   },
+   "shape": [
+    512,
+    512,
+    249
+   ],
+   "categories": {
+    "0": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3565_a_1.nii.gz",
+   "findings": {
+    "0": "Parenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    282
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3567_a_2.nii.gz",
+   "findings": {
+    "0": "Calcified nodule",
+    "1": "Linear subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    439
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3577_a_2.nii.gz",
+   "findings": {
+    "0": "Multilobar involvement",
+    "1": "Crazy-paving pattern",
+    "2": "Nodular consolidations",
+    "3": "Patchy consolidations containing air bronchograms",
+    "4": "Ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    501
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1d",
+    "2": "2d",
+    "3": "2b",
+    "4": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3578_a_1.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring",
+    "1": "Indeterminate subpleural parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    349
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3590_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural nodule, unchanged from prior examination"
+   },
+   "shape": [
+    512,
+    512,
+    486
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3592_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    467
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3595_a_2.nii.gz",
+   "findings": {
+    "0": "Fibrotic scarring",
+    "1": "Ground-glass nodule"
+   },
+   "shape": [
+    512,
+    512,
+    449
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3595_b_2.nii.gz",
+   "findings": {
+    "0": "New ground-glass nodule",
+    "1": "Pleuroparenchymal scarring",
+    "2": "Nonspecific pulmonary nodule"
+   },
+   "shape": [
+    512,
+    512,
+    516
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3598_a_2.nii.gz",
+   "findings": {
+    "0": "Peribronchial centriacinar nodular opacities with tree-in-bud pattern",
+    "1": "Increased pleuroparenchymal reticulonodular scarring"
+   },
+   "shape": [
+    512,
+    512,
+    464
+   ],
+   "categories": {
+    "0": "1e",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3608_a_2.nii.gz",
+   "findings": {
+    "0": "Calcified pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    538
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3623_a_1.nii.gz",
+   "findings": {
+    "0": "Patchy subpleural ground-glass opacities",
+    "1": "Pulmonary nodules, some calcified"
+   },
+   "shape": [
+    768,
+    768,
+    200
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3624_b_2.nii.gz",
+   "findings": {
+    "0": "A few indeterminate pulmonary parenchymal nodules, stable compared with the prior exam"
+   },
+   "shape": [
+    512,
+    512,
+    210
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3641_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural nodular ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    307
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3645_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal dependent atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    200
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3649_a_1.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules present"
+   },
+   "shape": [
+    768,
+    768,
+    208
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3655_a_2.nii.gz",
+   "findings": {
+    "0": "Mild scarring",
+    "1": "Pulmonary nodule"
+   },
+   "shape": [
+    512,
+    512,
+    477
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3655_b_2.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring with reticulonodular opacities",
+    "1": "Stable nodule"
+   },
+   "shape": [
+    512,
+    512,
+    226
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3663_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral and central ground-glass opacities",
+    "1": "Patchy consolidations",
+    "2": "Atelectasis",
+    "3": "Trace pleural effusion"
+   },
+   "shape": [
+    512,
+    512,
+    416
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "2b",
+    "3": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3675_b_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    488
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3675_d_2.nii.gz",
+   "findings": {
+    "0": "Small pleural effusions",
+    "1": "Pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3678_a_2.nii.gz",
+   "findings": {
+    "0": "Several calcified indeterminate parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    407
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3682_a_2.nii.gz",
+   "findings": {
+    "0": "Scarring"
+   },
+   "shape": [
+    512,
+    512,
+    289
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3689_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific focal thickening of the left major fissure"
+   },
+   "shape": [
+    512,
+    512,
+    497
+   ],
+   "categories": {
+    "0": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3691_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    481
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3696_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal bronchiectasis",
+    "1": "Localized linear atelectasis",
+    "2": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    167
+   ],
+   "categories": {
+    "0": "1b",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3699_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate parenchymal nodules"
+   },
+   "shape": [
+    512,
+    512,
+    204
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3703_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate parenchymal nodules present"
+   },
+   "shape": [
+    512,
+    512,
+    246
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3719_a_1.nii.gz",
+   "findings": {
+    "0": "Multifocal patchy nodular ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    493
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3733_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural nodule"
+   },
+   "shape": [
+    768,
+    768,
+    220
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3737_a_1.nii.gz",
+   "findings": {
+    "0": "Prominent peribronchial wall thickening",
+    "1": "Minimal ground-glass opacities with peripheral distribution",
+    "2": "Consolidations",
+    "3": "Mass-like nodule"
+   },
+   "shape": [
+    512,
+    512,
+    274
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "2c",
+    "2": "2b",
+    "3": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3738_a_2.nii.gz",
+   "findings": {
+    "0": "Patchy ground-glass opacities with a halo sign"
+   },
+   "shape": [
+    512,
+    512,
+    499
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3746_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    368
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3747_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal peribronchial thickening",
+    "1": "Centrilobular nodules",
+    "2": "Tree-in-bud nodules",
+    "3": "Pulmonary nodules",
+    "4": "Emphysematous changes",
+    "5": "Pleuroparenchymal fibrotic scarring"
+   },
+   "shape": [
+    512,
+    512,
+    354
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "1e",
+    "2": "1e",
+    "3": "2d",
+    "4": "1c",
+    "5": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3749_a_1.nii.gz",
+   "findings": {
+    "0": "Subpleural nodule",
+    "1": "Subpleural nodule"
+   },
+   "shape": [
+    768,
+    768,
+    236
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3762_a_1.nii.gz",
+   "findings": {
+    "0": "Centrilobular emphysema",
+    "1": "Subsegmental linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    232
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3769_a_1.nii.gz",
+   "findings": {
+    "0": "Nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    228
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3771_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal pleuroparenchymal scarring",
+    "1": "Subpleural indeterminate parenchymal nodule"
+   },
+   "shape": [
+    512,
+    512,
+    538
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3777_a_1.nii.gz",
+   "findings": {
+    "0": "Scattered subpleural ground-glass opacities",
+    "1": "Areas of consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    310
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3783_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    430
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3783_b_2.nii.gz",
+   "findings": {
+    "0": "Atelectasis",
+    "1": "Atelectasis",
+    "2": "Parenchymal scarring",
+    "3": "Parenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    206
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b",
+    "2": "2a",
+    "3": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3788_a_1.nii.gz",
+   "findings": {
+    "0": "Peribronchovascular consolidations with air bronchograms",
+    "1": "Peripheral subpleural nodules"
+   },
+   "shape": [
+    768,
+    768,
+    217
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3789_a_1.nii.gz",
+   "findings": {
+    "0": "Two nodules, one noncalcified"
+   },
+   "shape": [
+    512,
+    512,
+    222
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3796_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral consolidation",
+    "1": "Localized linear atelectasis",
+    "2": "Minimal pleural effusions"
+   },
+   "shape": [
+    512,
+    512,
+    216
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2a",
+    "2": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3813_b_2.nii.gz",
+   "findings": {
+    "0": "Small pleural effusions, decreased compared to prior exam",
+    "1": "Irregular pleural thickening, present on prior exam",
+    "2": "Consolidation, present on prior exam",
+    "3": "Consolidation, present on prior exam",
+    "4": "Consolidations"
+   },
+   "shape": [
+    512,
+    512,
+    488
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2e",
+    "2": "2b",
+    "3": "2b",
+    "4": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3819_a_2.nii.gz",
+   "findings": {
+    "0": "Peripheral subpleural ground-glass opacities",
+    "1": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    571
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3824_a_2.nii.gz",
+   "findings": {
+    "0": "Atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    427
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3836_a_2.nii.gz",
+   "findings": {
+    "0": "Calcified parenchymal nodules",
+    "1": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    230
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3838_a_2.nii.gz",
+   "findings": {
+    "0": "Nonspecific subpleural nodules"
+   },
+   "shape": [
+    512,
+    512,
+    473
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3841_a_2.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Indeterminate pulmonary nodules",
+    "2": "Calcified pleural plaques"
+   },
+   "shape": [
+    512,
+    512,
+    398
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d",
+    "2": "2e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3858_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    324
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3867_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal pleuroparenchymal scarring",
+    "1": "Calcified nodule"
+   },
+   "shape": [
+    512,
+    512,
+    362
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3877_a_1.nii.gz",
+   "findings": {
+    "0": "Mild scarring",
+    "1": "Nodule in the lateral subpleural region",
+    "2": "Subpleural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    232
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3878_a_2.nii.gz",
+   "findings": {
+    "0": "Multifocal nodular lung consolidations with bilateral diffuse asymmetric widespread confluence",
+    "1": "Ground-glass opacities surrounding areas of consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    487
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3879_b_1.nii.gz",
+   "findings": {
+    "0": "Atelectatic changes",
+    "1": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    226
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3881_a_2.nii.gz",
+   "findings": {
+    "0": "One medial subpleural nonspecific nodule"
+   },
+   "shape": [
+    512,
+    512,
+    503
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3885_a_2.nii.gz",
+   "findings": {
+    "0": "Indeterminate perifissural nodule"
+   },
+   "shape": [
+    512,
+    512,
+    435
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3886_a_2.nii.gz",
+   "findings": {
+    "0": "Parenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    514
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3891_a_1.nii.gz",
+   "findings": {
+    "0": "Bronchiectasis",
+    "1": "Adjacent opacity"
+   },
+   "shape": [
+    512,
+    512,
+    369
+   ],
+   "categories": {
+    "0": "1b",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3900_a_2.nii.gz",
+   "findings": {
+    "0": "Two to three indeterminate pulmonary nodules, some calcified",
+    "1": "Mild emphysematous changes"
+   },
+   "shape": [
+    512,
+    512,
+    508
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "1c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3902_a_2.nii.gz",
+   "findings": {
+    "0": "Fibrotic scarring"
+   },
+   "shape": [
+    512,
+    512,
+    473
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3904_b_1.nii.gz",
+   "findings": {
+    "0": "Minimal emphysematous changes",
+    "1": "Centrilobular nodules, markedly regressed on this exam"
+   },
+   "shape": [
+    768,
+    768,
+    228
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "1e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3913_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal dependent atelectasis",
+    "1": "Multiple predominantly calcified pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    275
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3915_a_1.nii.gz",
+   "findings": {
+    "0": "Widespread patchy ground-glass opacities",
+    "1": "Areas of consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    274
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3918_b_1.nii.gz",
+   "findings": {
+    "0": "Minimal bronchiectasis",
+    "1": "Minimal atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    319
+   ],
+   "categories": {
+    "0": "1b",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3929_a_1.nii.gz",
+   "findings": {
+    "0": "Parenchymal scarring",
+    "1": "A few nonspecific pulmonary nodules"
+   },
+   "shape": [
+    768,
+    768,
+    216
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3931_a_1.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis",
+    "1": "Consolidation with surrounding ground-glass opacity"
+   },
+   "shape": [
+    512,
+    512,
+    257
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3935_a_2.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    428
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3938_a_2.nii.gz",
+   "findings": {
+    "0": "Focus of consolidation",
+    "1": "Ground-glass opacities with tree-in-bud pattern surrounding the consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    509
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "1e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3940_a_2.nii.gz",
+   "findings": {
+    "0": "Mild central bronchiectasis",
+    "1": "Linear subsegmental atelectasis",
+    "2": "Several indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    551
+   ],
+   "categories": {
+    "0": "1b",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3947_a_1.nii.gz",
+   "findings": {
+    "0": "Diffuse bronchial wall thickening",
+    "1": "Linear atelectasis",
+    "2": "Several indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    353
+   ],
+   "categories": {
+    "0": "1a",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3953_a_2.nii.gz",
+   "findings": {
+    "0": "Mild pleuroparenchymal scarring",
+    "1": "Pulmonary nodule"
+   },
+   "shape": [
+    512,
+    512,
+    523
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3954_a_1.nii.gz",
+   "findings": {
+    "0": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    768,
+    768,
+    233
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3957_a_2.nii.gz",
+   "findings": {
+    "0": "Pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    436
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3961_a_1.nii.gz",
+   "findings": {
+    "0": "Peripheral subpleural nodular ground-glass opacities",
+    "1": "Peripheral subpleural nodular consolidations",
+    "2": "Mild bronchial wall dilatation within areas of consolidation"
+   },
+   "shape": [
+    512,
+    512,
+    188
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "1b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3963_f_2.nii.gz",
+   "findings": {
+    "0": "Several nodules",
+    "1": "Mosaic attenuation"
+   },
+   "shape": [
+    512,
+    512,
+    193
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3967_a_1.nii.gz",
+   "findings": {
+    "0": "Multiple right lung nodules, some calcified; largest 3 mm in the superior segment of the right lower lobe",
+    "1": "Linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    323
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3972_b_2.nii.gz",
+   "findings": {
+    "0": "Multiple patchy peripheral ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    428
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3973_a_1.nii.gz",
+   "findings": {
+    "0": "Patchy subpleural ground-glass opacities"
+   },
+   "shape": [
+    512,
+    512,
+    288
+   ],
+   "categories": {
+    "0": "2c"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3979_b_1.nii.gz",
+   "findings": {
+    "0": "Minimal passive atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    341
+   ],
+   "categories": {
+    "0": "2b"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3981_a_1.nii.gz",
+   "findings": {
+    "0": "Scattered peribronchial ground-glass opacities",
+    "1": "Focal minimal subsegmental consolidation",
+    "2": "A few indeterminate pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    343
+   ],
+   "categories": {
+    "0": "2c",
+    "1": "2b",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_3984_a_1.nii.gz",
+   "findings": {
+    "0": "Minimal pleuroparenchymal scarring",
+    "1": "Indeterminate, nonspecific pulmonary nodules"
+   },
+   "shape": [
+    768,
+    768,
+    210
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_39_b_5.nii.gz",
+   "findings": {
+    "0": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    251
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4001_a_2.nii.gz",
+   "findings": {
+    "0": "Parenchymal air cysts",
+    "1": "Linear subsegmental atelectasis",
+    "2": "Parenchymal nodules, some calcified"
+   },
+   "shape": [
+    512,
+    512,
+    242
+   ],
+   "categories": {
+    "0": "1c",
+    "1": "2a",
+    "2": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4005_a_2.nii.gz",
+   "findings": {
+    "0": "Multiple pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    496
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4039_a_2.nii.gz",
+   "findings": {
+    "0": "Tree-in-bud opacities, present on prior examination"
+   },
+   "shape": [
+    512,
+    512,
+    540
+   ],
+   "categories": {
+    "0": "1e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4039_b_1.nii.gz",
+   "findings": {
+    "0": "Increased centrilobular nodular opacities with a tree-in-bud pattern"
+   },
+   "shape": [
+    512,
+    512,
+    342
+   ],
+   "categories": {
+    "0": "1e"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4045_a_1.nii.gz",
+   "findings": {
+    "0": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    344
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4046_a_1.nii.gz",
+   "findings": {
+    "0": "Scarring"
+   },
+   "shape": [
+    768,
+    768,
+    200
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4058_a_2.nii.gz",
+   "findings": {
+    "0": "A few subpleural indeterminate nodules",
+    "1": "Scarring"
+   },
+   "shape": [
+    512,
+    512,
+    487
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4060_a_2.nii.gz",
+   "findings": {
+    "0": "A few nodules"
+   },
+   "shape": [
+    512,
+    512,
+    517
+   ],
+   "categories": {
+    "0": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4064_a_2.nii.gz",
+   "findings": {
+    "0": "Pleural effusions, prominent",
+    "1": "Near-complete atelectasis",
+    "2": "Minimal ground-glass opacities",
+    "3": "Smooth interlobular septal thickening"
+   },
+   "shape": [
+    512,
+    512,
+    401
+   ],
+   "categories": {
+    "0": "2e",
+    "1": "2b",
+    "2": "2c",
+    "3": "1d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4074_a_1.nii.gz",
+   "findings": {
+    "0": "Mild pleuroparenchymal scarring",
+    "1": "Nodule"
+   },
+   "shape": [
+    512,
+    512,
+    245
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4079_a_1.nii.gz",
+   "findings": {
+    "0": "Atelectasis",
+    "1": "Atelectasis",
+    "2": "Minimal emphysema",
+    "3": "Indeterminate pulmonary nodules"
+   },
+   "shape": [
+    768,
+    768,
+    255
+   ],
+   "categories": {
+    "0": "2b",
+    "1": "2b",
+    "2": "1c",
+    "3": "2d"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4084_a_1.nii.gz",
+   "findings": {
+    "0": "Linear atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    234
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4088_a_2.nii.gz",
+   "findings": {
+    "0": "Subpleural nodule",
+    "1": "Anterior subpleural scarring"
+   },
+   "shape": [
+    512,
+    512,
+    445
+   ],
+   "categories": {
+    "0": "2d",
+    "1": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4092_a_2.nii.gz",
+   "findings": {
+    "0": "Subsegmental atelectasis"
+   },
+   "shape": [
+    512,
+    512,
+    376
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4098_a_2.nii.gz",
+   "findings": {
+    "0": "Minimal to mild pleuroparenchymal scarring"
+   },
+   "shape": [
+    512,
+    512,
+    501
+   ],
+   "categories": {
+    "0": "2a"
+   },
+   "protocol": "test"
+  },
+  {
+   "name": "train_4099_a_2.nii.gz",
+   "findings": {
+    "0": "Pulmonary scarring changes",
+    "1": "A few nonspecific pulmonary nodules"
+   },
+   "shape": [
+    512,
+    512,
+    420
+   ],
+   "categories": {
+    "0": "2a",
+    "1": "2d"
+   },
+   "protocol": "test"
+  }
+ ]
+}
