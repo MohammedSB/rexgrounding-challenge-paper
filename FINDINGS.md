@@ -52,32 +52,33 @@ segmentation network takes the CT volume plus that vector.
   single-instance ones. Partial training labels likely teach models to stop after a few instances.
 - Location: models sometimes segment the right kind of abnormality at the wrong place, which overall Dice hides.
 
-## Controlled prompt experiment (Team 2, AIMHI; Team 4 is being scored)
+## Controlled prompt experiment (Teams 2 and 4)
 
 The same scans were re-run with edited sentences, comparing Dice on only the findings each edit changed. Script:
-`paper/analysis/prompt_experiment.py`. Results: `prompt_variants/returns/AIMHI/prompt_experiment.json`.
+`paper/analysis/prompt_experiment.py`. Results: `prompt_variants/returns/{AIMHI,needpaper}/prompt_experiment.json`
+(AIMHI = Team 2, needpaper = Team 4). The two teams behaved almost identically.
 
-| Edit | n | Dice original | Dice edited |
+| Edit | n | Team 2 original -> edited | Team 4 original -> edited |
 |---|---|---|---|
-| Size removed | 163 | 0.390 | 0.393 |
-| Wrong size (small to 30 mm, large to 3 mm) | 62 | 0.430 | 0.433 |
-| Laterality removed | 446 | 0.339 | 0.320 |
-| Lobe or segment removed | 375 | 0.363 | 0.325 |
-| Finding name only | 564 | 0.341 | 0.292 |
-| Left and right swapped | 222 | 0.397 | 0.109 |
-| Wrong lobe, same lung | 299 | 0.368 | 0.120 |
-| Bilateral finding, left only | 297 | 0.305 | 0.201 |
-| Bilateral finding, right only | 297 | 0.305 | 0.251 |
-| Union of left-only and right-only | 297 | 0.305 | 0.310 |
+| Size removed | 163 | 0.390 -> 0.393 | 0.382 -> 0.387 |
+| Wrong size (small to 30 mm, large to 3 mm) | 62 | 0.430 -> 0.433 | 0.424 -> 0.419 |
+| Laterality removed | 446 | 0.339 -> 0.320 | 0.343 -> 0.315 |
+| Lobe or segment removed | 375 | 0.363 -> 0.325 | 0.363 -> 0.303 |
+| Finding name only | 564 | 0.341 -> 0.292 | 0.347 -> 0.265 |
+| Left and right swapped | 222 | 0.397 -> 0.109 | 0.411 -> 0.081 |
+| Wrong lobe, same lung | 299 | 0.368 -> 0.120 | 0.370 -> 0.118 |
+| Bilateral finding, left only | 297 | 0.305 -> 0.201 | 0.305 -> 0.171 |
+| Bilateral finding, right only | 297 | 0.305 -> 0.251 | 0.305 -> 0.228 |
+| Union of left-only and right-only | 297 | 0.305 -> 0.310 | 0.305 -> 0.304 |
 
 What this means for a new model:
-- Side is followed strongly. After a left/right swap, hit rate fell from 0.77 to 0.24, and the share of the mask on
-  the reference side fell from 93% to 24%. 74% of masks moved to the other side. Large consolidations tended to
-  vanish rather than move.
+- Side is followed strongly. After a left/right swap, hit rate fell from 0.77 to 0.24 (Team 4: 0.79 to 0.16), and
+  the share of the mask on the reference side fell from 93% to 24% (Team 4: 92% to 22%). About 75% of masks moved to
+  the other side. Some masks vanished instead (12% for Team 2, 21% for Team 4), especially large consolidations.
 - Lobe is followed only partly. With a wrong lobe the mask mostly stays in the same lung (86%) but Dice collapses.
 - Stated size is ignored (agreement between original and wrong-size masks 0.98).
-- "Left only" / "right only" prompts put 91% / 96% of the mask on the named side.
-- Removing location details costs 0.02 to 0.05 Dice, so location text helps but most of the signal is the finding
+- "Left only" / "right only" prompts put 91% / 96% (Team 4: 98% / 100%) of the mask on the named side.
+- Removing location details costs 0.02 to 0.08 Dice, so location text helps but most of the signal is the finding
   type plus image evidence.
 
 ## Files

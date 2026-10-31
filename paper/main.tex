@@ -879,8 +879,8 @@ reliably.
 (Dice $\geq$ \chk{0.1}) for the ten best teams. Numbers give the final rank. The
 three winning teams are shown in darker blue. B) Dice (filled) and hit rate
 (outlined) by reference volume of the finding, pooled over the ten best teams.
-C) Controlled prompt experiment. Dice of Team 2 on the findings changed by each
-edit, with the original sentence (open) and the edited sentence (filled).
+C) Controlled prompt experiment. Dice of Teams 2 and 4 on the findings changed by
+each edit, with the original sentence (open) and the edited sentence (filled).
 Numbers give the number of edited findings.}
 \label{fig:further}
 \end{figure*}
@@ -949,24 +949,27 @@ pleural effusions (Figure~\ref{fig:further}B). Size and finding type are
 therefore entangled, and the dip reflects the difficulty of thin linear
 opacities more than volume itself.
 
-Third, language. To test whether the methods follow the wording of a sentence,
-Team 2 reran its final method on edited sentences (Section~\ref{sec:prompt-exp},
-Figure~\ref{fig:further}C).\todo{Results of the other teams, due 30 October. Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially; ask why.}
-Removing the stated size did not change Dice (\chk{0.390} vs.\ \chk{0.393},
-\chk{163} findings), whereas removing the side (\chk{0.339} to \chk{0.320}) or
-the lobe or segment (\chk{0.363} to \chk{0.325}) lowered it, and keeping only the
-name of the finding lowered it most (\chk{0.341} to \chk{0.292}). Wrong
-locations misled the model. With left and right swapped, Dice fell from
-\chk{0.397} to \chk{0.109} and the hit rate from \chk{0.77} to \chk{0.24}, and
-the share of the predicted mask on the side of the finding fell from \chk{93\%}
-to \chk{24\%}. Naming the wrong lobe in the same lung lowered Dice from
-\chk{0.368} to \chk{0.120} (Figure~\ref{fig:prompt-examples}). A wrong size, in
-contrast, left the masks almost unchanged (\chk{0.430} vs.\ \chk{0.433}). When a
-finding in both lungs was prompted for one side only, \chk{91\%} (left) and
-\chk{96\%} (right) of the predicted mask lay on the named side, and the union of
-the two masks scored as well as the original sentence (\chk{0.310} vs.\
-\chk{0.305}). The model therefore relied on the stated side and lobe but not on
-the stated size.
+Third, language. Teams 2 and 4 ran their final methods on edited sentences
+(Section~\ref{sec:prompt-exp}, Figure~\ref{fig:further}C), and both responded to
+the edits in the same way. Numbers below are given for Team 2 and then Team 4.\todo{Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially (Team 4's rerun matched, 0.3606 vs.\ 0.3605); ask Team 2 why. Results of Teams 1 and 3?}
+Removing the stated size did not change Dice (\chk{0.390} vs.\ \chk{0.393} and
+\chk{0.382} vs.\ \chk{0.387}, \chk{163} findings), whereas removing the side
+(\chk{0.339} to \chk{0.320} and \chk{0.343} to \chk{0.315}) or the lobe or
+segment (\chk{0.363} to \chk{0.325} and \chk{0.363} to \chk{0.303}) lowered it,
+and keeping only the name of the finding lowered it most (\chk{0.341} to
+\chk{0.292} and \chk{0.347} to \chk{0.265}). Wrong locations misled both models.
+With left and right swapped, Dice fell from \chk{0.397} to \chk{0.109} and from
+\chk{0.411} to \chk{0.081}, and the hit rate fell to \chk{0.24} and \chk{0.16}.
+The share of the predicted mask on the side of the finding fell from
+\chk{93\%} to \chk{24\%} and from \chk{92\%} to \chk{22\%}. Naming the wrong lobe
+in the same lung lowered Dice from \chk{0.368} to \chk{0.120} and from
+\chk{0.370} to \chk{0.118} (Figure~\ref{fig:prompt-examples}). A wrong size, in
+contrast, left the masks almost unchanged (\chk{0.430} vs.\ \chk{0.433} and
+\chk{0.424} vs.\ \chk{0.419}). When a finding in both lungs was prompted for one
+side only, at least \chk{91\%} of the predicted mask lay on the named side, and
+the union of the two masks scored as well as the original sentence
+(\chk{0.310} and \chk{0.304}, against \chk{0.305}). Both models therefore relied
+on the stated side and lobe but not on the stated size.
 
 \begin{figure*}[!tp]
 \centering
@@ -1097,7 +1100,9 @@ new methods can be evaluated on the same hidden test set.
 % =============================================================================
 \section*{Declarations}
 % =============================================================================
-\paragraph{Author contributions} \todo{Organizer and annotator contributions (BIAS 16).}
+\paragraph{Author contributions}
+Organizers. Mohammed Baharoon: Conceptualization, Methodology, Software, Formal analysis, Visualization, Project administration, Writing (original draft). Mahmoud Hussain Alabbad, Sung Eun Kim and Xiaoman Zhang: Project administration (challenge organization). Luyang Luo: Project administration (challenge organization), Writing (review and editing). Pranav Rajpurkar: Funding acquisition, Supervision, Writing (review and editing).
+Annotation. Michael Moritz and Hassan R. Alomaish: Data curation, Supervision. Ali Piracha, Reem Alwasiah, Talal Yahyan, Abdulrahman Alamoudi, Mashael Alshehri, Rayan Alsager, Hannah Hancock, Anna M. Hunkemöller, Peter Youssef, Mona A. Alhammad, Afnan Aljumayan, Lucas Bijnens, Brecht Van Berkel, Eric Bijnens, Saud Alhussain, Maarten Steyvers, Rolf Symons, Bryan Eelen, Ayed Alaklubi, Maha Buraykan Alshammari, Amirah Fahad Alshammeri, Tomas Gilvydis, Ibrahim AlTurki, Monerah Almohideb and Ali Alburkani: Data curation.
 Team~1. Zirong Chen: Data curation, Methodology, Software, Validation. Jiayu Wang: Formal analysis, Investigation, Methodology, Software. Xi Ouyang: Methodology, Software, Validation, Visualization. Xiaodan Ye: Data curation, Formal analysis, Investigation. Weiqiu Jin: Data curation, Formal analysis, Investigation. Mingyang Yu: Formal analysis, Investigation, Software. Dijia Wu: Formal analysis, Investigation, Methodology, Writing (review and editing).
 Team~2. Kwang-Hyun Uhm: Conceptualization, Formal analysis, Investigation, Methodology, Project administration, Software, Supervision, Validation. Inhwa Son: Data curation, Formal analysis, Validation.
 Team~3. Rachel van~'t Hull: Conceptualization, Data curation, Formal analysis, Investigation, Methodology, Software, Validation, Visualization, Writing (original draft). Kevin Groot Lipman: Conceptualization, Methodology, Resources, Software, Supervision, Writing (review and editing). Tim Veenboer: Methodology, Resources. Cees Snoek: Supervision.
