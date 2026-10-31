@@ -1,0 +1,4 @@
+First challenge on grounding radiology report findings in 3D chest CT
+48 teams segmented free-text findings in 300 exhaustively annotated CT scans
+The best methods match inter-radiologist agreement in Dice and hit rate
+Diffuse findings and multi-lesion findings remain the main open problems

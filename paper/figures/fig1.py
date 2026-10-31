@@ -19,6 +19,7 @@ import nibabel as nib
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle, Polygon, Ellipse, Patch
 from matplotlib.transforms import Affine2D
 from matplotlib.colors import to_rgb
@@ -42,8 +43,8 @@ plt.rcParams.update({
     "xtick.major.width": 0.6, "ytick.major.width": 0.6, "xtick.major.size": 2.5, "ytick.major.size": 2.5,
     "pdf.fonttype": 42, "svg.fonttype": "none",
 })
-VARIANT_C = os.environ.get("FIG1C", "map")                      # map | participation | leaderboard
-W, H = 7.5, (7.5 if VARIANT_C == "map" else 6.55)
+VARIANT_C = os.environ.get("FIG1C", "map")                      # map | participation | leaderboard | results
+W, H = 7.5, {"map": 7.5, "results": 7.0}.get(VARIANT_C, 6.55)
 fig = plt.figure(figsize=(W, H))
 
 def letter(x, y, s):
@@ -425,6 +426,60 @@ def panel_c_leaderboard(x0, y0, w, h):
               fontsize=6, handlelength=1.0, handleheight=0.9, columnspacing=1.2, borderaxespad=0.1)
     heading(ax, f"Final Dice of all {len(merged)} teams, by affiliation")
 
+
+# =================================================================== c (alt): results
+def panel_c_results(x0, y0, w, h):
+    """Results in the visual language of panel B: two rounded boxes. Left: Dice of the ten best teams with 95%
+    bootstrap CI and the best pre-challenge model as reference. Right: mean Dice of the ten best teams per finding
+    category (categories with at least five test findings)."""
+    ax = canvas(x0, y0, w, h); CW, CH = w * W, h * H
+    split = 4.05
+    ax.add_patch(FancyBboxPatch((0.05, 0.05), split - 0.15, CH - 0.24, boxstyle="round,pad=0,rounding_size=0.08",
+                                facecolor=PANEL, edgecolor="none"))
+    ax.add_patch(FancyBboxPatch((split + 0.05, 0.05), CW - split - 0.12, CH - 0.24,
+                                boxstyle="round,pad=0,rounding_size=0.08", facecolor=PANEL2, edgecolor="none"))
+    ax.text(0.20, CH - 0.35, "Results", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+    ax.text(0.78, CH - 0.35, "Dice of the ten best teams on the 300 test scans", fontsize=FS_BODY, color=INK2, va="center")
+    ax.text(split + 0.20, CH - 0.35, "By finding type", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+    ax.text(split + 1.22, CH - 0.35, "Mean Dice of the ten best teams", fontsize=FS_BODY, color=INK2, va="center")
+    GR = "#dcdad5"                                                                 # grid on the tinted boxes
+    def inset(xi, wi):                                                             # chart axes, inches -> figure fractions
+        a2 = fig.add_axes([x0 + xi / W, y0 + 0.44 / H, wi / W, (CH - 1.05) / H], facecolor="none")
+        a2.spines["left"].set_visible(False); a2.tick_params(axis="y", length=0)
+        a2.xaxis.grid(True, color=GR, linewidth=0.5); a2.set_axisbelow(True); return a2
+    # ---- left: dot and CI per team
+    stats = {s["team"]: s for s in json.load(open(os.path.join(ROOT, "paper", "analysis", "ranking_stats.json")))["teams"]}
+    top = merged[:10]; ys = np.arange(len(top))[::-1]
+    aL = inset(0.78, split - 1.15)
+    for y, r in zip(ys, top):
+        d = float(r["dice_full_test"]); lo, hi = stats[r["team"]]["ci95"]
+        aL.plot([lo, hi], [y, y], color=SEQ[2], linewidth=1.4, solid_capstyle="butt", zorder=2)
+        aL.plot([d], [y], marker="o", ms=3.6, color=SEQ[4], mec="white", mew=0.5, zorder=3)
+    aL.set_yticks(list(ys)); aL.set_yticklabels([f"Team {r['rank']}" for r in top], fontsize=6.2)
+    aL.set_xlim(0.26, 0.42); aL.set_xticks([0.30, 0.35, 0.40]); aL.set_xticklabels(["0.30", "0.35", "0.40"])
+    aL.set_ylim(-0.7, len(top) - 0.3); aL.set_xlabel("Dice with 95% confidence interval", labelpad=2)
+    aL.axvline(0.285, color=INK2, linewidth=0.7, linestyle=(0, (3, 2)), zorder=1)
+    aL.text(0.285 + 0.003, len(top) - 0.25, "Best model before the challenge (0.285)", fontsize=FS_NOTE, color=INK2,
+            ha="left", va="bottom", clip_on=False)
+    # ---- right: Dice by category
+    R = json.load(open(os.path.join(ROOT, "final_results_MICCAI2026.json")))["results"]
+    pcs = [next(x for x in R if abs(x["metrics_full_test_set"]["dice"] - float(r["dice_full_test"])) < 5e-6)["per_category_full_test_set"]
+           for r in top]
+    n = {k: v["n"] for k, v in pcs[0].items()}
+    mean = {k: float(np.mean([pc[k]["dice"] for pc in pcs])) for k in n}
+    keys = [k for k in n if n[k] >= 5]
+    order = sorted([k for k in keys if focal(k)], key=lambda k: -mean[k]) + sorted([k for k in keys if not focal(k)], key=lambda k: -mean[k])
+    aR = inset(split + 1.45, CW - split - 1.65); ys = np.arange(len(order))[::-1]
+    for y, k in zip(ys, order):
+        aR.barh(y, mean[k], height=0.62, color=BLUE if focal(k) else SEQ[1], edgecolor="none")
+    aR.set_yticks(list(ys)); aR.set_yticklabels([NAMES[k] for k in order], fontsize=6.2)
+    aR.set_xlim(0, 0.5); aR.set_xticks([0, 0.2, 0.4]); aR.set_xticklabels(["0", "0.2", "0.4"]); aR.set_ylim(-0.7, len(order) - 0.3)
+    aR.set_xlabel("Dice", labelpad=2)
+    nf = sum(1 for k in order if not focal(k))
+    aR.axhline(nf - 0.5, color=LINE, linewidth=0.6)                                 # rule between the focal and non-focal groups
+    aR.legend(handles=[Patch(color=BLUE, label="Focal"), Patch(color=SEQ[1], label="Non-focal")], loc="lower right",
+              frameon=False, fontsize=6, handlelength=1.0, handleheight=0.9, borderaxespad=0.2)
+
 # =================================================================== d: categories
 def panel_d(ax):
     order = CAT_ORDER[::-1]; ys = range(len(order))
@@ -514,7 +569,7 @@ def axes_at(x, y, w, h, row):
 panel_a(0.0, rows["a"][0], 1.0, rows["a"][1]); letter(0.012, rows["a"][0] + rows["a"][1] + 0.004, "A")
 panel_b(0.0, rows["b"][0], 1.0, rows["b"][1]); letter(0.012, rows["b"][0] + rows["b"][1] + 0.004, "B")
 y, hh = rows["c"]
-{"map": panel_c, "participation": panel_c_participation, "leaderboard": panel_c_leaderboard}[VARIANT_C](0.0, y, 1.0, hh)
+{"map": panel_c, "participation": panel_c_participation, "leaderboard": panel_c_leaderboard, "results": panel_c_results}[VARIANT_C](0.0, y, 1.0, hh)
 letter(0.012, y + hh + 0.004, "C")
 
 # Check: every text and patch in panel b must lie inside one of its two phase boxes.

@@ -45,9 +45,9 @@ axB.yaxis.grid(True, color=GRID, linewidth=0.5); axB.set_axisbelow(True); axB.sp
 axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor="none", edgecolor=FOCAL, linewidth=0.8, label="Hit rate")],
            loc="upper left", bbox_to_anchor=(0.0, 0.93), frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85, labelspacing=0.3, borderaxespad=0.1)
 
-# C: controlled prompt experiment (Teams 2 and 4): the same findings with the original and with the edited sentence
+# C: controlled prompt experiment (Teams 2, 3 and 4): the same findings with the original and with the edited sentence
 RET = os.path.join(HERE, "..", "..", "prompt_variants", "returns")
-TEAMS = [("Team 2", "AIMHI", FOCAL, 0.17), ("Team 4", "needpaper", DEEP, -0.17)]   # label, folder, colour, row offset
+TEAMS = [("Team 2", "AIMHI", FOCAL, 0.24), ("Team 3", "fomofo", "#6da7ec", 0.0), ("Team 4", "needpaper", DEEP, -0.24)]   # label, folder, colour, row offset
 PE = {lab: json.load(open(os.path.join(RET, d, "prompt_experiment.json")))["variants"] for lab, d, _, _ in TEAMS}
 C = [("Size removed", "no_size"), ("Wrong size", "wrong_size"), ("Laterality removed", "no_laterality"),
      ("Lobe or segment removed", "no_lobe_segment"), ("Finding name only", "finding_only"),
@@ -65,10 +65,11 @@ axC.set_yticks(ys); axC.set_yticklabels([c[0] for c in C], fontsize=6.3); axC.ti
 axC.set_xlim(0.0, 0.54); axC.set_xticks([0.0, 0.1, 0.2, 0.3, 0.4]); axC.set_xticklabels(["0", "0.1", "0.2", "0.3", "0.4"])
 axC.text(0.535, len(C) - 0.45, "n", va="bottom", ha="right", fontsize=5.6, color=INK2)
 axC.set_xlabel("Dice on edited findings", color=INK, labelpad=2)
-axC.xaxis.grid(True, color=GRID, linewidth=0.5); axC.set_axisbelow(True); axC.set_ylim(-2.4, len(C) - 0.4)
+axC.xaxis.grid(True, color=GRID, linewidth=0.5); axC.set_axisbelow(True); axC.set_ylim(-2.6, len(C) - 0.4)
 axC.legend(handles=[Line2D([], [], linestyle="none", marker="o", ms=3.8, mfc="white", mec=FOCAL, mew=0.8, label="Original"),
                     Line2D([], [], linestyle="none", marker="o", ms=3.8, color=FOCAL, label="Edited"),
                     Line2D([], [], color=FOCAL, linewidth=1.4, label="Team 2"),
+                    Line2D([], [], color="#6da7ec", linewidth=1.4, label="Team 3"),
                     Line2D([], [], color=DEEP, linewidth=1.4, label="Team 4")],
            loc="lower left", ncol=2, frameon=False, fontsize=6.0, handlelength=1.0, labelspacing=0.25, columnspacing=1.0, borderaxespad=0.1)
 

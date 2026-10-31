@@ -61,7 +61,7 @@ Results of the ReXGrounding Challenge}
 % Author order: organizers' placement still to decide. Team blocks are in
 % final-rank order; within-team order as requested by each team.
 % Tracking sheet: authors.csv
-\author[hms]{Mohammed Baharoon}
+\author[hms]{Mohammed Baharoon\corref{cor1}}
 \author[kfh]{Mahmoud Hussain Alabbad}
 \author[hms]{Sung Eun Kim}
 \author[hms]{Xiaoman Zhang}
@@ -186,46 +186,33 @@ Results of the ReXGrounding Challenge}
 \affiliation[palg]{organization={Pattern Analysis and Learning Group, Heidelberg University Hospital}, city={Heidelberg}, country={Germany}}
 
 \affiliation[yale]{organization={Department of Biostatistics, Yale School of Public Health}, city={New Haven}, state={CT}, country={USA}}
+\cortext[cor1]{Corresponding author. Email address: \href{mailto:MohammedSalimAB@outlook.com}{\texttt{MohammedSalimAB@outlook.com}}}
 \fntext[cosenior]{These authors contributed equally as senior authors.}
 % ---------------------------------------------------------------------------
 \begin{abstract}
 \small
-\textbf{Background.} Radiology reports describe the location of findings
-through language, using anatomical terms or slice numbers, but do not record their 3D
-extent, which leaves referring physicians to search the scan for each finding again.
-Segmenting each reported finding in 3D would make reports easier to
-communicate and visualize, allow findings to be measured and tracked over time, and let AI
-systems generate reports whose findings are grounded in the volume and
-verifiable. However, no benchmark existed for localizing free-text
-findings in volumetric CT.
-
-\textbf{Methods.} Given a non-contrast chest CT scan from CT-RATE and a free-text
-finding, participants produced a 3D segmentation of that finding. Teams trained
-on \chk{2,992} scans and validated on \chk{200} scans from the ReXGroundingCT
-dataset, and were evaluated on a held-out test set of \chk{300} scans with
+Segmenting each reported finding in the image would
+make reports easier to communicate and visualize, allow findings to be measured
+and tracked over time, and let AI systems generate reports whose findings are
+grounded in the image and verifiable. To bring the community together on
+this task, we organized the ReXGrounding Challenge as part of MICCAI 2026. Given a non-contrast chest CT scan and a free-text finding, participants
+produced a 3D segmentation of that finding. The challenge used
+\chk{2,992} training and \chk{200} validation scans from the ReXGroundingCT
+dataset, and evaluated methods on a held-out test set of \chk{300} scans with
 \chk{582} findings in \chk{13} categories, exhaustively annotated by
-board-certified radiologists. The primary metric was the mean Dice per finding
-per case, with hit rate (Dice $\geq$ \chk{0.1}) and instance F1 reported as
-secondary metrics. We
-organized the ReXGrounding Challenge as part of MICCAI 2026.
-
-\textbf{Results.} The best method reached a Dice of \chk{0.375} and a hit
+board-certified radiologists. In total, \chk{48} teams from \chk{15} countries
+made \chk{760} submissions.
+The best method reached a Dice of \chk{0.375} and a hit
 rate of \chk{0.77}, matching agreement between two independent radiologist
-groups (Dice \chk{0.32}, hit rate \chk{0.76}, on a \chk{50}-scan subset) and
-exceeding the best pre-challenge model (Dice \chk{0.285}). Five of the six best teams fine-tuned VoxTell, a pretrained text-promptable
-segmentation model, and several restricted their masks to the lobe or side
-named in the sentence. Non-focal findings remained far harder to segment than focal
-ones (Dice \chk{0.18--0.24} vs.\ \chk{0.35--0.38} among the top six teams),
-instance F1 stayed below inter-reader agreement (\chk{0.34} vs.\ \chk{0.47}),
-and qualitative failure analysis showed models segmenting the right abnormality
-in the wrong location.
-In total, \chk{48} teams from \chk{15} countries made \chk{760} submissions
-to the challenge.
-
-\textbf{Conclusions.} Top methods reach Dice values in the range of agreement
+groups (Dice \chk{0.32}, hit rate \chk{0.76}, on a \chk{50}-scan subset). On
+the \chk{100} scans of the pre-challenge benchmark, the winner reached a Dice of
+\chk{0.390}, against \chk{0.285} for VoxTell, the best model before the
+challenge, which five of the six best teams fine-tuned. Non-focal findings
+remained far harder to segment than focal ones, instance F1 stayed below
+inter-reader agreement (\chk{0.34} vs.\ \chk{0.47}), and models sometimes
+segmented the right abnormality in the wrong location. Top methods thus reach Dice values in the range of agreement
 between independent radiologist groups, but non-focal findings and adherence
-to the anatomical location described in the text remain open problems. The
-test set remains available for benchmarking through a public leaderboard.
+to the anatomical location described in the text remain open problems.
 \end{abstract}
 
 \begin{keyword}
@@ -291,9 +278,11 @@ participants segmented that finding in 3D. Methods were evaluated on
 \chk{300} held-out scans with \chk{582} findings, exhaustively annotated by
 board-certified radiologists, and \chk{48} teams from \chk{15} countries made
 \chk{760} submissions. The challenge led to four main findings, which this paper
-reports following the BIAS guideline \citep{maier2020bias}. First, the best method reached a Dice of \chk{0.375}, up from \chk{0.285}
-for the best model before the challenge \citep{rokuss2026voxtell}, and a hit rate of \chk{0.77}, matching the agreement
-between two independent radiologist groups. Second,
+reports following the BIAS guideline \citep{maier2020bias}. First, the best method reached a Dice of \chk{0.375} and a hit rate of
+\chk{0.77}, matching the agreement between two independent radiologist groups.
+On the \chk{100} scans of the pre-challenge benchmark it reached a Dice of
+\chk{0.390}, up from \chk{0.285} for the best model before the challenge
+\citep{rokuss2026voxtell}. Second,
 the top four teams were within \chk{0.015} Dice and could not be separated
 statistically, so the choice of ranking scheme determined the winner. Third,
 the top methods converged on a common recipe: fine-tuning a pretrained
@@ -879,8 +868,8 @@ reliably.
 (Dice $\geq$ \chk{0.1}) for the ten best teams. Numbers give the final rank. The
 three winning teams are shown in darker blue. B) Dice (filled) and hit rate
 (outlined) by reference volume of the finding, pooled over the ten best teams.
-C) Controlled prompt experiment. Dice of Teams 2 and 4 on the findings changed by
-each edit, with the original sentence (open) and the edited sentence (filled).
+C) Controlled prompt experiment. Dice of Teams 2, 3 and 4 on the findings changed
+by each edit, with the original sentence (open) and the edited sentence (filled).
 Numbers give the number of edited findings.}
 \label{fig:further}
 \end{figure*}
@@ -949,41 +938,23 @@ pleural effusions (Figure~\ref{fig:further}B). Size and finding type are
 therefore entangled, and the dip reflects the difficulty of thin linear
 opacities more than volume itself.
 
-Third, language. Teams 2 and 4 ran their final methods on edited sentences
-(Section~\ref{sec:prompt-exp}, Figure~\ref{fig:further}C), and both responded to
-the edits in the same way. Numbers below are given for Team 2 and then Team 4.\todo{Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially (Team 4's rerun matched, 0.3606 vs.\ 0.3605); ask Team 2 why. Results of Teams 1 and 3?}
-Removing the stated size did not change Dice (\chk{0.390} vs.\ \chk{0.393} and
-\chk{0.382} vs.\ \chk{0.387}, \chk{163} findings), whereas removing the side
-(\chk{0.339} to \chk{0.320} and \chk{0.343} to \chk{0.315}) or the lobe or
-segment (\chk{0.363} to \chk{0.325} and \chk{0.363} to \chk{0.303}) lowered it,
-and keeping only the name of the finding lowered it most (\chk{0.341} to
-\chk{0.292} and \chk{0.347} to \chk{0.265}). Wrong locations misled both models.
-With left and right swapped, Dice fell from \chk{0.397} to \chk{0.109} and from
-\chk{0.411} to \chk{0.081}, and the hit rate fell to \chk{0.24} and \chk{0.16}.
-The share of the predicted mask on the side of the finding fell from
-\chk{93\%} to \chk{24\%} and from \chk{92\%} to \chk{22\%}. Naming the wrong lobe
-in the same lung lowered Dice from \chk{0.368} to \chk{0.120} and from
-\chk{0.370} to \chk{0.118} (Figure~\ref{fig:prompt-examples}). A wrong size, in
-contrast, left the masks almost unchanged (\chk{0.430} vs.\ \chk{0.433} and
-\chk{0.424} vs.\ \chk{0.419}). When a finding in both lungs was prompted for one
-side only, at least \chk{91\%} of the predicted mask lay on the named side, and
-the union of the two masks scored as well as the original sentence
-(\chk{0.310} and \chk{0.304}, against \chk{0.305}). Both models therefore relied
-on the stated side and lobe but not on the stated size.
-
-\begin{figure*}[!tp]
-\centering
-\includegraphics[width=\textwidth]{figures/fig_prompt_examples.pdf}
-\caption{Examples from the controlled prompt experiment (Team 2). Each row shows
-one test finding segmented with its original sentence (left) and with edited
-sentences. Masks are rendered in 3D inside the lungs and viewed from the front
-(patient's right on the left). The reference is shown in translucent green, and
-predicted surfaces are blue where they lie within \chk{3}\,mm of the reference
-and orange elsewhere. Circles mark masks smaller than \chk{1}\,mL. Dice is
-computed against the unchanged reference, so a prompt for one side of a
-bilateral finding (last row) can cover at most part of it.}
-\label{fig:prompt-examples}
-\end{figure*}
+Third, language. Teams 2, 3 and 4 ran their final methods on edited sentences
+(Section~\ref{sec:prompt-exp}, Figure~\ref{fig:further}C), and all three
+responded to the edits in the same way. Ranges below span the three teams.\todo{Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially (Teams 3 and 4 matched their official scores); ask Team 2 why. Team 1 has not sent results.}
+Removing the stated size changed Dice by less than \chk{0.01} (\chk{163}
+findings), whereas removing the side lowered it by \chk{0.02--0.03}, removing
+the lobe or segment by \chk{0.04--0.06}, and keeping only the name of the
+finding by \chk{0.05--0.08}. Wrong locations misled all three models. With left
+and right swapped, Dice fell from \chk{0.40--0.41} to \chk{0.08--0.11} and the
+hit rate from \chk{0.77--0.80} to \chk{0.16--0.24}, and the share of the
+predicted mask on the side of the finding fell from \chk{92--93\%} to
+\chk{22--24\%}. Naming the wrong lobe in the same lung lowered Dice from
+\chk{0.37} to \chk{0.07--0.12} (Figure~\ref{fig:prompt-examples}). A wrong size,
+in contrast, left the masks almost unchanged (Dice changed by less than
+\chk{0.01}). When a finding in both lungs was prompted for one side only, at
+least \chk{91\%} of the predicted mask lay on the named side, and the union of
+the two masks scored within \chk{0.01} of the original sentence. The models
+therefore relied on the stated side and lobe but not on the stated size.
 
 % =============================================================================
 \section{Discussion}
@@ -1134,9 +1105,16 @@ licence, and its model weights at
 \url{https://huggingface.co/fomofo/TAGS-ReXGroundingCT} (CC BY-NC-SA 4.0 for the
 VoxTell models and CC BY-NC 4.0 for the TAP-CT models). The code of Team~4 is
 available from the team on request.
-\paragraph{Acknowledgements} \todo{}
+\paragraph{Funding} This research did not receive any specific grant from
+funding agencies in the public, commercial, or not-for-profit sectors.
 
-% Remaining \citesugg placeholders have no entry in references.bib yet.
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the authors used Claude (Anthropic) to help
+draft and edit the text, write analysis and figure code, and check reported
+numbers against the analysis outputs. After using this tool, the authors
+reviewed and edited the content as needed and take full responsibility for the
+content of the published article.
+
 \bibliographystyle{elsarticle-harv}
 \bibliography{references}
 
@@ -1250,6 +1228,23 @@ the mean Dice are given in Table~\ref{tab:leaderboard}.}
 \label{fig:ranking}
 \end{figure*}
 
+
+\section{Examples from the controlled prompt experiment}
+\label{app:prompt-examples}
+\setcounter{figure}{0}
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_prompt_examples.pdf}
+\caption{Examples from the controlled prompt experiment (Team 2). Each row shows
+one test finding segmented with its original sentence (left) and with edited
+sentences. Masks are rendered in 3D inside the lungs and viewed from the front
+(patient's right on the left). The reference is shown in translucent green, and
+predicted surfaces are blue where they lie within \chk{3}\,mm of the reference
+and orange elsewhere. Circles mark masks smaller than \chk{1}\,mL. Dice is
+computed against the unchanged reference, so a prompt for one side of a
+bilateral finding (last row) can cover at most part of it.}
+\label{fig:prompt-examples}
+\end{figure*}
 
 \section{BIAS checklist}
 \label{app:bias}
