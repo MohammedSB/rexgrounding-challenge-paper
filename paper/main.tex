@@ -194,12 +194,13 @@ Results of the ReXGrounding Challenge}
 Segmenting each reported finding in the image would
 make reports easier to communicate and visualize, allow findings to be measured
 and tracked over time, and let AI systems generate reports whose findings are
-grounded in the image and verifiable. To bring the community together on
-this task, we organized the ReXGrounding Challenge as part of MICCAI 2026. Given a non-contrast chest CT scan and a free-text finding, participants
+verifiable, but AI models have so far performed poorly at this task. We
+organized the ReXGrounding Challenge at MICCAI 2026 as the first challenge
+dedicated to it. Given a non-contrast chest CT scan and a free-text finding, participants
 produced a 3D segmentation of that finding. The challenge used
 \chk{2,992} training and \chk{200} validation scans from the ReXGroundingCT
 dataset, and evaluated methods on a held-out test set of \chk{300} scans with
-\chk{582} findings in \chk{13} categories, exhaustively annotated by
+\chk{582} findings, exhaustively annotated by
 board-certified radiologists. In total, \chk{48} teams from \chk{15} countries
 made \chk{760} submissions.
 The best method reached a Dice of \chk{0.375} and a hit
@@ -868,9 +869,10 @@ reliably.
 (Dice $\geq$ \chk{0.1}) for the ten best teams. Numbers give the final rank. The
 three winning teams are shown in darker blue. B) Dice (filled) and hit rate
 (outlined) by reference volume of the finding, pooled over the ten best teams.
-C) Controlled prompt experiment. Dice of Teams 2, 3 and 4 on the findings changed
-by each edit, with the original sentence (open) and the edited sentence (filled).
-Numbers give the number of edited findings.}
+C) Controlled prompt experiment. Dice on the findings changed by each edit, with
+the original sentence (open) and the edited sentence (filled), averaged over
+Teams 2, 3 and 4. Numbers give the number of edited findings. Per-team results
+are shown in Figure~\ref{fig:prompt-teams}.}
 \label{fig:further}
 \end{figure*}
 
@@ -1229,9 +1231,22 @@ the mean Dice are given in Table~\ref{tab:leaderboard}.}
 \end{figure*}
 
 
-\section{Examples from the controlled prompt experiment}
+\section{Controlled prompt experiment}
 \label{app:prompt-examples}
 \setcounter{figure}{0}
+Figure~\ref{fig:prompt-teams} gives the results of the controlled prompt
+experiment (Section~\ref{sec:prompt-exp}) for each of the three teams that
+took part, and Figure~\ref{fig:prompt-examples} shows example predictions.
+
+\begin{figure}[!tp]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_prompt_teams.pdf}
+\caption{Controlled prompt experiment by team. Dice of Teams 2, 3 and 4 on the
+findings changed by each edit, with the original sentence (open) and the edited
+sentence (filled). Numbers give the number of edited findings.}
+\label{fig:prompt-teams}
+\end{figure}
+
 \begin{figure*}[!tp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_prompt_examples.pdf}
