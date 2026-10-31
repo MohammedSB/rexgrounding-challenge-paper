@@ -46,7 +46,7 @@ axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor="none"
            loc="upper left", bbox_to_anchor=(0.0, 0.93), frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85, labelspacing=0.3, borderaxespad=0.1)
 
 # C: controlled prompt experiment (Teams 2, 3 and 4): the same findings with the original and with the edited sentence.
-# Figure 6C shows the mean over the three teams; the per-team version goes to the appendix (fig_prompt_teams).
+# Figure 6C shows the mean over the three teams; per_team=True draws one dumbbell per team instead.
 RET = os.path.join(HERE, "..", "..", "prompt_variants", "returns")
 TEAMS = [("Team 2", "AIMHI", FOCAL, 0.24), ("Team 3", "fomofo", "#6da7ec", 0.0), ("Team 4", "needpaper", DEEP, -0.24)]   # label, folder, colour, row offset
 PE = {lab: json.load(open(os.path.join(RET, d, "prompt_experiment.json")))["variants"] for lab, d, _, _ in TEAMS}
@@ -92,8 +92,3 @@ for xpos, letter in ((0.01, "A"), (0.345, "B"), (0.635, "C")):
 for ext in ("pdf", "svg"): fig.savefig(os.path.join(HERE, f"fig_further.{ext}"))
 fig.savefig(os.path.join(HERE, "fig_further_preview.png"), dpi=220); print("ok")
 
-# Appendix figure: per-team results of the controlled prompt experiment
-fig2 = plt.figure(figsize=(3.45, 2.6)); ax2 = fig2.add_axes([0.42, 0.165, 0.555, 0.74])
-prompt_panel(ax2, per_team=True)
-for ext in ("pdf", "svg"): fig2.savefig(os.path.join(HERE, f"fig_prompt_teams.{ext}"))
-fig2.savefig(os.path.join(HERE, "fig_prompt_teams_preview.png"), dpi=220)
