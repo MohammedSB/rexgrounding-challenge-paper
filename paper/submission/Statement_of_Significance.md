@@ -21,7 +21,19 @@ Answer: No. No version of this paper has been published as a peer-reviewed paper
 
 Please provide 3 to 5 Associate Editors of this journal whom you consider best suited to judge the contributions of your manuscript, together with your rationale for each selection (https://www.sciencedirect.com/journal/medical-image-analysis/about/editorial-board). Please note that each nominee should be based in countries different from the authors. Please DO NOT select any names with whom any of the listed authors have a conflict of interest, i.e., prior professional collaborations, such as co-authoring publications. If you select an Associate Editor who has previously collaborated with a listed author, please explain why no conflict of interest exists. Please DO NOT propose Executive Committee or Senior Editor names.
 
-Answer: [To be completed from the editorial board page. Constraints: nominees must be based outside the authors' countries (USA, Saudi Arabia, China, South Korea, the Netherlands, Germany and Belgium) and must not have co-authored with any of the 56 listed authors. Suitable profiles: Associate Editors who have organized or analysed MICCAI challenges, or who work on vision-language models or text-guided segmentation for CT. Suggested format for each: Name, institution, country. Rationale: one sentence. No prior collaboration with any listed author.]
+Answer:
+
+1. Kensaku Mori, Nagoya University, Japan. Long record in CT image analysis of the chest and abdomen and in organizing and evaluating MICCAI challenges, so well placed to judge both the CT grounding task and the challenge design. No prior collaboration with any listed author.
+
+2. Leo Joskowicz, Hebrew University of Jerusalem, Israel. Works on lesion segmentation in CT, on observer variability and on the evaluation of segmentation methods, which are central to our analysis of inter-rater agreement and ranking stability. No prior collaboration with any listed author.
+
+3. Elsa Angelini, Imperial College London, United Kingdom. Expertise in quantitative lung CT analysis, including diffuse lung disease, which matches our finding categories and the focal versus non-focal analysis. No prior collaboration with any listed author.
+
+4. Ender Konukoglu, ETH Zurich, Switzerland. Expertise in machine learning for medical image segmentation, including uncertainty and evaluation methodology, relevant to the statistical analysis and the controlled prompt experiment. No prior collaboration with any listed author.
+
+5. Hrvoje Bogunović, Medical University of Vienna, Austria. Has organized and reported MICCAI challenges and works on segmentation of pathology in volumetric imaging, so he can judge the challenge report format and the BIAS reporting. No prior collaboration with any listed author.
+
+[Authors to double-check the "no prior collaboration" statements against their own publication lists before upload. Excluded on purpose: all editors in the authors' countries (USA, Saudi Arabia, China including Hong Kong, South Korea, the Netherlands, Germany, Belgium), Executive Committee and Senior Editors, and Associate Editors who co-authored the Metrics Reloaded or BIAS consortium papers with Klaus Maier-Hein (Kainz, Reyes, Rajpoot, Litjens, Collins, Menze) or the VLM3D challenge design with Pranav Rajpurkar and Xiaoman Zhang (Menze, Kainz, Batmanghelich, Zongwei Zhou).]
 
 ## Question 4
 
@@ -49,13 +61,13 @@ Answer:
 
 1. VoxTell: Free-text promptable universal 3D medical image segmentation. Rokuss, M. (first), Maier-Hein, K. (last). Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026. [DOI to confirm]. Proposes one text-promptable 3D segmentation model and was the best model before the challenge; our paper is a challenge report that compares 48 methods on a hidden test set.
 
-2. BiomedParse: a biomedical foundation model for image parsing of everything everywhere all at once. Zhao, T. (first), Poon, H. (last). Nature Methods, 2025. https://doi.org/10.1038/s41592-024-02499-w [to confirm]. Text-guided segmentation of biomedical images, mainly 2D, prompted with object names; our task grounds full report sentences in 3D volumes.
+2. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. [DOI to confirm]. Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
 
-3. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. [DOI to confirm]. Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
+3. Rapid artificial intelligence solutions in a pandemic: the COVID-19-20 Lung CT Lesion Segmentation Challenge. Roth, H.R. (first), Xu, D. (last) [last author to confirm]. Medical Image Analysis, 2022. https://doi.org/10.1016/j.media.2022.102605. A MICCAI challenge report on segmenting one lesion type in chest CT from image input alone; our challenge segments any reported finding from its sentence and analyses the use of the text.
 
-4. Unleashing the strengths of unlabelled data in deep learning-assisted pan-cancer abdominal organ quantification: the FLARE22 challenge. Ma, J. (first), Wang, B. (last). The Lancet Digital Health, 2024. [DOI to confirm]. A MICCAI challenge report on CT segmentation of fixed anatomical classes; our challenge targets free-text findings and adds a language analysis.
+4. The Liver Tumor Segmentation Benchmark (LiTS). Bilic, P. (first), Menze, B. (last). Medical Image Analysis, 2023. https://doi.org/10.1016/j.media.2022.102680. A long-running CT lesion segmentation benchmark with a fixed target class; our benchmark targets free-text findings across 14 categories with exhaustive radiologist annotation and a controlled language experiment.
 
-5. BIAS: Transparent reporting of biomedical image analysis challenges. Maier-Hein, L. (first), Kopp-Schneider, A. (last). Medical Image Analysis, 2020. https://doi.org/10.1016/j.media.2020.101796. The reporting guideline our paper follows; it does not report a challenge.
+5. Unleashing the strengths of unlabelled data in deep learning-assisted pan-cancer abdominal organ quantification: the FLARE22 challenge. Ma, J. (first), Wang, B. (last). The Lancet Digital Health, 2024. https://doi.org/10.1016/S2589-7500(24)00154-7 [DOI to confirm]. A large MICCAI challenge report on CT segmentation of fixed anatomical classes following BIAS; our report follows the same reporting standard for a text-conditioned task.
 
 ## Question 7
 

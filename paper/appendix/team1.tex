@@ -1,12 +1,12 @@
 \subsection{Team 1}
 \label{app:team1}
 
-\paragraph{Data} Segmentation training used the \chk{2,992} ReXGroundingCT
+\paragraph{Data} Segmentation training used the 2,992 ReXGroundingCT
 training scans with their findings and masks. The image encoder, CIRCLE, was
-pretrained on \chk{403,500} non-contrast chest CT scans from \chk{288,740}
+pretrained on 403,500 non-contrast chest CT scans from 288,740
 patients, paired with radiology reports. Additional in-house data comprised
-\chk{950} scans from the CIRCLE cohort at Zhongshan Hospital, Fudan University,
-Shanghai, China: \chk{800} scans with pulmonary nodules and \chk{150} challenging
+950 scans from the CIRCLE cohort at Zhongshan Hospital, Fudan University,
+Shanghai, China: 800 scans with pulmonary nodules and 150 challenging
 scans covering lung cancer, pneumonia and other infections, and less common
 thoracic conditions. Positive finding descriptions were extracted from each
 report, and annotation engineers with medical backgrounds exhaustively
@@ -15,8 +15,8 @@ paired descriptions and 3D masks. No test-set images or text were used at any
 stage, including the pretraining of components.
 
 \paragraph{Pre-processing} Volumes were resampled to
-\chk{0.65 $\times$ 0.65 $\times$ 1.15}\,mm, with an input size of
-\chk{384 $\times$ 320 $\times$ 224} voxels.
+0.65 $\times$ 0.65 $\times$ 1.15\,mm, with an input size of
+384 $\times$ 320 $\times$ 224 voxels.
 
 \paragraph{Architecture and text encoder} CIRCLE pretraining jointly learns
 image--report alignment and abnormality recognition. A 3D adaptation of
@@ -46,9 +46,9 @@ H20 GPU.
 
 \paragraph{Final submission and lessons} The final submission is listed as
 ``CIRCLE'' on the leaderboard. On a 50-case validation subset, pretraining
-raised mean Dice from \chk{0.277} with random initialization to \chk{0.327},
-against \chk{0.282} for VoxTell, and the in-house data raised it further to
-\chk{0.356}. Pretraining and additional annotations therefore helped, whereas the
+raised mean Dice from 0.277 with random initialization to 0.327,
+against 0.282 for VoxTell, and the in-house data raised it further to
+0.356. Pretraining and additional annotations therefore helped, whereas the
 same architecture trained from scratch did not improve on VoxTell.
 
 \paragraph{Code and weights} Code: \url{https://github.com/uii-open-source/CIRCLE/}.

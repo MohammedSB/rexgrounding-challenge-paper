@@ -1,27 +1,27 @@
 \subsection{Team 4}
 \label{app:team4}
 
-\paragraph{Data} The challenge training data and \chk{200} validation scans,
-COVID-19-20 (\chk{180} scans) \citep{roth2022rapid},
-OmniAbnorm-CT (\chk{52}) \citep{zhao2026rethinking}, a sparse interstitial lung disease
-dataset (\chk{91}) \citep{depeursinge2012building}, and \chk{18,652} CT-RATE
+\paragraph{Data} The challenge training data and 200 validation scans,
+COVID-19-20 (180 scans) \citep{roth2022rapid},
+OmniAbnorm-CT (52) \citep{zhao2026rethinking}, a sparse interstitial lung disease
+dataset (91) \citep{depeursinge2012building}, and \chk{18,652} CT-RATE
 scans \citep{hamamci2026generalist}, excluding the test-set scans, with PatchChestCT
-annotations \citep{li2026patchchestct} for \chk{768} of them. The team reviewed
-the training annotations and edited \chk{146} findings in \chk{117} scans. Common
+annotations \citep{li2026patchchestct} for 768 of them. The team reviewed
+the training annotations and edited 146 findings in 117 scans. Common
 errors were drawing artefacts, partly caused by the annotation tool, mismatches
 between the location in the sentence and the mask, incomplete annotations such
 as missed nodules, arteries annotated as atelectasis or fibrosis, and the whole
 lung drawn as emphysema.
 
 \paragraph{Pre-processing} Volumes were resampled to
-\chk{0.75 $\times$ 0.75 $\times$ 1.25}\,mm and cropped to the lungs using
+0.75 $\times$ 0.75 $\times$ 1.25\,mm and cropped to the lungs using
 TotalSegmentator lung masks \citep{wasserthal2023totalsegmentator} with 15\,mm
 margins. Intensities were clipped to $[-1024, 1000]$\,HU and normalized as
 $(\mathrm{HU} + 232)/281$.
 
 \paragraph{Architecture and text encoder} VoxTell v1.1 \citep{rokuss2026voxtell}
 with frozen Qwen3-Embedding-4B embeddings \citep{zhang2025qwen3} and input crops
-of \chk{288 $\times$ 288 $\times$ 192} voxels.
+of 288 $\times$ 288 $\times$ 192 voxels.
 
 \paragraph{Training} Models were trained with an effective batch size of 8
 across two RTX PRO 6000 GPUs, using AdamW with an initial learning rate of
@@ -48,8 +48,8 @@ combined by averaging their probabilities.
 predictions confidently assigned to a lobe on the wrong side, according to
 TotalSegmentator, were removed.
 
-\paragraph{Inference time and hardware} \chk{5.90}\,s per finding
-(\chk{11.45}\,s per scan) on an RTX 3090, excluding input, output and
+\paragraph{Inference time and hardware} 5.90\,s per finding
+(11.45\,s per scan) on an RTX 3090, excluding input, output and
 post-processing.
 
 \paragraph{Final submission and lessons} The final submission was the ensemble
