@@ -467,9 +467,9 @@ range \chk{31--52}, range \chk{18--89}) and \chk{42\%} were female, similar to
 the training set (median \chk{40} years, \chk{44\%} female) and the validation
 set (median \chk{37} years, \chk{44\%} female). Test scans were acquired between
 \chk{2016} and \chk{2022} on \chk{six} scanner models from Philips, Siemens and
-Philips--Neusoft, with a median slice spacing of \chk{1.0}~mm (range
-\chk{0.75--2.0}) and a median in-plane spacing of \chk{0.71}~mm (range
-\chk{0.39--0.98}). Each scan covers the full chest, and the
+Philips--Neusoft, with a median slice spacing of 1.0~mm (range
+0.75--2.0) and a median in-plane spacing of 0.71~mm (range
+0.39--0.98). Each scan covers the full chest, and the
 segmentation targets are the lung and pleural findings described in its
 report, grouped into 14 categories
 spanning focal and non-focal patterns (Figure~\ref{fig:categories}). No clinical information
@@ -721,8 +721,8 @@ the residual-encoder ``L'' configuration \citep{isensee2021nnu,isensee2024nnu}, 
 text through feature-wise linear modulation \citep{perez2018film}. The sentence was embedded with Qwen3-Embedding-4B
 \citep{zhang2025qwen3}, and a two-layer MLP mapped the embedding to
 scale and shift parameters applied at every decoder stage. Two choices drove
-most of the gain. First, a large input patch of \chk{448 $\times$ 448 $\times$
-256} voxels gave the network enough anatomical context to resolve location
+most of the gain. First, a large input patch of 448 $\times$ 448 $\times$
+256 voxels gave the network enough anatomical context to resolve location
 phrases. Second, in-distribution text augmentation replaced each finding
 sentence, with some probability, by a real sentence from another training case
 that described the same finding type at the same location. The final
@@ -751,8 +751,8 @@ with a learned model. The team found these two steps, together with TAP-CT as a
 second architecture, to be the most helpful.
 
 \paragraph{Team 4} The fourth-placed team also fine-tuned
-VoxTell, on 288 $\times$ 288 $\times$ 192 crops at \chk{0.75 $\times$ 0.75
-$\times$ 1.25}~mm, and reported that fine-tuning beat training the same
+VoxTell, on 288 $\times$ 288 $\times$ 192 crops at 0.75 $\times$ 0.75
+$\times$ 1.25~mm, and reported that fine-tuning beat training the same
 architecture from scratch by more than 0.05 Dice. Three further steps
 improved performance. They audited the training annotations and corrected more
 than 100 cases, including masks on the wrong side, drawing artifacts,
