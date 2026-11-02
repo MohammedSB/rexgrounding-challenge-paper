@@ -742,20 +742,20 @@ TAP-CT \citep{veenboer2025tap}, a 3D vision transformer
 pretrained in the style of DINOv2 \citep{oquab2023dinov2} with a
 convolutional skip decoder and FiLM conditioning on Qwen3-Embedding-0.6B, was
 weaker alone but added diversity, and the two were fused with weights of
-0.8 and 0.2. All members were trained on the training and validation sets, and
-all used synonym-based text augmentation (31 synonym groups). The members
-otherwise differed in their recipes. Two of the 12 VoxTell members added 8,000
-CT-RATE sentence--mask pairs with pseudo-masks of pleural effusions and nodules
-from TotalSegmentator \citep{wasserthal2023totalsegmentator}, one added lobe
+0.8 and 0.2. All members were trained on the training and validation sets
+with synonym-based text augmentation (31 synonym groups), but their recipes
+otherwise varied. Two of the 12 VoxTell members added 8,000 CT-RATE
+sentence--mask pairs with pseudo-masks of pleural effusions and nodules from
+TotalSegmentator \citep{wasserthal2023totalsegmentator}, one added lobe
 segmentation as an auxiliary task, and five oversampled the validation set
-five-fold late in training. Post-processing restricted each mask to the lobe
-named in the sentence (mapped offline with an LLM and segmented with
-TotalSegmentator), or to the named lung when no lobe was named, set a separate
-threshold for each finding with a learned model, removed components that a
-small 3D CNN predicted to lower Dice, and assigned voxels claimed by several
-findings to the most confident one. The team found the lobe restriction and
-the per-finding thresholds, together with TAP-CT as a second architecture, to
-be the most helpful.
+five-fold late in training. Post-processing had four steps. Each mask was
+restricted to the lobe named in the sentence (mapped offline with an LLM and
+segmented with TotalSegmentator), or to the named lung when no lobe was given.
+A learned model then set a separate threshold for each finding, a small 3D CNN
+removed components predicted to lower Dice, and voxels claimed by several
+findings went to the most confident one. The team found the lobe restriction,
+the per-finding thresholds and TAP-CT as a second architecture to be the most
+helpful.
 
 \paragraph{Team 4} The fourth-placed team also fine-tuned
 VoxTell, on 288 $\times$ 288 $\times$ 192 crops at 0.75 $\times$ 0.75
