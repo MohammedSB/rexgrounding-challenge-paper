@@ -742,16 +742,20 @@ TAP-CT \citep{veenboer2025tap}, a 3D vision transformer
 pretrained in the style of DINOv2 \citep{oquab2023dinov2} with a
 convolutional skip decoder and FiLM conditioning on Qwen3-Embedding-0.6B, was
 weaker alone but added diversity, and the two were fused with weights of
-0.8 and 0.2. Beyond the provided data, the team added 8,000
+0.8 and 0.2. All members were trained on the training and validation sets, and
+all used synonym-based text augmentation (31 synonym groups). The members
+otherwise differed in their recipes. Two of the 12 VoxTell members added 8,000
 CT-RATE sentence--mask pairs with pseudo-masks of pleural effusions and nodules
-from TotalSegmentator \citep{wasserthal2023totalsegmentator}, added
-lobe segmentation as an auxiliary task, used synonym-based text augmentation
-(43 synonym groups), and trained on the
-validation set with five-fold oversampling. Post-processing restricted
-each mask to the lobe named in the sentence (mapped offline with an LLM and
-segmented with TotalSegmentator) and set a separate threshold for each finding
-with a learned model. The team found these two steps, together with TAP-CT as a
-second architecture, to be the most helpful.
+from TotalSegmentator \citep{wasserthal2023totalsegmentator}, one added lobe
+segmentation as an auxiliary task, and five oversampled the validation set
+five-fold late in training. Post-processing restricted each mask to the lobe
+named in the sentence (mapped offline with an LLM and segmented with
+TotalSegmentator), or to the named lung when no lobe was named, set a separate
+threshold for each finding with a learned model, removed components that a
+small 3D CNN predicted to lower Dice, and assigned voxels claimed by several
+findings to the most confident one. The team found the lobe restriction and
+the per-finding thresholds, together with TAP-CT as a second architecture, to
+be the most helpful.
 
 \paragraph{Team 4} The fourth-placed team also fine-tuned
 VoxTell, on 288 $\times$ 288 $\times$ 192 crops at 0.75 $\times$ 0.75
@@ -1087,7 +1091,11 @@ VoxTell. Maximilian Rokuss: Writing (review and editing). Moritz Langenberg: Wri
 of and holds equity in MEDAI Inc., a company developing medical imaging AI
 software. MEDAI Inc. provided no funding for this work. Daesung Kim is an
 employee of NewcureM Inc., a medical AI and radiopharmaceutical company, and
-Mijin Yun is its Chief Technology Officer. The remaining authors declare no
+Mijin Yun is its Chief Technology Officer. The PhD positions of Rachel van~'t
+Hull and Tim Veenboer at the Netherlands Cancer Institute are funded by Kaiko,
+a company developing medical imaging foundation models, through a collaboration
+with the institute, and Kevin Groot Lipman is employed in part by Kaiko. Kaiko
+was not otherwise involved in this work. The remaining authors declare no
 conflicts of interest.
 \paragraph{Data availability} The ReXGroundingCT training and validation data,
 including the findings and reference masks, and the test scans with their
