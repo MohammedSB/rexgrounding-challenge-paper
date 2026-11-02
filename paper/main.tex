@@ -196,20 +196,18 @@ Results of the ReXGrounding Challenge}
 % ---------------------------------------------------------------------------
 \begin{abstract}
 \small
-Segmenting each reported finding in the image would
-make reports easier to communicate and visualize, allow findings to be measured
-and tracked over time, and let AI systems generate reports whose findings are
-verifiable, but AI models have so far performed poorly at this task. We
-organized the ReXGrounding Challenge at MICCAI 2026 as the first challenge
-dedicated to it. Given a non-contrast chest CT scan and a free-text finding, participants
+Segmenting each reported finding in the image would allow findings to be
+measured and tracked over time and let AI systems generate reports whose
+findings are verifiable, but so far AI models have performed poorly at this
+task. To advance this task, we organized the ReXGrounding Challenge at MICCAI 2026, the
+first challenge dedicated to it. Given a non-contrast chest CT scan and a free-text finding, participants
 produced a 3D segmentation of that finding. The challenge used
 2,992 training and 200 validation scans from the ReXGroundingCT
 dataset, and evaluated methods on a held-out test set of 300 scans with
 582 findings, exhaustively annotated by
-board-certified radiologists. In total, 48 teams from 15 countries
-made 760 submissions.
-The best method reached a Dice of 0.375 and a hit
-rate of 0.77, matching agreement between two independent radiologist
+board-certified radiologists. Forty-eight teams from 15 countries made 760
+submissions, and the best method reached a Dice of 0.375 and a hit rate of
+0.77, matching agreement between two independent radiologist
 groups (Dice 0.32, hit rate 0.76, on a 50-scan subset). On
 the 100 scans of the pre-challenge benchmark, the winner reached a Dice of
 0.390, against 0.285 for VoxTell, the best model before the

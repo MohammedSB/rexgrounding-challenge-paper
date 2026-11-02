@@ -16,6 +16,9 @@ from skimage import measure
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 Q = os.path.join(ROOT, "paper", "figures", "data", "qual")
 BLUE, ORANGE, AQUA, LUNG, INK, INK2 = "#2a78d6", "#eb6834", "#1baf7a", "#b8b8b8", "#0b0b0b", "#52514e"
+# colour roles: reference / prediction agreeing / prediction outside. SCHEME=alt swaps to blue reference, green agree, red outside
+if os.environ.get("SCHEME") == "alt":
+    AQUA, BLUE, ORANGE = BLUE, AQUA, "#d64545"
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"], "font.size": 7,
                      "pdf.fonttype": 42, "svg.fonttype": "none"})
 test = {e["name"]: e for e in json.load(open(os.path.join(ROOT, "paper/figures/data/ReXGroundingCT_MICCAI2026_test.json")))["test"]}
