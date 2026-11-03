@@ -34,16 +34,18 @@ axA.set_xlabel("Hit rate", color=INK, labelpad=2); axA.set_ylabel("Dice on local
 axA.set_xlim(0.68, 0.79); axA.set_ylim(0.41, 0.47); axA.set_xticks([0.70, 0.74, 0.78]); axA.set_yticks([0.42, 0.44, 0.46])
 axA.grid(True, color=GRID, linewidth=0.5); axA.set_axisbelow(True)
 
-# B: Dice (filled) and hit rate (outlined) by reference volume, ten best teams pooled
-S = J["size"]; x = np.arange(len(S)); w = 0.38
-axB.bar(x - w / 2, [s["dice_mean_top10"] for s in S], width=w, color=FOCAL, edgecolor="none", zorder=2)
-axB.bar(x + w / 2, [s["hit_mean_top10"] for s in S], width=w, facecolor="none", edgecolor=FOCAL, linewidth=0.8, zorder=2)
-for i, s in enumerate(S): axB.text(i, 0.985, f"n={s['n']}", ha="center", va="top", fontsize=5.6, color=INK2)
-axB.set_xticks(x); axB.set_xticklabels([s["bin"].replace("-", "–") for s in S], fontsize=6.3); axB.tick_params(axis="x", length=0)
+# B: Dice (dark) and hit rate (light) by reference volume, ten best teams pooled
+S = J["size"]; x = np.arange(len(S)); w = 0.36; gap = 0.02
+axB.bar(x - w / 2 - gap / 2, [s["dice_mean_top10"] for s in S], width=w, color=FOCAL, edgecolor="none", zorder=2)
+axB.bar(x + w / 2 + gap / 2, [s["hit_mean_top10"] for s in S], width=w, color=LIGHT, edgecolor="none", zorder=2)
+axB.set_xticks(x); axB.set_xticklabels([f"{s['bin'].replace('-', '–')}\n" for s in S], fontsize=6.3); axB.tick_params(axis="x", length=0, pad=2)
+for i, s in enumerate(S): axB.text(i, -0.075, f"n={s['n']}", ha="center", va="top", fontsize=5.4, color=INK2, transform=axB.get_xaxis_transform())
 axB.set_xlabel("Reference volume (mL)", color=INK, labelpad=2); axB.set_ylim(0, 1.0); axB.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+axB.set_yticklabels(["0", "0.25", "0.50", "0.75", "1.00"])
 axB.yaxis.grid(True, color=GRID, linewidth=0.5); axB.set_axisbelow(True); axB.spines["left"].set_visible(False); axB.tick_params(axis="y", length=0)
-axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor="none", edgecolor=FOCAL, linewidth=0.8, label="Hit rate")],
-           loc="upper left", bbox_to_anchor=(0.0, 0.93), frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85, labelspacing=0.3, borderaxespad=0.1)
+axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor=LIGHT, label="Hit rate")],
+           loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=2, frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85,
+           columnspacing=1.2, borderaxespad=0.1)
 
 # C: controlled prompt experiment (Teams 1 to 4): the same findings with the original and with the edited sentence.
 # Figure 6C shows the mean over the four teams; per_team=True draws one dumbbell per team instead.
