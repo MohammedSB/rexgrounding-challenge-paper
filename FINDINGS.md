@@ -1,8 +1,7 @@
 # ReXGrounding Challenge (MICCAI 2026): findings for model development
 
 This summarizes what the challenge analysis found, so that its lessons can be used to build a new model. The full
-argument and numbers are in `paper/main.tex` (compiled: `paper/main.pdf`). Numbers wrapped in `\chk{}` in the paper
-are still being verified.
+argument and numbers are in `paper/main.tex` (compiled: `paper/main.pdf`).
 
 ## Task and evaluation
 
@@ -52,35 +51,39 @@ segmentation network takes the CT volume plus that vector.
   single-instance ones. Partial training labels likely teach models to stop after a few instances.
 - Location: models sometimes segment the right kind of abnormality at the wrong place, which overall Dice hides.
 
-## Controlled prompt experiment (Teams 2, 3 and 4)
+## Controlled prompt experiment (Teams 1 to 4)
 
 The same scans were re-run with edited sentences, comparing Dice on only the findings each edit changed. Script:
-`paper/analysis/prompt_experiment.py`. Results: `prompt_variants/returns/{AIMHI,fomofo,needpaper}/prompt_experiment.json`
-(AIMHI = Team 2, fomofo = Team 3, needpaper = Team 4). The three teams behaved almost identically.
+`paper/analysis/prompt_experiment.py`. Results: `prompt_variants/returns/{CIRCLE,AIMHI,fomofo,needpaper}/prompt_experiment.json`
+(CIRCLE = Team 1, AIMHI = Team 2, fomofo = Team 3, needpaper = Team 4). Teams 2, 3 and 4 behaved almost
+identically. Team 1 (CIRCLE foundation-model encoder) differed: it relied less on location text and more often
+returned an empty mask when the location was wrong.
 
-| Edit | n | Team 2 | Team 3 | Team 4 |
-|---|---|---|---|---|
-| Size removed | 163 | 0.390 -> 0.393 | 0.391 -> 0.384 | 0.382 -> 0.387 |
-| Wrong size (small to 30 mm, large to 3 mm) | 62 | 0.430 -> 0.433 | 0.426 -> 0.417 | 0.424 -> 0.419 |
-| Laterality removed | 446 | 0.339 -> 0.320 | 0.346 -> 0.313 | 0.343 -> 0.315 |
-| Lobe or segment removed | 375 | 0.363 -> 0.325 | 0.363 -> 0.318 | 0.363 -> 0.303 |
-| Finding name only | 564 | 0.341 -> 0.292 | 0.345 -> 0.286 | 0.347 -> 0.265 |
-| Left and right swapped | 222 | 0.397 -> 0.109 | 0.404 -> 0.103 | 0.411 -> 0.081 |
-| Wrong lobe, same lung | 299 | 0.368 -> 0.120 | 0.366 -> 0.073 | 0.370 -> 0.118 |
-| Bilateral finding, left only | 297 | 0.305 -> 0.201 | 0.316 -> 0.188 | 0.305 -> 0.171 |
-| Bilateral finding, right only | 297 | 0.305 -> 0.251 | 0.316 -> 0.238 | 0.305 -> 0.228 |
-| Union of left-only and right-only | 297 | 0.305 -> 0.310 | 0.316 -> 0.309 | 0.305 -> 0.304 |
+| Edit | n | Team 1 | Team 2 | Team 3 | Team 4 |
+|---|---|---|---|---|---|
+| Size removed | 163 | 0.415 -> 0.409 | 0.390 -> 0.393 | 0.391 -> 0.384 | 0.382 -> 0.387 |
+| Wrong size (small to 30 mm, large to 3 mm) | 62 | 0.463 -> 0.405 | 0.430 -> 0.433 | 0.426 -> 0.417 | 0.424 -> 0.419 |
+| Laterality removed | 446 | 0.361 -> 0.355 | 0.339 -> 0.320 | 0.346 -> 0.313 | 0.343 -> 0.315 |
+| Lobe or segment removed | 375 | 0.379 -> 0.368 | 0.363 -> 0.325 | 0.363 -> 0.318 | 0.363 -> 0.303 |
+| Finding name only | 564 | 0.361 -> 0.341 | 0.341 -> 0.292 | 0.345 -> 0.286 | 0.347 -> 0.265 |
+| Left and right swapped | 222 | 0.419 -> 0.140 | 0.397 -> 0.109 | 0.404 -> 0.103 | 0.411 -> 0.081 |
+| Wrong lobe, same lung | 299 | 0.380 -> 0.167 | 0.368 -> 0.120 | 0.366 -> 0.073 | 0.370 -> 0.118 |
+| Bilateral finding, left only | 297 | 0.327 -> 0.222 | 0.305 -> 0.201 | 0.316 -> 0.188 | 0.305 -> 0.171 |
+| Bilateral finding, right only | 297 | 0.327 -> 0.263 | 0.305 -> 0.251 | 0.316 -> 0.238 | 0.305 -> 0.228 |
+| Union of left-only and right-only | 297 | 0.327 -> 0.317 | 0.305 -> 0.310 | 0.316 -> 0.309 | 0.305 -> 0.304 |
 
 What this means for a new model:
-- Side is followed strongly. After a left/right swap, hit rate fell from 0.77-0.80 to 0.16-0.24, and the share of the
-  mask on the reference side fell from 92-93% to 22-24%. About 75% of masks moved to the other side. Some masks
-  vanished instead (12-21% depending on the team), especially large consolidations.
+- Side is followed strongly. After a left/right swap, hit rate fell from 0.77-0.80 to 0.16-0.31. For Teams 2-4 the
+  share of the mask on the reference side fell from 92-93% to 22-24% and about 75% of masks moved to the other side.
+  Some masks vanished instead (12-21% for Teams 2-4, 31% for Team 1), especially large consolidations.
 - Lobe is followed only partly. With a wrong lobe the mask mostly stays in the same lung (84-86%) but Dice collapses
-  (0.37 to 0.07-0.12).
-- Stated size is ignored (Dice changes by less than 0.01 under both size edits).
-- "Left only" / "right only" prompts put 91-98% / 96-100% of the mask on the named side.
-- Removing location details costs 0.02 to 0.08 Dice, so location text helps but most of the signal is the finding
-  type plus image evidence.
+  (0.37-0.38 to 0.07-0.17).
+- Stated size is mostly ignored. Teams 2-4 change by less than 0.01 under both size edits. Team 1 is unchanged when
+  size is removed but drops 0.06 with a wrong size (62 findings, Wilcoxon p = 0.44, so weak evidence).
+- "Left only" / "right only" prompts put 91-98% / 96-100% of the mask on the named side for Teams 2-4, 85-86% for
+  Team 1.
+- Removing location details costs 0.02 to 0.08 Dice for Teams 2-4 and at most 0.02 for Team 1, so location text helps
+  but most of the signal is the finding type plus image evidence. Team 1, the overall winner, depends least on it.
 
 ## Files
 

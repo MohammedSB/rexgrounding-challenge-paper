@@ -880,7 +880,7 @@ three winning teams are shown in darker blue. B) Dice (filled) and hit rate
 (outlined) by reference volume of the finding, pooled over the ten best teams.
 C) Controlled prompt experiment. Dice on the findings changed by each edit, with
 the original sentence (open) and the edited sentence (filled), averaged over
-Teams 2, 3 and 4. Numbers give the number of edited findings.}
+Teams 1 to 4. Numbers give the number of edited findings.}
 \label{fig:further}
 \end{figure*}
 
@@ -948,23 +948,27 @@ pleural effusions (Figure~\ref{fig:further}B). Size and finding type are
 therefore entangled, and the dip reflects the difficulty of thin linear
 opacities more than volume itself.
 
-Third, language. Teams 2, 3 and 4 ran their final methods on edited sentences
-(Section~\ref{sec:prompt-exp}, Figure~\ref{fig:further}C), and all three
-responded to the edits in the same way. Ranges below span the three teams.\todo{Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially (Teams 3 and 4 matched their official scores); ask Team 2 why. Team 1 has not sent results.}
-Removing the stated size changed Dice by less than 0.01 (163
-findings), whereas removing the side lowered it by 0.02--0.03, removing
-the lobe or segment by 0.04--0.06, and keeping only the name of the
-finding by 0.05--0.08. Wrong locations misled all three models. With left
-and right swapped, Dice fell from 0.40--0.41 to 0.08--0.11 and the
-hit rate from 0.77--0.80 to 0.16--0.24, and the share of the
-predicted mask on the side of the finding fell from 92--93\% to
-22--24\%. Naming the wrong lobe in the same lung lowered Dice from
-0.37 to 0.07--0.12 (Figure~\ref{fig:prompt-examples}). A wrong size,
-in contrast, left the masks almost unchanged (Dice changed by less than
-0.01). When a finding in both lungs was prompted for one side only, at
-least 91\% of the predicted mask lay on the named side, and the union of
-the two masks scored within 0.01 of the original sentence. The models
-therefore relied on the stated side and lobe but not on the stated size.
+Third, language. Teams 1 to 4 ran their final methods on edited sentences
+(Section~\ref{sec:prompt-exp}, Figure~\ref{fig:further}C). Teams 2, 3 and 4
+responded to the edits in the same way, and Team 1 differed in the ways noted
+below.\todo{Team 2's rerun on the original sentences scored Dice 0.360 vs.\ 0.365 officially (Teams 1, 3 and 4 matched their official scores); ask Team 2 why.}
+Removing the stated size changed Dice by less than 0.01 for all four teams (163
+findings). For Teams 2, 3 and 4, removing the side lowered Dice by 0.02--0.03,
+removing the lobe or segment by 0.04--0.06, and keeping only the name of the
+finding by 0.05--0.08. Team 1 lost at most 0.02 under these edits and thus
+relied less on the stated location. Wrong locations misled all four models.
+With left and right swapped, Dice fell from 0.40--0.42 to 0.08--0.14 and the
+hit rate from 0.77--0.80 to 0.16--0.31. For Teams 2, 3 and 4, the share of
+the predicted mask on the side of the finding fell from 92--93\% to
+22--24\%, whereas Team 1 more often returned an empty mask (31\% of
+findings, against 12--21\%). Naming the wrong lobe in the same lung lowered
+Dice from 0.37--0.38 to 0.07--0.17 (Figure~\ref{fig:prompt-examples}). A
+wrong size left the masks of Teams 2, 3 and 4 almost unchanged (Dice changed
+by less than 0.01), whereas the Dice of Team 1 fell from 0.46 to 0.41 on these
+62 findings (Wilcoxon $p = 0.44$). When a finding in both lungs was prompted for
+one side only, at least 85\% of the predicted mask lay on the named side, and
+the union of the two masks scored within 0.01 of the original sentence. The
+models therefore relied on the stated side and lobe but hardly on the stated size.
 
 % =============================================================================
 \section{Discussion}

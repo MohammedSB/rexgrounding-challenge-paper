@@ -45,10 +45,10 @@ axB.yaxis.grid(True, color=GRID, linewidth=0.5); axB.set_axisbelow(True); axB.sp
 axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor="none", edgecolor=FOCAL, linewidth=0.8, label="Hit rate")],
            loc="upper left", bbox_to_anchor=(0.0, 0.93), frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85, labelspacing=0.3, borderaxespad=0.1)
 
-# C: controlled prompt experiment (Teams 2, 3 and 4): the same findings with the original and with the edited sentence.
-# Figure 6C shows the mean over the three teams; per_team=True draws one dumbbell per team instead.
+# C: controlled prompt experiment (Teams 1 to 4): the same findings with the original and with the edited sentence.
+# Figure 6C shows the mean over the four teams; per_team=True draws one dumbbell per team instead.
 RET = os.path.join(HERE, "..", "..", "prompt_variants", "returns")
-TEAMS = [("Team 2", "AIMHI", FOCAL, 0.24), ("Team 3", "fomofo", "#6da7ec", 0.0), ("Team 4", "needpaper", DEEP, -0.24)]   # label, folder, colour, row offset
+TEAMS = [("Team 1", "CIRCLE", "#a9c9f2", 0.36), ("Team 2", "AIMHI", FOCAL, 0.24), ("Team 3", "fomofo", "#6da7ec", 0.0), ("Team 4", "needpaper", DEEP, -0.24)]   # label, folder, colour, row offset
 PE = {lab: json.load(open(os.path.join(RET, d, "prompt_experiment.json")))["variants"] for lab, d, _, _ in TEAMS}
 C = [("Size removed", "no_size"), ("Wrong size", "wrong_size"), ("Laterality removed", "no_laterality"),
      ("Lobe or segment removed", "no_lobe_segment"), ("Finding name only", "finding_only"),
