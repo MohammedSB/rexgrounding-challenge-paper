@@ -31,5 +31,6 @@ Heidelberg University
 Helmholtz Information and Data Science School for Health (HIDSS4Health)
 Helmholtz Imaging
 Heidelberg University Hospital
+Forithmus
 SSM Health
 Yale School of Public Health
