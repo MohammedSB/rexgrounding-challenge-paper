@@ -393,7 +393,9 @@ during routine care at Istanbul Medipol University Mega Hospital, Turkey
 machine-translated into English and corrected by bilingual medical students in
 CT-RATE. For ReXGroundingCT, GPT-4 rewrote each report into standard US
 radiology terminology and split it into individual findings, and GPT-4o
-assigned each finding to a category \citep{baharoon2026rexgroundingct}. A board-certified radiologist reviewed both steps on random
+assigned each finding to one of 14 categories by type of abnormality, such as
+nodule, emphysema or pleural effusion, grouped into focal and non-focal
+findings (Figure~\ref{fig:categories}) \citep{baharoon2026rexgroundingct}. A board-certified radiologist reviewed both steps on random
 samples. All 50 rewritten reports were judged acceptable, extraction
 had a false-positive rate of 0 and a false-negative rate of
 0.01, and categorization of lung and pleural findings reached a
