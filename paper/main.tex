@@ -392,14 +392,17 @@ during routine care at Istanbul Medipol University Mega Hospital, Turkey
 \citep{hamamci2026generalist}. The original Turkish reports had been
 machine-translated into English and corrected by bilingual medical students in
 CT-RATE. For ReXGroundingCT, GPT-4 rewrote each report into standard US
-radiology terminology and split it into individual findings, and GPT-4o
-assigned each finding to one of 14 categories by type of abnormality, such as
-nodule, emphysema or pleural effusion, grouped into focal and non-focal
-findings (Figure~\ref{fig:categories}) \citep{baharoon2026rexgroundingct}. A board-certified radiologist reviewed both steps on random
-samples. All 50 rewritten reports were judged acceptable, extraction
-had a false-positive rate of 0 and a false-negative rate of
-0.01, and categorization of lung and pleural findings reached a
-precision and recall of 0.99. The finding sentences used in the challenge
+radiology terminology and split it into individual findings, and GPT-4o-mini
+assigned each finding to a category by type of abnormality
+\citep{baharoon2026rexgroundingct}. The lung and pleural findings used in the
+challenge fall into 14 such categories, such as nodule, emphysema or pleural
+effusion, grouped into focal and non-focal findings
+(Figure~\ref{fig:categories}). A board-certified radiologist reviewed each
+step on random samples. All 50 reviewed rewritten reports were judged
+acceptable. In the findings extracted from a further 100 reports, none was
+spurious and 1\% of findings were missed. Categorization of lung and pleural
+findings reached a precision and recall of 0.99, and assignment to the finer
+categories an F1 score of 0.92 on 100 findings. The finding sentences used in the challenge
 are the outputs of this pipeline and were not edited further.
 
 \paragraph{Data splits}
