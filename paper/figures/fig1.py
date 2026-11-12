@@ -262,11 +262,20 @@ def testbar(ax, xc, y, scored_right, notes):
             x = xc - cw - gap / 2 + k * (cw + gap); e = cw * 0.12
             _tier(ax, x, y0 + e, cw, ch - 2 * e, on); num(x + cw / 2, y0 + ch / 2 - 0.02, on)
         return y0 + ch
-    if TEST_STYLE == "stack":                                        # one cylinder, two tiers
-        cw, th = 0.36, 0.14; e = cw * 0.12; y0 = y - 0.075 + e       # same width, rim and stroke as the training and validation cylinders
-        for k, on in enumerate((True, scored_right)):
-            _tier(ax, xc - cw / 2, y0 + k * th, cw, th, on); num(xc, y0 + k * th + th / 2 - e, on)
-        return y0 + 2 * th + e
+    if TEST_STYLE == "stack":                                        # one cylinder in the style of cylinder(), split into two halves
+        cw, hh = 0.36, 0.40; e = cw * 0.12; x = xc - cw / 2
+        yb = y - 0.105 + e; yt = yb + hh - 2 * e; ym = (yb + yt) / 2      # centres of the lower rim, upper rim and the dividing ring
+        up = SEQ[1] if scored_right else "white"; ls = "-" if scored_right else ":"
+        ax.add_patch(Rectangle((x, ym), cw, yt - ym, facecolor=up, edgecolor="none"))          # upper half
+        for xx in (x, x + cw): ax.plot([xx, xx], [ym, yt], color=INK2, lw=0.7, ls=ls)
+        ax.add_patch(Ellipse((xc, yt), cw, 2 * e, facecolor=up, edgecolor=INK2, lw=0.7, ls=ls))
+        ax.add_patch(Rectangle((x, yb), cw, ym - yb, facecolor=SEQ[1], edgecolor="none"))      # lower half
+        ax.add_patch(Ellipse((xc, yb), cw, 2 * e, facecolor=SEQ[1], edgecolor=INK2, lw=0.7))
+        for xx in (x, x + cw): ax.plot([xx, xx], [yb, ym], color=INK2, lw=0.7)
+        ax.add_patch(Ellipse((xc, ym), cw, 2 * e, facecolor=up, edgecolor=INK2, lw=0.7))       # dividing ring
+        for yy, on in (((yb + ym) / 2 - e / 2, True), ((ym + yt) / 2 - e / 2, scored_right)):   # counts beside each half, clear of the rings
+            ax.text(x + cw + 0.05, yy, "150", fontsize=FS_NOTE, color=INK2, ha="left", va="center")
+        return yt + e
     if TEST_STYLE == "dots":                                         # 30 tiles of 10 scans each
         sq, pitch, rows, cols = 0.05, 0.064, 3, 10; x0 = xc - cols * pitch / 2 + (pitch - sq) / 2
         for c in range(cols):
@@ -306,11 +315,8 @@ def panel_b(x0, y0, w, h):
     yc = 1.02
     d = -0.14 if VARIANT_B == "bar" else 0.0                      # trial layout: flow sits clear of the panel's right edge
     # development: training/validation data -> participants -> submissions on the public test half -> leaderboard
-    if TEST_STYLE == "stack":                                       # plain cylinders in the style of the test-set tiers; a ring marks a split
-        for yb in (yc + 0.12, yc - 0.62): _tier(ax, 0.25, yb + 0.36 * 0.12, 0.36, 0.46 - 2 * 0.36 * 0.12, True)
-    else:
-        cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
-        cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
+    cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
+    cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc + 0.35, "Training set\n2,992 scans", fontsize=FS_BODY,
             color=INK, va="center", linespacing=1.25)
     ax.text(0.68, yc - 0.39, "Validation set\n200 scans", fontsize=FS_BODY, color=INK,
@@ -324,8 +330,8 @@ def panel_b(x0, y0, w, h):
     if VARIANT_B == "bar":
         top = testbar(ax, 3.47 + d, 0.32, False, None)
         for lx, on, t in ((2.72 + d, True, "scored"), (3.22 + d, False, "not yet scored")):          # key for the two halves
-            ax.add_patch(Rectangle((lx, 0.135), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
-            ax.text(lx + 0.13, 0.18, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
+            ax.add_patch(Rectangle((lx, 0.105), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
+            ax.text(lx + 0.13, 0.15, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
         arrow(ax, (3.47 + d, top + 0.02), (3.47 + d, yc - 0.29))
         ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
     else:
@@ -348,7 +354,7 @@ def panel_b(x0, y0, w, h):
     if VARIANT_B == "bar":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
         top = testbar(ax, bx + 0.49, 0.32, True, None)
-        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
+        ax.text(bx + (1.02 if TEST_STYLE == "stack" else 1.02), 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
         arrow(ax, (bx + 0.49, top + 0.02), (bx + 0.49, yc - 0.29))
     elif VARIANT_B == "text":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final ranking:\nDice on all 300\ntest scans", fc="white", ec=MUTED)
