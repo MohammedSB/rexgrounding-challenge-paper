@@ -251,7 +251,7 @@ def panel_b(x0, y0, w, h):
                                 boxstyle="round,pad=0,rounding_size=0.08", facecolor=PANEL2, edgecolor="none"))
     ax._boxes = (dev, ev)
     ax.text(0.20, CH - 0.35, "Development phase", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
-    ax.text(1.42, CH - 0.35, "June – 14 September 2026", fontsize=FS_BODY, color=INK2, va="center")
+    ax.text(1.42, CH - 0.35, "14 June – 14 September 2026", fontsize=FS_BODY, color=INK2, va="center")
     ax.text(split + 0.20, CH - 0.35, "Evaluation phase", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
     ax.text(split + 1.30, CH - 0.35, "14 – 27 September 2026", fontsize=FS_BODY, color=INK2, va="center")
     yc = 1.02
