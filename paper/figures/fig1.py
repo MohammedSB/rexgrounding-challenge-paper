@@ -45,7 +45,7 @@ plt.rcParams.update({
 })
 VARIANT_B = os.environ.get("FIG1B", "bar")                      # bar (paper) | text | old: layouts of panel B
 VARIANT_C = os.environ.get("FIG1C", "map")                      # map | participation | leaderboard | results
-W, H = 7.5, {"map": 7.5, "results": 7.0}.get(VARIANT_C, 6.55)
+W, H = 7.5, {"map": 7.68, "results": 7.18}.get(VARIANT_C, 6.73)
 fig = plt.figure(figsize=(W, H))
 
 def letter(x, y, s):
@@ -303,7 +303,7 @@ def panel_b(x0, y0, w, h):
     ax.text(1.42, CH - 0.35, "14 June – 14 September 2026", fontsize=FS_BODY, color=INK2, va="center")
     ax.text(split + 0.20, CH - 0.35, "Evaluation phase", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
     ax.text(split + 1.30, CH - 0.35, "14 – 27 September 2026", fontsize=FS_BODY, color=INK2, va="center")
-    yc = 1.02
+    yc = 1.10
     d = -0.14 if VARIANT_B == "bar" else 0.0                      # trial layout: flow sits clear of the panel's right edge
     # development: training/validation data -> participants -> submissions on the public test half -> leaderboard
     if TEST_STYLE == "stack":                                       # training and validation in the tier style of the test set
@@ -323,12 +323,12 @@ def panel_b(x0, y0, w, h):
     box(ax, 3.04 + d, yc - 0.27, 0.86, 0.54, "Submit\npredictions", fc="white", ec=MUTED)
     # public half of the test set: scans released, masks withheld
     if VARIANT_B == "bar":
-        top = testbar(ax, 3.47 + d, 0.32, False, None)
+        top = testbar(ax, 3.47 + d, 0.37, False, None)
         for lx, on, t in ((2.72 + d, True, "scored"), (3.22 + d, False, "not yet scored")):          # key for the two halves
-            ax.add_patch(Rectangle((lx, 0.105), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
-            ax.text(lx + 0.13, 0.15, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
+            ax.add_patch(Rectangle((lx, 0.155), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
+            ax.text(lx + 0.13, 0.20, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
         arrow(ax, (3.47 + d, top + 0.02), (3.47 + d, yc - 0.29))
-        ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.44 if TEST_STYLE == "stack" else 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
+        ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.49 if TEST_STYLE == "stack" else 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
     else:
         cylinder(ax, 3.29, 0.14, 0.36, 0.38, SEQ[1], INK2)
         arrow(ax, (3.47, 0.54), (3.47, yc - 0.29))
@@ -348,8 +348,8 @@ def panel_b(x0, y0, w, h):
     arrow(ax, (3.90 + d, yc), (bx, yc))
     if VARIANT_B == "bar":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
-        top = testbar(ax, bx + 0.49, 0.32, True, None)
-        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.44 if TEST_STYLE == "stack" else 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
+        top = testbar(ax, bx + 0.49, 0.37, True, None)
+        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.49 if TEST_STYLE == "stack" else 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
         arrow(ax, (bx + 0.49, top + 0.02), (bx + 0.49, yc - 0.29))
     elif VARIANT_B == "text":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final ranking:\nDice on all 300\ntest scans", fc="white", ec=MUTED)
@@ -638,7 +638,7 @@ def panel_f(ax):
 
 # =================================================================== layout
 # Panels d-f (categories, text properties, finding size) are kept above but not used in Figure 1.
-rows = {"a": (1 - 2.26 / H, 2.26 / H), "b": (1 - 4.40 / H, 2.06 / H), "c": (0.02, 1 - 4.55 / H - 0.02)}
+rows = {"a": (1 - 2.26 / H, 2.26 / H), "b": (1 - 4.58 / H, 2.24 / H), "c": (0.02, 1 - 4.73 / H - 0.02)}
 def axes_at(x, y, w, h, row):
     ax = fig.add_axes([x, y, w, h]); ax._row_top = rows[row][0] + rows[row][1]; return ax
 panel_a(0.0, rows["a"][0], 1.0, rows["a"][1]); letter(0.012, rows["a"][0] + rows["a"][1] + 0.004, "A")
