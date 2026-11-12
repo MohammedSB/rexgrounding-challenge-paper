@@ -306,8 +306,12 @@ def panel_b(x0, y0, w, h):
     yc = 1.02
     d = -0.14 if VARIANT_B == "bar" else 0.0                      # trial layout: flow sits clear of the panel's right edge
     # development: training/validation data -> participants -> submissions on the public test half -> leaderboard
-    cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
-    cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
+    if TEST_STYLE == "stack":                                       # training and validation in the tier style of the test set
+        for yb in (yc + 0.12, yc - 0.62):
+            for k in range(3): _tier(ax, 0.25, yb + 0.36 * 0.12 + k * 0.125, 0.36, 0.125, True)
+    else:
+        cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
+        cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc + 0.35, "Training set\n2,992 scans", fontsize=FS_BODY,
             color=INK, va="center", linespacing=1.25)
     ax.text(0.68, yc - 0.39, "Validation set\n200 scans", fontsize=FS_BODY, color=INK,
