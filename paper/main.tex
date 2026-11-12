@@ -409,7 +409,7 @@ annotations (up to three instances per finding). The validation set
 (200 scans, 381 findings) and the test set (300 scans, 582 findings) were
 exhaustively annotated by board-certified radiologists. During the challenge,
 the leaderboard showed results on a fixed random half of the test set
-(150 scans, 280 findings), and the final ranking used all
+(150 scans, 280 findings, the leaderboard half), and the final ranking used all
 300 scans.
 Figure~\ref{fig:categories} summarizes the composition of the training and
 test sets. Most findings in both are focal, and the reference masks span
@@ -552,7 +552,7 @@ alongside the hit rate, and we return to this in the Discussion.
 \paragraph{Ranking}
 % BIAS 30a--c
 For each team we ranked the submission it declared as final or, if none was
-declared, its best-scoring submission on the public half of the test set.
+declared, its best-scoring submission on the leaderboard half of the test set.
 8 of the 48 leaderboard entries (teams) declared a final
 submission, and the remaining 40 defaulted to their best public-half
 submission. Teams were ranked by the primary metric computed on the full
@@ -633,7 +633,7 @@ top of the ranking: five of the six best-performing teams included a
 company, and the only one without industry involvement was Team~3. Submissions were concentrated at the end of the development
 phase: the first submission to appear on the leaderboard arrived on 5 July, three weeks after the
 leaderboard opened, and 74\% of all submissions were made in the final
-two weeks (Figure~\ref{fig:timeline}A). The best score on the public half rose
+two weeks (Figure~\ref{fig:timeline}A). The best score on the leaderboard half rose
 from 0.28 for the first submission to 0.386 on 13 September,
 the day before the deadline (Figure~\ref{fig:timeline}B).
 
@@ -653,7 +653,7 @@ not shown.}
 \centering
 \includegraphics[width=\columnwidth]{figures/fig_timeline.pdf}
 \caption{Submissions over the development phase. A) Scored submissions per
-week, in seven-day windows ending at the deadline. B) Dice on the public half of the test set for every scored
+week, in seven-day windows ending at the deadline. B) Dice on the leaderboard half of the test set for every scored
 submission (dots) and the best score reached so far (line). Dashed lines mark
 the opening of the leaderboard and the submission deadline.}
 \label{fig:timeline}
@@ -836,7 +836,7 @@ Dice is computed over the whole 3D mask of the finding.}
 \subsection{Ranking stability}
 \label{sec:stability}
 % BIAS 35b
-The ranking on the public half of the test set closely matched the final
+The ranking on the leaderboard half of the test set closely matched the final
 ranking on all 300 scans. The first two places were unchanged,
 and places three to eight changed only by swaps between neighbouring pairs.
 The ranking was stable overall (Figure~\ref{fig:ranking}): bootstrap
@@ -1173,7 +1173,7 @@ The challenge was a one-time event with a fixed submission deadline of
 fixed. It was hosted on the ReXrank leaderboard platform
 \citep{zhang2024rexrank}
 (\url{https://rexrank.ai/ReXGroundingCT}), where teams registered, submitted
-predictions for the test set, and followed their scores on a public half of the
+predictions for the test set, and followed their scores on the leaderboard half of the
 test set during the development phase. Results were announced at a dedicated
 session at MICCAI 2026 in Strasbourg, France, on 27 September 2026, after which
 the leaderboard reopened for new submissions as an ongoing benchmark.
@@ -1196,7 +1196,7 @@ Teams registered on the ReXrank leaderboard and submitted predictions as a link
 to a single ZIP archive on Google Drive. The archive held one NIfTI file per
 test scan, with one binary mask channel per finding in the order given in the
 test file. Submissions were downloaded and scored automatically every two
-hours, and the leaderboard showed each submission's scores on the public half
+hours, and the leaderboard showed each submission's scores on the leaderboard half
 of the test set. There was no separate test phase and no limit on the number
 of submissions, but teams were asked not to submit again until their previous
 submission had been scored. Teams made between 1 and 242

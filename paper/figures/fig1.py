@@ -276,7 +276,7 @@ def panel_b(x0, y0, w, h):
     yl = yc + 0.44
     ax.plot([3.47, 3.47, 2.41], [yc + 0.27, yl, yl], color=MUTED, lw=0.7, solid_joinstyle="miter")
     arrow(ax, (2.41, yl), (2.41, yc + 0.29))
-    ax.text(2.94, yl + 0.04, "Dice on 150 of the 300 scans", fontsize=FS_NOTE, color=INK2,
+    ax.text(2.94, yl + 0.04, "Dice on the leaderboard half (150 scans)", fontsize=FS_NOTE, color=INK2,
             ha="center", va="bottom", linespacing=1.15)
     # evaluation: final submission -> ranking on the full test set (public + hidden halves) -> session
     bx = split + 0.30
