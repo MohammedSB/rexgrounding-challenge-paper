@@ -20,7 +20,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle, Polygon, Ellipse, Patch
+from matplotlib.patches import Wedge, FancyBboxPatch, FancyArrowPatch, Rectangle, Polygon, Ellipse, Patch
 from matplotlib.transforms import Affine2D
 from matplotlib.colors import to_rgb
 from scipy import ndimage
@@ -232,23 +232,61 @@ def panel_a(x0, y0, w, h):
         ax.text(x, CH - 0.12, t, ha="center", va="top", fontsize=FS_HEAD, color=INK2)
 
 # =================================================================== b: workflow
-def cylinder(ax, x, y, w, h, fc, ec, hidden=False):
+def cylinder(ax, x, y, w, h, fc, ec, hidden=False, rings=True):
     e = w * 0.12
     ax.add_patch(Rectangle((x, y + e), w, h - 2 * e, facecolor=fc, edgecolor="none"))
     ax.add_patch(Ellipse((x + w / 2, y + e), w, 2 * e, facecolor=fc, edgecolor=ec, lw=0.7, ls=":" if hidden else "-"))
     ax.plot([x, x], [y + e, y + h - e], color=ec, lw=0.7, ls=":" if hidden else "-")
     ax.plot([x + w, x + w], [y + e, y + h - e], color=ec, lw=0.7, ls=":" if hidden else "-")
     ax.add_patch(Ellipse((x + w / 2, y + h - e), w, 2 * e, facecolor=fc, edgecolor=ec, lw=0.7, ls=":" if hidden else "-"))
-    for yy in (y + h - e - (h - 2 * e) / 3, y + h - e - 2 * (h - 2 * e) / 3):
+    for yy in (y + h - e - (h - 2 * e) / 3, y + h - e - 2 * (h - 2 * e) / 3) if rings else ():
         ax.add_patch(Ellipse((x + w / 2, yy), w, 2 * e, facecolor="none", edgecolor=ec, lw=0.4, ls=":" if hidden else "-"))
+
+TEST_STYLE = os.environ.get("FIG1T", "stack")                    # stack (paper) | bar | cyl2 | dots | pie: icons for the test set
+
+def _tier(ax, x, y, w, th, on):
+    """One tier of a database cylinder; y is the centre of its lower rim."""
+    e = w * 0.12; fc = SEQ[1] if on else "white"; ls = "-" if on else ":"
+    ax.add_patch(Rectangle((x, y), w, th, facecolor=fc, edgecolor="none"))
+    ax.add_patch(Ellipse((x + w / 2, y), w, 2 * e, facecolor=fc, edgecolor=INK2, lw=0.7, ls=ls))
+    ax.add_patch(Rectangle((x, y), w, th, facecolor=fc, edgecolor="none"))
+    for xx in (x, x + w): ax.plot([xx, xx], [y, y + th], color=INK2, lw=0.7, ls=ls)
+    ax.add_patch(Ellipse((x + w / 2, y + th), w, 2 * e, facecolor=fc, edgecolor=INK2, lw=0.7, ls=ls))
 
 def testbar(ax, xc, y, scored_right, notes):
     """Test set as two halves of 150 scans; a filled half is scored in this phase, a dashed one is not."""
+    num = lambda x, yy, on: ax.text(x, yy, "150", fontsize=FS_NOTE, color=INK if on else INK2, ha="center", va="center")
+    if TEST_STYLE == "cyl2":                                         # two database cylinders side by side
+        cw, ch, gap, y0 = 0.36, 0.36, 0.05, y - 0.06
+        for k, on in enumerate((True, scored_right)):
+            x = xc - cw - gap / 2 + k * (cw + gap); e = cw * 0.12
+            _tier(ax, x, y0 + e, cw, ch - 2 * e, on); num(x + cw / 2, y0 + ch / 2 - 0.02, on)
+        return y0 + ch
+    if TEST_STYLE == "stack":                                        # one cylinder, two tiers
+        cw, th = 0.36, 0.14; e = cw * 0.12; y0 = y - 0.075 + e       # same width, rim and stroke as the training and validation cylinders
+        for k, on in enumerate((True, scored_right)):
+            _tier(ax, xc - cw / 2, y0 + k * th, cw, th, on); num(xc, y0 + k * th + th / 2 - e, on)
+        return y0 + 2 * th + e
+    if TEST_STYLE == "dots":                                         # 30 tiles of 10 scans each
+        sq, pitch, rows, cols = 0.05, 0.064, 3, 10; x0 = xc - cols * pitch / 2 + (pitch - sq) / 2
+        for c in range(cols):
+            on = c < cols // 2 or scored_right
+            for r in range(rows):
+                ax.add_patch(Rectangle((x0 + c * pitch + (0.02 if c >= cols // 2 else -0.02), y - 0.01 + r * pitch), sq, sq,
+                                       facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.5, ls="-" if on else ":"))
+        return y - 0.01 + rows * pitch
+    if TEST_STYLE == "pie":                                          # disc in two halves
+        r = 0.19; cy = y - 0.05 + r
+        for k, on in enumerate((True, scored_right)):
+            ax.add_patch(Wedge((xc, cy), r, 90 + 180 * k, 270 + 180 * k,
+                               facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.7, ls="-" if on else ":"))
+            num(xc + (-1 if k == 0 else 1) * r * 0.48, cy, on)
+        return cy + r
     sw, sh = 0.44, 0.17
     for k, on in enumerate((True, scored_right)):
         x = xc - sw + k * sw
         ax.add_patch(Rectangle((x, y), sw, sh, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.7, ls="-" if on else ":"))
-        ax.text(x + sw / 2, y + sh / 2, "150", fontsize=FS_NOTE, color=INK if on else INK2, ha="center", va="center")
+        num(x + sw / 2, y + sh / 2, on)
         if notes: ax.text(x + sw / 2, y - 0.03, notes[k], fontsize=FS_NOTE, color=INK2, ha="center", va="top")
     return y + sh
 
@@ -268,10 +306,13 @@ def panel_b(x0, y0, w, h):
     yc = 1.02
     d = -0.14 if VARIANT_B == "bar" else 0.0                      # trial layout: flow sits clear of the panel's right edge
     # development: training/validation data -> participants -> submissions on the public test half -> leaderboard
-    cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
+    if TEST_STYLE == "stack":                                       # plain cylinders in the style of the test-set tiers; a ring marks a split
+        for yb in (yc + 0.12, yc - 0.62): _tier(ax, 0.25, yb + 0.36 * 0.12, 0.36, 0.46 - 2 * 0.36 * 0.12, True)
+    else:
+        cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
+        cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc + 0.35, "Training set\n2,992 scans", fontsize=FS_BODY,
             color=INK, va="center", linespacing=1.25)
-    cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc - 0.39, "Validation set\n200 scans", fontsize=FS_BODY, color=INK,
             va="center", linespacing=1.25)
     ax.plot([1.80 + d, 1.88 + d, 1.88 + d, 1.80 + d], [yc + 0.35, yc + 0.35, yc - 0.39, yc - 0.39], color=MUTED, lw=0.7, solid_joinstyle="miter")
@@ -286,7 +327,7 @@ def panel_b(x0, y0, w, h):
             ax.add_patch(Rectangle((lx, 0.135), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
             ax.text(lx + 0.13, 0.18, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
         arrow(ax, (3.47 + d, top + 0.02), (3.47 + d, yc - 0.29))
-        ax.text(2.95 + d, 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
+        ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
     else:
         cylinder(ax, 3.29, 0.14, 0.36, 0.38, SEQ[1], INK2)
         arrow(ax, (3.47, 0.54), (3.47, yc - 0.29))
@@ -307,7 +348,7 @@ def panel_b(x0, y0, w, h):
     if VARIANT_B == "bar":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
         top = testbar(ax, bx + 0.49, 0.32, True, None)
-        ax.text(bx + 1.02, 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
+        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
         arrow(ax, (bx + 0.49, top + 0.02), (bx + 0.49, yc - 0.29))
     elif VARIANT_B == "text":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final ranking:\nDice on all 300\ntest scans", fc="white", ec=MUTED)
@@ -619,6 +660,7 @@ if _bad:
 print("panel b: all text inside boxes")
 SUFFIX = "" if VARIANT_C == "map" else f"_{VARIANT_C}"
 if VARIANT_B != "bar": SUFFIX += f"_B{VARIANT_B}"
+if TEST_STYLE != "stack": SUFFIX += f"_T{TEST_STYLE}"
 # Vector output; dpi only sets the resolution at which the embedded CT bitmaps are resampled.
 for ext in ("pdf", "svg"):
     fig.savefig(os.path.join(OUT, f"fig1{SUFFIX}.{ext}"), bbox_inches="tight", dpi=900)
