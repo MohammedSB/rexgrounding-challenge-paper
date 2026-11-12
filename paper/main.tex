@@ -285,22 +285,21 @@ segmentations in chest CT \citep{baharoon2026rexgroundingct}.
 To address this gap, we organized the ReXGrounding Challenge
 (Figure~\ref{fig:overview}) at MICCAI 2026 as the first challenge on 3D segmentation conditioned on free-text
 findings. Given a non-contrast chest CT and one finding from its report,
-participants segmented that finding in 3D. Methods were evaluated on
+participants trained models to segment that finding in 3D. Methods were evaluated on
 300 held-out scans with 582 findings, exhaustively annotated by
 board-certified radiologists, and 48 teams from 15 countries made
-760 submissions. The challenge led to four main findings, which this paper
+760 submissions. The challenge led to three main findings, which this paper
 reports following the BIAS guideline \citep{maier2020bias}. First, the best method reached a Dice of 0.375 and a hit rate of
 0.77, matching the agreement between two independent radiologist groups.
 On the 100 scans of the pre-challenge benchmark it reached a Dice of
 0.390, up from 0.285 for the best model before the challenge
 \citep{rokuss2026voxtell}. Second,
-the top four teams were within 0.015 Dice and could not be separated
-statistically, so the choice of ranking scheme determined the winner. Third,
-the top methods converged on a common recipe: fine-tuning a pretrained
+the top methods performed similarly, with the top four teams within 0.015 Dice
+and none statistically better than the others, and they converged on a common recipe: fine-tuning a pretrained
 text-promptable model, large anatomical context, text augmentation,
 ensembling, and post-processing to restrict masks to the lobe
 or side named in the sentence.
-Fourth, the overall Dice hides clear remaining gaps
+Third, the overall Dice hides clear remaining gaps
 (Figure~\ref{fig:category-perf}), in non-focal findings,
 in finding every instance of a multi-instance finding, and in following the
 location stated in the sentence. This challenge has established the first benchmark for grounding
