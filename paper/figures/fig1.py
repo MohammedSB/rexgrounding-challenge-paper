@@ -43,6 +43,7 @@ plt.rcParams.update({
     "xtick.major.width": 0.6, "ytick.major.width": 0.6, "xtick.major.size": 2.5, "ytick.major.size": 2.5,
     "pdf.fonttype": 42, "svg.fonttype": "none",
 })
+VARIANT_B = os.environ.get("FIG1B", "bar")                      # bar (paper) | text | old: layouts of panel B
 VARIANT_C = os.environ.get("FIG1C", "map")                      # map | participation | leaderboard | results
 W, H = 7.5, {"map": 7.5, "results": 7.0}.get(VARIANT_C, 6.55)
 fig = plt.figure(figsize=(W, H))
@@ -241,6 +242,16 @@ def cylinder(ax, x, y, w, h, fc, ec, hidden=False):
     for yy in (y + h - e - (h - 2 * e) / 3, y + h - e - 2 * (h - 2 * e) / 3):
         ax.add_patch(Ellipse((x + w / 2, yy), w, 2 * e, facecolor="none", edgecolor=ec, lw=0.4, ls=":" if hidden else "-"))
 
+def testbar(ax, xc, y, scored_right, notes):
+    """Test set as two halves of 150 scans; a filled half is scored in this phase, a dashed one is not."""
+    sw, sh = 0.44, 0.17
+    for k, on in enumerate((True, scored_right)):
+        x = xc - sw + k * sw
+        ax.add_patch(Rectangle((x, y), sw, sh, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.7, ls="-" if on else ":"))
+        ax.text(x + sw / 2, y + sh / 2, "150", fontsize=FS_NOTE, color=INK if on else INK2, ha="center", va="center")
+        if notes: ax.text(x + sw / 2, y - 0.03, notes[k], fontsize=FS_NOTE, color=INK2, ha="center", va="top")
+    return y + sh
+
 def panel_b(x0, y0, w, h):
     ax = canvas(x0, y0, w, h); CW, CH = w * W, h * H
     split = 4.05
@@ -255,6 +266,7 @@ def panel_b(x0, y0, w, h):
     ax.text(split + 0.20, CH - 0.35, "Evaluation phase", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
     ax.text(split + 1.30, CH - 0.35, "14 – 27 September 2026", fontsize=FS_BODY, color=INK2, va="center")
     yc = 1.02
+    d = -0.14 if VARIANT_B == "bar" else 0.0                      # trial layout: flow sits clear of the panel's right edge
     # development: training/validation data -> participants -> submissions on the public test half -> leaderboard
     cylinder(ax, 0.25, yc + 0.12, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc + 0.35, "Training set\n2,992 scans", fontsize=FS_BODY,
@@ -262,37 +274,58 @@ def panel_b(x0, y0, w, h):
     cylinder(ax, 0.25, yc - 0.62, 0.36, 0.46, SEQ[1], INK2)
     ax.text(0.68, yc - 0.39, "Validation set\n200 scans", fontsize=FS_BODY, color=INK,
             va="center", linespacing=1.25)
-    ax.plot([1.80, 1.88, 1.88, 1.80], [yc + 0.35, yc + 0.35, yc - 0.39, yc - 0.39], color=MUTED, lw=0.7, solid_joinstyle="miter")
-    arrow(ax, (1.88, yc), (1.98, yc))
-    box(ax, 1.98, yc - 0.27, 0.86, 0.54, "Participants\ntrain and tune\nmodels", fc="white", ec=MUTED)
-    arrow(ax, (2.86, yc), (3.04, yc))
-    box(ax, 3.04, yc - 0.27, 0.86, 0.54, "Submit\npredictions", fc="white", ec=MUTED)
+    ax.plot([1.80 + d, 1.88 + d, 1.88 + d, 1.80 + d], [yc + 0.35, yc + 0.35, yc - 0.39, yc - 0.39], color=MUTED, lw=0.7, solid_joinstyle="miter")
+    arrow(ax, (1.88 + d, yc), (1.98 + d, yc))
+    box(ax, 1.98 + d, yc - 0.27, 0.86, 0.54, "Participants\ntrain models" if VARIANT_B == "bar" else "Participants\ntrain and tune\nmodels", fc="white", ec=MUTED)
+    arrow(ax, (2.86 + d, yc), (3.04 + d, yc))
+    box(ax, 3.04 + d, yc - 0.27, 0.86, 0.54, "Submit\npredictions", fc="white", ec=MUTED)
     # public half of the test set: scans released, masks withheld
-    cylinder(ax, 3.29, 0.14, 0.36, 0.38, SEQ[1], INK2)
-    arrow(ax, (3.47, 0.54), (3.47, yc - 0.29))
-    ax.text(3.20, 0.33, "Test set\n300 scans, masks withheld", fontsize=FS_BODY, color=INK,
-            ha="right", va="center", linespacing=1.25)
+    if VARIANT_B == "bar":
+        top = testbar(ax, 3.47 + d, 0.32, False, None)
+        for lx, on, t in ((2.72 + d, True, "scored"), (3.22 + d, False, "not yet scored")):          # key for the two halves
+            ax.add_patch(Rectangle((lx, 0.135), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
+            ax.text(lx + 0.13, 0.18, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
+        arrow(ax, (3.47 + d, top + 0.02), (3.47 + d, yc - 0.29))
+        ax.text(2.95 + d, 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
+    else:
+        cylinder(ax, 3.29, 0.14, 0.36, 0.38, SEQ[1], INK2)
+        arrow(ax, (3.47, 0.54), (3.47, yc - 0.29))
+        ax.text(3.20, 0.33, "Test set\n300 scans, masks withheld", fontsize=FS_BODY, color=INK,
+                ha="right", va="center", linespacing=1.25)
     # leaderboard loop, above the boxes
     yl = yc + 0.44
-    ax.plot([3.47, 3.47, 2.41], [yc + 0.27, yl, yl], color=MUTED, lw=0.7, solid_joinstyle="miter")
-    arrow(ax, (2.41, yl), (2.41, yc + 0.29))
-    ax.text(2.94, yl + 0.04, "Dice on the leaderboard half (150 scans)", fontsize=FS_NOTE, color=INK2,
-            ha="center", va="bottom", linespacing=1.15)
+    ax.plot([3.47 + d, 3.47 + d, 2.41 + d], [yc + 0.27, yl, yl], color=MUTED, lw=0.7, solid_joinstyle="miter")
+    arrow(ax, (2.41 + d, yl), (2.41 + d, yc + 0.29))
+    if VARIANT_B == "bar":
+        ax.text(2.94 + d, yl + 0.04, "Leaderboard Dice on 150 test scans", fontsize=FS_NOTE, color=INK2, ha="center", va="bottom")
+    else:
+        ax.text(2.94, yl + 0.04, {"bar": "Leaderboard: Dice on 150 test scans", "text": "Leaderboard: Dice on 150 of the 300 test scans"}.get(VARIANT_B, "Dice on the leaderboard half (150 scans)"), fontsize=FS_NOTE, color=INK2,
+                ha="center", va="bottom", linespacing=1.15)
     # evaluation: final submission -> ranking on the full test set (public + hidden halves) -> session
     bx = split + 0.30
-    arrow(ax, (3.90, yc), (bx, yc))
-    box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
-    cylinder(ax, bx + 0.04, 0.22, 0.36, 0.36, SEQ[1], INK2)
-    cylinder(ax, bx + 0.50, 0.22, 0.36, 0.36, "white", INK2, hidden=True)
-    ax.plot([bx + 0.22, bx + 0.22, bx + 0.68, bx + 0.68], [0.58, 0.62, 0.62, 0.58], color=MUTED, lw=0.7, solid_joinstyle="miter")
-    arrow(ax, (bx + 0.45, 0.62), (bx + 0.45, yc - 0.29))
-    ax.text(bx + 0.98, 0.40, "Full test set, 300 scans\n150 scored during development\n150 scored only after the deadline",
-            fontsize=FS_BODY, color=INK, va="center", linespacing=1.25)
+    arrow(ax, (3.90 + d, yc), (bx, yc))
+    if VARIANT_B == "bar":
+        box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
+        top = testbar(ax, bx + 0.49, 0.32, True, None)
+        ax.text(bx + 1.02, 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
+        arrow(ax, (bx + 0.49, top + 0.02), (bx + 0.49, yc - 0.29))
+    elif VARIANT_B == "text":
+        box(ax, bx, yc - 0.27, 0.98, 0.54, "Final ranking:\nDice on all 300\ntest scans", fc="white", ec=MUTED)
+        ax.text(bx, 0.40, "Each team's final submission is scored on the full test set,\nincluding the 150 scans not scored during development",
+                fontsize=FS_BODY, color=INK2, va="center", linespacing=1.25)
+    else:
+        box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
+        cylinder(ax, bx + 0.04, 0.22, 0.36, 0.36, SEQ[1], INK2)
+        cylinder(ax, bx + 0.50, 0.22, 0.36, 0.36, "white", INK2, hidden=True)
+        ax.plot([bx + 0.22, bx + 0.22, bx + 0.68, bx + 0.68], [0.58, 0.62, 0.62, 0.58], color=MUTED, lw=0.7, solid_joinstyle="miter")
+        arrow(ax, (bx + 0.45, 0.62), (bx + 0.45, yc - 0.29))
+        ax.text(bx + 0.98, 0.40, "Full test set, 300 scans\n150 scored during development\n150 scored only after the deadline",
+                fontsize=FS_BODY, color=INK, va="center", linespacing=1.25)
     arrow(ax, (bx + 1.00, yc), (bx + 1.20, yc))
     px = bx + 1.24
     for i, (hh, off) in enumerate([(0.16, 0), (0.26, 0.13), (0.11, 0.26)]):
         ax.add_patch(Rectangle((px + off, yc - 0.14), 0.12, hh, facecolor=SEQ[3 if i == 1 else 2], edgecolor="none"))
-    ax.text(px + 0.48, yc, "27 September at MICCAI 2026\nTop teams present their methods\nFinal results announced",
+    ax.text(px + 0.48, yc, "Results announced at\nMICCAI 2026, 27 September" if VARIANT_B == "bar" else "27 September at MICCAI 2026\nTop teams present their methods\nFinal results announced",
             fontsize=FS_BODY, color=INK, va="center", linespacing=1.25)
 
 # =================================================================== c: map
@@ -585,6 +618,7 @@ if _bad:
     raise SystemExit("panel b text outside its box: " + "; ".join(_bad))
 print("panel b: all text inside boxes")
 SUFFIX = "" if VARIANT_C == "map" else f"_{VARIANT_C}"
+if VARIANT_B != "bar": SUFFIX += f"_B{VARIANT_B}"
 # Vector output; dpi only sets the resolution at which the embedded CT bitmaps are resampled.
 for ext in ("pdf", "svg"):
     fig.savefig(os.path.join(OUT, f"fig1{SUFFIX}.{ext}"), bbox_inches="tight", dpi=900)
