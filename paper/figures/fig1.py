@@ -263,7 +263,7 @@ def testbar(ax, xc, y, scored_right, notes):
             _tier(ax, x, y0 + e, cw, ch - 2 * e, on); num(x + cw / 2, y0 + ch / 2 - 0.02, on)
         return y0 + ch
     if TEST_STYLE == "stack":                                        # one cylinder, two tiers; width, rim and stroke of the other cylinders
-        cw, th = 0.36, 0.14; e = cw * 0.12; y0 = y - 0.075 + e
+        cw, th = 0.36, 0.12; e = cw * 0.12; y0 = y - 0.045 + e
         for k, on in enumerate((True, scored_right)):
             _tier(ax, xc - cw / 2, y0 + k * th, cw, th, on); num(xc, y0 + k * th + th / 2 - e, on)
         return y0 + 2 * th + e
@@ -321,10 +321,10 @@ def panel_b(x0, y0, w, h):
     if VARIANT_B == "bar":
         top = testbar(ax, 3.47 + d, 0.32, False, None)
         for lx, on, t in ((2.72 + d, True, "scored"), (3.22 + d, False, "not yet scored")):          # key for the two halves
-            ax.add_patch(Rectangle((lx, 0.135), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
-            ax.text(lx + 0.13, 0.18, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
+            ax.add_patch(Rectangle((lx, 0.105), 0.09, 0.09, facecolor=SEQ[1] if on else "white", edgecolor=INK2, lw=0.6, ls="-" if on else ":"))
+            ax.text(lx + 0.13, 0.15, t, fontsize=FS_NOTE, color=INK2, ha="left", va="center")
         arrow(ax, (3.47 + d, top + 0.02), (3.47 + d, yc - 0.29))
-        ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
+        ax.text((3.20 if TEST_STYLE == "stack" else 2.95) + d, 0.44 if TEST_STYLE == "stack" else 0.405, "Test set\n300 scans", fontsize=FS_BODY, color=INK, ha="right", va="center", linespacing=1.25)
     else:
         cylinder(ax, 3.29, 0.14, 0.36, 0.38, SEQ[1], INK2)
         arrow(ax, (3.47, 0.54), (3.47, yc - 0.29))
@@ -345,7 +345,7 @@ def panel_b(x0, y0, w, h):
     if VARIANT_B == "bar":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final submission\nscored on all 300\ntest scans", fc="white", ec=MUTED)
         top = testbar(ax, bx + 0.49, 0.32, True, None)
-        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
+        ax.text(bx + (0.80 if TEST_STYLE == "stack" else 1.02), 0.44 if TEST_STYLE == "stack" else 0.405, "Full test set", fontsize=FS_BODY, color=INK, va="center")
         arrow(ax, (bx + 0.49, top + 0.02), (bx + 0.49, yc - 0.29))
     elif VARIANT_B == "text":
         box(ax, bx, yc - 0.27, 0.98, 0.54, "Final ranking:\nDice on all 300\ntest scans", fc="white", ec=MUTED)
