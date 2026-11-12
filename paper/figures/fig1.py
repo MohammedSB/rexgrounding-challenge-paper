@@ -339,7 +339,7 @@ def panel_b(x0, y0, w, h):
     ax.plot([3.47 + d, 3.47 + d, 2.41 + d], [yc + 0.27, yl, yl], color=MUTED, lw=0.7, solid_joinstyle="miter")
     arrow(ax, (2.41 + d, yl), (2.41 + d, yc + 0.29))
     if VARIANT_B == "bar":
-        ax.text(2.94 + d, yl + 0.04, "Leaderboard Dice on 150 test scans", fontsize=FS_NOTE, color=INK2, ha="center", va="bottom")
+        ax.text(2.94 + d, yl + 0.04, "Leaderboard scores on 150 test scans", fontsize=FS_NOTE, color=INK2, ha="center", va="bottom")
     else:
         ax.text(2.94, yl + 0.04, {"bar": "Leaderboard: Dice on 150 test scans", "text": "Leaderboard: Dice on 150 of the 300 test scans"}.get(VARIANT_B, "Dice on the leaderboard half (150 scans)"), fontsize=FS_NOTE, color=INK2,
                 ha="center", va="bottom", linespacing=1.15)
