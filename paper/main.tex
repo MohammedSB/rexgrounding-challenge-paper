@@ -362,11 +362,11 @@ set and light bars the training set.}
 % BIAS 17--23
 
 \paragraph{Task}
-Given a non-contrast chest CT volume and a free-text description of a
-single finding, produce a 3D binary segmentation of all regions described
-by that finding. Each finding receives one mask, and when a finding has
+Given a non-contrast chest CT volume and the set of free-text findings from
+its report, produce the corresponding set of 3D binary segmentations, one per
+finding, each covering all regions that finding describes. When a finding has
 several instances, such as multiple nodules, all of them are segmented
-together in that mask. Instances are recovered afterwards as connected
+together in its mask. Instances are recovered afterwards as connected
 components for the instance-level metrics (Section~\ref{sec:metrics}).
 
 \paragraph{Assessment aim}
