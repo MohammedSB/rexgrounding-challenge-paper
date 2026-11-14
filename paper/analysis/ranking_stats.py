@@ -51,17 +51,20 @@ CNT = np.array(CNT, dtype=float)    # teams x cases x 5
 n_t, n_c = X.shape
 obs = X.mean(1)
 obs_rank = (-obs).argsort().argsort() + 1
-boot_hit = np.empty((B, n_t)); boot_f1 = np.empty((B, n_t))
+boot_hit = np.empty((B, n_t)); boot_f1 = np.empty((B, n_t)); boot_p = np.empty((B, n_t)); boot_r = np.empty((B, n_t))
 boot_means = np.empty((B, n_t)); boot_ranks = np.empty((B, n_t), int); taus = np.empty(B)
 for b in range(B):
     idx = rng.integers(0, n_c, n_c)
     m_ = X[:, idx].mean(1); boot_means[b] = m_
     s_ = CNT[:, idx].sum(1); boot_hit[b] = s_[:, 0] / s_[:, 1]
     boot_f1[b] = 2 * s_[:, 2] / np.maximum(2 * s_[:, 2] + s_[:, 3] + s_[:, 4], 1)
+    boot_p[b] = s_[:, 2] / np.maximum(s_[:, 2] + s_[:, 3], 1); boot_r[b] = s_[:, 2] / np.maximum(s_[:, 2] + s_[:, 4], 1)
     boot_ranks[b] = (-m_).argsort().argsort() + 1
     taus[b] = kendalltau(obs_rank, boot_ranks[b]).statistic
 ci = np.percentile(boot_means, [2.5, 97.5], axis=0)
 ci_hit = np.percentile(boot_hit, [2.5, 97.5], axis=0); ci_f1 = np.percentile(boot_f1, [2.5, 97.5], axis=0)
+ci_p = np.percentile(boot_p, [2.5, 97.5], axis=0); ci_r = np.percentile(boot_r, [2.5, 97.5], axis=0)
+tot = CNT.sum(1); prec = tot[:, 2] / np.maximum(tot[:, 2] + tot[:, 3], 1); rec = tot[:, 2] / np.maximum(tot[:, 2] + tot[:, 4], 1)
 out = {"n_cases": int(n_c), "n_teams": int(n_t), "B": B,
        "kendall_tau_median": float(np.median(taus)), "kendall_tau_iqr": [float(x) for x in np.percentile(taus, [25, 75])],
        "teams": []}
@@ -70,6 +73,8 @@ for i, t in enumerate(teams):
                          "ci95": [float(ci[0, i]), float(ci[1, i])],
                          "hit_rate_ci95": [float(ci_hit[0, i]), float(ci_hit[1, i])],
                          "instance_f1_ci95": [float(ci_f1[0, i]), float(ci_f1[1, i])],
+                         "instance_precision": float(prec[i]), "instance_precision_ci95": [float(ci_p[0, i]), float(ci_p[1, i])],
+                         "instance_recall": float(rec[i]), "instance_recall_ci95": [float(ci_r[0, i]), float(ci_r[1, i])],
                          "median_rank": float(np.median(boot_ranks[:, i])),
                          "rank_iqr": [float(x) for x in np.percentile(boot_ranks[:, i], [25, 75])],
                          "rank_range_95": [int(x) for x in np.percentile(boot_ranks[:, i], [2.5, 97.5])],
