@@ -536,7 +536,7 @@ prediction was split into connected components, which were matched one to one
 with the annotated reference instances in order of decreasing Dice, and a match counted as a true
 positive when its Dice was at least 0.2. Instance precision, recall and F1
 follow from these matches. Mean Dice per finding and mean Dice over matched
-instances were also reported but not used for ranking.
+instances were also reported. Only the primary Dice was used for ranking.
 
 Dice was used as the single primary metric so that all findings could be
 ranked on a common scale, and it was computed over the whole mask of each
