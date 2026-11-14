@@ -567,10 +567,8 @@ the teams with rank-then-aggregate (Section~\ref{sec:stability}).
 
 \paragraph{Statistical analysis}
 % BIAS 31a--b
-The precision of each team's mean Dice, hit rate and instance F1 was estimated
-with 1,000 bootstrap replicates that resampled the 300 test cases
-with replacement and recomputed each score with the same aggregation as the
-ranking. The resulting 95\% percentile confidence intervals are given in
+We computed 95\% confidence intervals for each team's mean Dice, hit rate and
+instance F1 from 1,000 bootstrap resamples of the 300 test cases. They are given in
 Table~\ref{tab:leaderboard} and Table~\ref{tab:leaderboard-full}. Ranking
 variability was assessed by re-ranking all teams in each replicate and
 reporting the distribution of each team's rank and the range covering 95\% of
