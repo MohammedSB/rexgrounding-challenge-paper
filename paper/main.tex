@@ -537,10 +537,9 @@ with the annotated reference instances in order of decreasing Dice, and a match 
 positive when its Dice was at least 0.2. Instance precision, recall and F1
 follow from these matches.
 
-Dice was used as the single primary metric so that all findings could be
-ranked on a common scale, and it was computed over the whole mask of each
-finding, which avoids defining instances for diffuse patterns where boundaries
-between lesions are arbitrary. As recommended by Metrics Reloaded
+Dice over the whole mask was used as the single primary metric because it
+applies to every finding, including diffuse patterns where boundaries between
+lesions are arbitrary and instances cannot be defined. As recommended by Metrics Reloaded
 \citep{maier2024metrics}, Dice was complemented by the detection metrics hit rate
 and instance F1.
 Averaging per case before averaging over cases gives every scan equal weight,
