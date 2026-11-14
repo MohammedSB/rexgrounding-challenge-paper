@@ -594,9 +594,8 @@ right, naming a different lobe in the same lung, or changing a small stated size
 to 30\,mm and a large one to 3\,mm. Findings in both lungs were also
 prompted once for each side. Size and side edits were made with rules, and the
 other edits were made by a large language model (Claude Opus 5.5, Anthropic).
-Each edit was evaluated only on the findings it changed, against the same team's result for the
-original sentence, using the paired difference in Dice with a 95\% bootstrap
-confidence interval over scans and a two-sided Wilcoxon signed-rank test. For
+Each edit was compared with the original sentence on the findings it changed,
+using the paired difference in Dice and a two-sided Wilcoxon signed-rank test. For
 the location edits we also measured the share of the predicted mask that lay on
 each side of the body. The effect of each edit on Dice and on the location of the
 mask is reported in Section~\ref{sec:further} and summarized in
