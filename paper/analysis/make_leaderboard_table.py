@@ -54,10 +54,10 @@ def institutions(team):                                          # cleaned, spli
 lines = []
 for r in rows:
     t = r["team"]; c = ci[t]
-    b = lambda v, k: f"{float(v):.4f} [{c[k][0]:.3f}--{c[k][1]:.3f}]"
+    b = lambda v, k: f"{float(v):.4f} {{\\tiny[{c[k][0]:.3f}--{c[k][1]:.3f}]}}"
     lines.append(f"Team {r['rank']} & {institutions(t)} & {CTRY.get(country[t], country[t])} & "
                  f"{b(r['dice_full_test'], 'ci95')} & {b(r['hit_rate'], 'hit_rate_ci95')} & "
-                 f"{c['instance_precision']:.4f} & {c['instance_recall']:.4f} & "
+                 f"{b(c['instance_precision'], 'instance_precision_ci95')} & {b(c['instance_recall'], 'instance_recall_ci95')} & "
                  f"{b(r['instance_f1'], 'instance_f1_ci95')} & {r['n_submissions']} \\\\")
     if r["rank"] in ("4", "10"):
         lines.append("\\midrule")
