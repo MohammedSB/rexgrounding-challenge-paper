@@ -367,8 +367,8 @@ Given a non-contrast chest CT volume and the set of free-text findings from
 its report, produce the corresponding set of 3D binary segmentations, one per
 finding, each covering all regions that finding describes. When a finding has
 several instances, such as multiple nodules, all of them are segmented
-together in its mask. Instances are recovered afterwards as connected
-components for the instance-level metrics (Section~\ref{sec:metrics}).
+together in its mask. The reference masks label each instance separately for
+the instance-level metrics (Section~\ref{sec:metrics}).
 
 \paragraph{Assessment aim}
 % BIAS 23
@@ -531,9 +531,9 @@ any metric was computed, predicted connected components smaller than 10
 voxels were removed and at most the 50 largest components per finding were
 kept. An empty prediction for a finding scored a Dice
 of zero. We defined the hit rate as the proportion of findings
-with a Dice of at least 0.1. For the instance-level metrics, both the reference
-mask and the filtered prediction were split into connected components, which were
-matched one to one in order of decreasing Dice, and a match counted as a true
+with a Dice of at least 0.1. For the instance-level metrics, the filtered
+prediction was split into connected components, which were matched one to one
+with the annotated reference instances in order of decreasing Dice, and a match counted as a true
 positive when its Dice was at least 0.2. Instance precision, recall and F1
 follow from these matches. Mean Dice per finding and mean Dice over matched
 instances were also reported but not used for ranking.
