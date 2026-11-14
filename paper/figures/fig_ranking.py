@@ -43,7 +43,7 @@ axA.legend(handles=[Line2D([], [], linestyle="none", marker="o", ms=np.sqrt(f * 
            title="Share of replicates", title_fontsize=6.2, loc="lower left", frameon=False, fontsize=6.2,
            handlelength=1.2, labelspacing=0.5, borderaxespad=0.2)
 
-# B: pairwise comparisons among the top K; cell = share of replicates in which the row team beats the column team
+# B: pairwise comparisons among the top K; cell = Holm-adjusted p of the one-sided Wilcoxon test (row team better)
 axC = fig.add_axes([0.605, 0.11 + 0.79 - 0.375 * 7.2 / FH - 0.055, 0.375, 0.375 * 7.2 / FH])
 pairs = {(p["a"], p["b"]): p for p in S["pairs_top10"]}
 top = [t["team"] for t in teams[:K]]
@@ -52,11 +52,13 @@ for i, a in enumerate(top):
     for j, b in enumerate(top):
         if j <= i: continue
         p = pairs.get((a, b))
-        win, sig = (p["boot_win"], p["significant"]) if p else (1 - pairs[(b, a)]["boot_win"], pairs[(b, a)]["significant"])
-        M[i, j] = win
+        assert p, (a, b)                                        # pairs are stored higher-ranked first
+        ph, sig = p["p_holm"], p["significant"]
+        M[i, j] = ph
         axC.add_patch(plt.Rectangle((j - 0.47, i - 0.47), 0.94, 0.94, facecolor=FOCAL if sig else "#e8f1fc",
                                     edgecolor="none"))
-        axC.text(j, i, f"{round(100 * win)}", ha="center", va="center", fontsize=5.6, color="white" if sig else INK2)
+        axC.text(j, i, "<0.001" if ph < 0.001 else f"{ph:.3f}" if ph < 0.05 else f"{ph:.2f}", ha="center", va="center",
+                fontsize=4.8 if ph < 0.001 else 5.6, color="white" if sig else INK2)
 axC.set_xticks(range(K)); axC.set_xticklabels([str(i + 1) for i in range(K)], fontsize=6.4)
 axC.set_yticks(range(K)); axC.set_yticklabels([str(i + 1) for i in range(K)], fontsize=6.4)
 axC.xaxis.set_ticks_position("top"); axC.xaxis.set_label_position("top")
@@ -67,9 +69,9 @@ axC.set_ylabel("Higher-ranked team", color=INK, labelpad=2)
 axC.set_xlabel("Lower-ranked team", color=INK, labelpad=3)
 axC.set_aspect("equal")
 from matplotlib.patches import Patch
-axC.legend(handles=[Patch(facecolor=FOCAL, label="Significant"), Patch(facecolor="#e8f1fc", label="Not significant")],
+axC.legend(handles=[Patch(facecolor=FOCAL, label="Significant ($p$ < 0.05)"), Patch(facecolor="#e8f1fc", label="Not significant")],
            loc="lower left", frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85, labelspacing=0.4,
-           borderaxespad=0.3, title="Numbers: % of replicates\nin which the row team wins", title_fontsize=6.2,
+           borderaxespad=0.3, title="Numbers: Holm-adjusted p", title_fontsize=6.2,
            alignment="left")
 
 for ax, letter, dx in ((axA, "A", -0.115), (axC, "B", -0.055)):

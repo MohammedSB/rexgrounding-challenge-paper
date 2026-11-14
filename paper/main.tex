@@ -575,11 +575,11 @@ reporting the distribution of each team's rank and the range covering 95\% of
 its bootstrap ranks (Figure~\ref{fig:ranking}A), and agreement between
 bootstrap and observed rankings was summarized with Kendall's $\tau$
 (Section~\ref{sec:stability})
-\citep{maier2018rankings,wiesenfarth2021methods}. For each pair among the ten best teams, the proportion of
-replicates in which the higher-ranked team scored higher is reported in
-Figure~\ref{fig:ranking}B, together with whether it scored significantly
-higher in a one-sided paired Wilcoxon signed-rank test on per-case Dice, with
-Holm correction for the 45 comparisons. All
+\citep{maier2018rankings,wiesenfarth2021methods}. For each pair among the ten best teams, we tested whether the higher-ranked
+team scored significantly higher with a one-sided paired Wilcoxon signed-rank
+test on per-case Dice, with Holm correction for the 45 comparisons
+(Figure~\ref{fig:ranking}B), and report the proportion of replicates in which
+it scored higher. All
 analyses used Python with NumPy and SciPy.
 
 \paragraph{Controlled prompt experiment}
@@ -1252,9 +1252,9 @@ resampling of the test scans.
 area is the share of replicates with that rank, the line spans the central 95\%
 of ranks, and the dashed diagonal marks the observed rank; the three winning
 teams are shown in darker blue. B) Pairwise comparisons among the ten best
-teams, labelled by rank. Each number is the share of replicates in which the
-higher-ranked team scored higher. Filled cells are significant in a one-sided
-paired Wilcoxon test after Holm correction ($p < 0.05$). Confidence intervals of
+teams, labelled by rank. Each number is the Holm-adjusted $p$-value of a one-sided
+paired Wilcoxon test that the higher-ranked team scored higher, and filled cells
+are significant ($p < 0.05$). Confidence intervals of
 the mean Dice are given in Table~\ref{tab:leaderboard}.}
 \label{fig:ranking}
 \end{figure*}
