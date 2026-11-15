@@ -843,14 +843,15 @@ Dice is computed over the whole 3D mask of the finding.}
 \subsection{Ranking stability}
 \label{sec:stability}
 % BIAS 35b
-The ranking on the leaderboard half of the test set closely matched the final
-ranking on all 300 scans. The first two places were unchanged,
-and places three to eight changed only by swaps between neighbouring pairs.
+The ranking on the leaderboard half of the test set held on the other 150
+scans, which were scored only after the deadline (Kendall's $\tau = 0.85$
+between the two halves). Teams 1 and 2 placed first and second on both halves,
+and Teams 3 and 4 swapped places.
 The ranking was stable overall (Figure~\ref{fig:ranking}): bootstrap
 rankings agreed closely with the observed one (median Kendall's
 $\tau = 0.95$). At the top, however,
 the margins were within the uncertainty of the test set. Team 1 ranked
-first in 89\% of bootstrap replicates and within the top three in
+first in 89\% of 1,000 bootstrap replicates and within the top three in
 99\%, but the
 95\% confidence intervals of the top four teams overlapped (Table~\ref{tab:leaderboard}), and none of the differences among them was
 significant after correction. Team 1 scored higher than Team 2 in
