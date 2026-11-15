@@ -598,8 +598,7 @@ Each edit was compared with the original sentence on the findings it changed,
 using the paired difference in Dice and a two-sided Wilcoxon signed-rank test. For
 the location edits we also measured the share of the predicted mask that lay on
 each side of the body. The effect of each edit on Dice and on the location of the
-mask is reported in Section~\ref{sec:further} and summarized in
-Figure~\ref{fig:further}C, and Figure~\ref{fig:prompt-examples} shows example
+mask is reported in Section~\ref{sec:further}, and Figure~\ref{fig:prompt-examples} shows example
 masks predicted for original and edited sentences.
 
 % =============================================================================
@@ -884,19 +883,6 @@ where Team 1 reached 0.33 and no other top-ten team exceeded
 categories, with 4 to 9 findings each, were too small to rank teams
 reliably.
 
-\begin{figure*}[!tp]
-\centering
-\includegraphics[width=\textwidth]{figures/fig_further.pdf}
-\caption{Further analyses. A) Hit rate against mean Dice on localized findings
-(Dice $\geq$ 0.1) for the ten best teams. Numbers give the final rank. The
-three winning teams are shown in darker blue. B) Dice (dark) and hit rate
-(light) by reference volume of the finding, pooled over the ten best teams.
-C) Controlled prompt experiment. Dice on the findings changed by each edit, with
-the original sentence (open) and the edited sentence (filled), averaged over
-Teams 1 to 4. Numbers give the number of edited findings.}
-\label{fig:further}
-\end{figure*}
-
 \subsection{Qualitative comparison}
 \label{sec:qualitative}
 Figures~\ref{fig:qual-success} and~\ref{fig:qual-failure} show the final
@@ -936,6 +922,20 @@ same scan are shown in grey: two of the teams segmented a consolidation that the
 report describes as a separate finding in the right upper lobe.}
 \label{fig:qual-failure}
 \end{figure*}
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_further.pdf}
+\caption{Further analyses. A) Hit rate against mean Dice on localized findings
+(Dice $\geq$ 0.1) for the ten best teams. Numbers give the final rank. The
+three winning teams are shown in darker blue. B) Dice (dark) and hit rate
+(light) by reference volume of the finding, pooled over the ten best teams.
+C) Controlled prompt experiment. Dice on the findings changed by each edit, with
+the original sentence (open) and the edited sentence (filled), averaged over
+Teams 1 to 4. Numbers give the number of edited findings.}
+\label{fig:further}
+\end{figure*}
+
 
 \subsection{Further analyses}
 \label{sec:further}
