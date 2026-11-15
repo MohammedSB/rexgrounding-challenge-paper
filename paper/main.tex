@@ -793,11 +793,9 @@ segments native-resolution axial slices. Both 3D models also received a coarse
 map of where the finding is likely to lie, from a vision--language model the
 team pretrained on CT-RATE. Because the training masks cover at most three
 instances of a finding, the team excluded uncertain lung voxels from the loss
-rather than treating them as background, and at inference an LLM read each
-sentence to extract the named side and lobes and whether it described a single
-object. Predicted components outside the named side or lobes were then removed,
-and for single-object findings only the most probable remaining component was
-kept. Team 6 extended
+rather than treating them as background, and at inference each mask was
+restricted to the side or lobe named in the sentence, keeping only the most
+probable component when the sentence described a single object. Team 6 extended
 VoxTell with several queries formed from the individual words of the sentence,
 weighted by the whole-sentence embedding, and trained with a loss that
 penalises predictions inside a finding of another category in the same scan. They used
