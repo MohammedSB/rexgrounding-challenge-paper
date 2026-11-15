@@ -975,10 +975,13 @@ With left and right swapped (examples in Figure~\ref{fig:prompt-examples}a and b
 hit rate from 0.77--0.80 to 0.16--0.31, so the methods followed the location
 given in the prompt. Teams 3 and 4 partly enforced this by post-processing, which
 restricted masks to the named lobe or side, but Teams 1 and 2 used no such step,
-so their models followed the location by themselves. For Teams 2, 3 and 4, the share of
-the predicted mask on the side of the finding fell from 92--93\% to
-22--24\%, whereas Team 1 more often returned an empty mask (31\% of
-findings, against 12--21\%). Naming the wrong lobe in the same lung lowered
+so their models followed the location by themselves. \textcolor{red}{Of the 222 swapped findings, Teams 2, 3 and 4
+moved the mask to the named side (most of the mask on that side) for 60--65\%,
+kept it on the side of the finding for 19--23\%, and returned an empty mask for
+12--21\%. Team 1 moved the mask for 36\%, kept it for 33\% and returned an
+empty mask for 31\%. Because the named side does not contain the finding, an
+empty mask is arguably the most appropriate response, whereas moving the mask
+means segmenting a finding that is not there.} Naming the wrong lobe in the same lung lowered
 Dice from 0.37--0.38 to 0.07--0.17 (examples in Figure~\ref{fig:prompt-examples}a--c).
 Every edit that removed or changed the location lowered Dice significantly for
 all four teams (Wilcoxon, adjusted $p < 0.001$). A
