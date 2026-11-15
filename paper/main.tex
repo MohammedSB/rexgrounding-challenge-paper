@@ -595,7 +595,8 @@ to 30\,mm and a large one to 3\,mm. Findings in both lungs were also
 prompted once for each side. Size and side edits were made with rules, and the
 other edits were made by a large language model (Claude Opus 5.5, Anthropic).
 Each edit was compared with the original sentence on the findings it changed,
-using the paired difference in Dice and a two-sided Wilcoxon signed-rank test. For
+using the paired difference in Dice and a two-sided Wilcoxon signed-rank test
+with Holm correction over the edits of each team. For
 the location edits we also measured the share of the predicted mask that lay on
 each side of the body. The effect of each edit on Dice and on the location of the
 mask is reported in Section~\ref{sec:further}, and Figure~\ref{fig:prompt-examples} shows example
@@ -982,7 +983,7 @@ all four teams (Wilcoxon $p < 0.001$). A
 wrong size left the masks of Teams 2, 3 and 4 almost unchanged (Dice changed
 by less than 0.01), whereas the Dice of Team 1 fell from 0.46 to 0.41 on these
 62 findings. Neither size edit changed Dice significantly for any team
-($p > 0.01$). When each of 297 findings in both lungs (204 scans) was prompted
+($p > 0.05$). When each of 297 findings in both lungs (204 scans) was prompted
 for one side only, at least 85\% of the predicted mask lay on the named side, and
 the union of the two masks scored within 0.01 of the original sentence. The
 models therefore relied on the stated side and lobe but hardly on the stated size.
