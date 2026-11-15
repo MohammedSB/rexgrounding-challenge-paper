@@ -1,7 +1,7 @@
 """Prompt experiment, adversarial examples (Team 2): the same finding segmented with the original sentence and with edited
 sentences. Each panel shows the lungs from the front (patient's right on the left), the reference translucent aqua and the
 predicted surface blue where it lies within 3 mm of the reference and orange elsewhere.
-Run from the project root: python3 paper/figures/fig_prompt_examples.py
+Run from the project root: python3 paper/figures/fig_prompt_examples.py  (TEAM=CIRCLE for Team 1)
 """
 import os, csv, json, textwrap
 import numpy as np, nibabel as nib
@@ -14,7 +14,9 @@ from scipy import ndimage
 from skimage import measure
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 Q = os.path.join(ROOT, "paper", "figures", "data", "qual")
-R = os.path.join(ROOT, "prompt_variants", "returns", "AIMHI")
+TEAM = os.environ.get("TEAM", "AIMHI")                           # AIMHI = Team 2 (default), CIRCLE = Team 1
+R = os.path.join(ROOT, "prompt_variants", "returns", TEAM)
+SUF = "" if TEAM == "AIMHI" else "_" + TEAM.lower()
 BLUE, ORANGE, AQUA, LUNG, INK, INK2 = "#2a78d6", "#eb6834", "#1baf7a", "#b8b8b8", "#0b0b0b", "#52514e"
 # colour roles: reference / prediction agreeing / prediction outside. SCHEME=alt swaps to blue reference, green agree, red outside
 if os.environ.get("SCHEME") == "alt":
@@ -124,6 +126,6 @@ fig.legend(handles=[Patch(color=AQUA, alpha=0.5, label="Reference"), Patch(color
                     Patch(color=ORANGE, label="Prediction outside the reference")],
            loc="lower center", ncol=3, frameon=False, fontsize=6.8, handlelength=1.2, handleheight=0.9, bbox_to_anchor=(0.5, 0.0))
 for e in ("pdf", "svg"):
-    fig.savefig(os.path.join(ROOT, "paper", "figures", f"fig_prompt_examples.{e}"), dpi=450)
-fig.savefig(os.path.join(ROOT, "paper", "figures", "fig_prompt_examples_preview.png"), dpi=180)
+    fig.savefig(os.path.join(ROOT, "paper", "figures", f"fig_prompt_examples{SUF}.{e}"), dpi=450)
+fig.savefig(os.path.join(ROOT, "paper", "figures", f"fig_prompt_examples{SUF}_preview.png"), dpi=180)
 print("ok")

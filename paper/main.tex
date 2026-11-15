@@ -1284,7 +1284,12 @@ Figure~\ref{fig:prompt-examples} shows three test findings from the prompt
 sensitivity analysis (Section~\ref{sec:prompt-exp}), each segmented by Team 2
 with its original sentence and with several edited versions of it. The rows
 include each kind of location edit, a wrong size and a finding name without
-location, and the Dice of each mask is given below it.
+location, and the Dice of each mask is given below it. \textcolor{red}{Team 2 is
+shown because it used no location post-processing, so its masks reflect how the
+model itself responds to the text, and because it responded to the edits in the
+same way as Teams 3 and 4. Figure~\ref{fig:prompt-examples-t1} shows the same
+findings for Team 1, which more often returned an empty mask or kept the mask on
+the original finding.}
 
 \begin{figure*}[!tp]
 \centering
@@ -1298,6 +1303,15 @@ and orange elsewhere. Circles mark masks smaller than 1\,mL. Dice is
 computed against the unchanged reference, so a prompt for one side of a
 bilateral finding (c) can cover at most part of it.}
 \label{fig:prompt-examples}
+\end{figure*}
+
+\begin{figure*}[!tp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_prompt_examples_circle.pdf}
+\caption{\textcolor{red}{The findings of Figure~\ref{fig:prompt-examples}
+segmented by Team 1 with the same original and edited sentences, shown as in
+Figure~\ref{fig:prompt-examples}.}}
+\label{fig:prompt-examples-t1}
 \end{figure*}
 
 \section{BIAS checklist}
