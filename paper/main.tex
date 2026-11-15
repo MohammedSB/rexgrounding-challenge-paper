@@ -553,7 +553,7 @@ alongside the hit rate, and we return to this in the Discussion.
 For each team we ranked the submission it declared as final or, if none was
 declared, its best-scoring submission on the leaderboard half of the test set.
 8 of the 48 leaderboard entries (teams) declared a final
-submission, and the remaining 40 defaulted to their best public-half
+submission, and the remaining 40 defaulted to their best leaderboard-half
 submission. Teams were ranked by the primary metric computed on the full
 300-scan test set, following an aggregate-then-rank scheme: each
 team's Dice was first averaged over all findings and cases, and teams were
@@ -624,7 +624,8 @@ countries, with 10 teams each (Figure~\ref{fig:overview}C).
 We classified each team by the affiliations it listed at registration for
 the team and its members. 35 of the 48 teams listed only
 universities, research institutes or hospitals, 6 listed only
-companies, and 4 listed both a company and a university or hospital. Industry involvement was concentrated at the
+companies, 4 listed both a company and a university or hospital, and 3 did not specify an
+affiliation. Industry involvement was concentrated at the
 top of the ranking. Five of the six best-performing teams had a company among
 their affiliations, with Team~3 as the only exception. Submissions were concentrated at the end of the development
 phase: the first submission to appear on the leaderboard arrived on 5 July 2026, three weeks after the
@@ -708,7 +709,7 @@ third difference is the training data. Team 1 added 950 in-house annotated
 scans, Team 2 used only the challenge data, and Team 3 added 8,000 CT-RATE
 sentences with pseudo-masks for two of its ensemble members. The fourth
 difference is ensembling. Team 1 averaged checkpoints of a single model, Team 2
-averaged 13 models, and Team 3 averaged 17 (twelve VoxTell and five TAP-CT
+averaged 13 models, and Team 3 combined 17 (twelve VoxTell and five TAP-CT
 models). The fifth difference is post-processing. Teams 1 and 2 only
 thresholded the probabilities, whereas Team 3 restricted each mask to the lobe
 named in the sentence, chose a threshold per finding and removed components
