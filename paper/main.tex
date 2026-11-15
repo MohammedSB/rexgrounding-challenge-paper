@@ -690,7 +690,7 @@ All three winning teams followed the same recipe. A frozen Qwen3-Embedding
 text encoder \citep{zhang2025qwen3} turns the finding sentence into a single
 embedding vector, and a 3D segmentation network takes the CT volume together
 with this vector and outputs the mask of that finding. The teams differed in
-three places. The first difference is the image encoder. Team 1 used the chest
+five places. The first difference is the image encoder. Team 1 used the chest
 CT foundation model CIRCLE\footnote{\url{https://github.com/uii-open-source/CIRCLE}}.
 Team 2 used a residual-encoder nnU-Net trained from scratch. Team 3 used the
 VoxTell encoder together with a second model, TAP-CT \citep{veenboer2025tap}.
@@ -704,11 +704,15 @@ the mask at every resolution. Team 2, and Team 3's TAP-CT branch, used FiLM
 \citep{perez2018film} instead, in which small networks map the embedding to a
 per-channel scale and shift that are applied to the image features, with no
 cross-attention between text and image. The
-third difference is the training data, ensembling and post-processing. Team 1 added 950 in-house annotated
-scans and averaged checkpoints, Team 2 used only the challenge data and averaged
-13 models, and Team 3 averaged 17 models and post-processed each mask by
-restricting it to the lobe named in the sentence, choosing a threshold per
-finding and removing components predicted to lower Dice. More detailed descriptions of each method are given in \ref{app:methods}.
+third difference is the training data. Team 1 added 950 in-house annotated
+scans, Team 2 used only the challenge data, and Team 3 added 8,000 CT-RATE
+sentences with pseudo-masks for two of its ensemble members. The fourth
+difference is ensembling. Team 1 averaged checkpoints of a single model, Team 2
+averaged 13 models, and Team 3 averaged 17 (twelve VoxTell and five TAP-CT
+models). The fifth difference is post-processing. Teams 1 and 2 only
+thresholded the probabilities, whereas Team 3 restricted each mask to the lobe
+named in the sentence, chose a threshold per finding and removed components
+predicted to lower Dice. More detailed descriptions of each method are given in \ref{app:methods}.
 
 \paragraph{Team 1} The winning entry paired the image
 encoder of CIRCLE, a chest CT foundation model pretrained on 403,500
