@@ -1029,7 +1029,21 @@ inter-reader study used a different set of scans, but it suggests that Dice
 against a single reference is close to saturating against annotation
 variability.
 
-The task is nonetheless not solved. Instance F1 remained well below inter-reader
+The challenge moved this task forward substantially, and grounding report
+findings in 3D chest CT is becoming feasible, at least for focal findings, which
+make up most of the test set. A model that localizes a reported nodule or
+consolidation could link each sentence of a report to the image, so that
+referring physicians can find what the report describes, and could support
+measurement and comparison over time. Even at the current level of performance,
+such models could serve in tools that propose a region for a reader to confirm.
+For method development, the challenge provides the first public benchmark of
+this task at scale, with exhaustive radiologist annotation and a public
+leaderboard that keeps the test masks hidden, so that new methods can be
+compared directly with the entries reported here.
+
+\subsection{Limitations and future work}
+% BIAS 40, 41
+The task is not yet solved. Instance F1 remained well below inter-reader
 agreement (0.34 for the best team against 0.47), so models often
 found part of a multi-instance finding but not every lesion, and findings with
 more than one instance had a lower Dice than single-instance findings
@@ -1040,24 +1054,9 @@ non-contrast chest CT and for findings in the lungs and pleura, so grounding
 in contrast-enhanced scans, in other body regions and for other types of
 findings remains under-explored.
 
-For radiology, the results show that grounding a report sentence in 3D is now
-feasible for focal findings, which make up most of the test set. A model that
-localizes a reported nodule or consolidation could link each sentence of a
-report to the image, so that referring physicians can find what the report
-describes, and could support measurement and comparison over time. The current
-level of performance is not sufficient for unsupervised clinical use, in
-particular for diffuse findings and for findings described at a specific
-location, but it is sufficient for tools that propose a region for a reader to
-confirm. For method development, the challenge provides the first public
-benchmark of this task at scale, with exhaustive radiologist annotation and a
-public leaderboard that keeps the test masks hidden, so that new methods can be
-compared directly with the entries reported here.
-
-\subsection{Limitations and future work}
-% BIAS 40, 41
-The challenge has several limitations. All scans come from a single source,
-CT-RATE, and are non-contrast chest CT acquired at one centre, so the results
-may not transfer to other institutions, protocols or body regions. The test set
+The challenge also has several limitations. All scans come from a single source,
+CT-RATE, acquired at one centre, so the results may not transfer to other
+institutions. The test set
 is dominated by focal findings, non-focal findings make up only 12.5\% of
 it, and several categories contain fewer than ten findings, so per-category
 results for rare findings are imprecise. Dice is a poor fit for diffuse
