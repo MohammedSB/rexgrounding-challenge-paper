@@ -976,14 +976,15 @@ so their models followed the location by themselves. For Teams 2, 3 and 4, the s
 the predicted mask on the side of the finding fell from 92--93\% to
 22--24\%, whereas Team 1 more often returned an empty mask (31\% of
 findings, against 12--21\%). Naming the wrong lobe in the same lung lowered
-Dice from 0.37--0.38 to 0.07--0.17 (Figure~\ref{fig:prompt-examples}). A
+Dice from 0.37--0.38 to 0.07--0.17 (Figure~\ref{fig:prompt-examples}).
+Every edit that removed or changed the location lowered Dice significantly for
+all four teams (Wilcoxon $p < 10^{-5}$). A
 wrong size left the masks of Teams 2, 3 and 4 almost unchanged (Dice changed
 by less than 0.01), whereas the Dice of Team 1 fell from 0.46 to 0.41 on these
-62 findings. When each of 297 findings in both lungs (204 scans) was prompted
+62 findings. Neither size edit changed Dice significantly for any team
+($p > 0.01$). When each of 297 findings in both lungs (204 scans) was prompted
 for one side only, at least 85\% of the predicted mask lay on the named side, and
-the union of the two masks scored within 0.01 of the original sentence. Every
-location edit changed Dice significantly for all four teams (Wilcoxon
-$p < 10^{-5}$), whereas the size edits did not ($p > 0.01$). The
+the union of the two masks scored within 0.01 of the original sentence. The
 models therefore relied on the stated side and lobe but hardly on the stated size.
 
 % =============================================================================
