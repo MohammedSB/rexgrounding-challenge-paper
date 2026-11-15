@@ -101,7 +101,8 @@ for i, (case, k, show_other) in enumerate(ROWS):
     dist = ndimage.distance_transform_edt(~gt, sampling=sp)          # mm from the reference
     TOL = 3.0                                                        # surface within 3 mm counts as agreeing
     text_h = text_hs[i]; y_top = 1 - (head + sum(row_hs[:i])) / H
-    fig.text(0.0, y_top - 0.02 / H, "\n".join(textwrap.wrap(SHOW(test[f]["findings"][str(k)]), WRAP)), ha="left", va="top", fontsize=6.8, color=INK, linespacing=1.25)
+    fig.text(0.0, y_top - 0.02 / H, "abcdefgh"[i], ha="left", va="top", fontsize=7.6, fontweight="bold", color=INK)   # row tag
+    fig.text(0.022, y_top - 0.02 / H, "\n".join(textwrap.wrap(SHOW(test[f]["findings"][str(k)]), WRAP)), ha="left", va="top", fontsize=6.8, color=INK, linespacing=1.25)
     for j, name in enumerate(cols):
         ax = fig.add_axes([j * pan_w / W, y_top - (text_h + pan_h) / H, pan_w / W, pan_h / H], projection="3d")
         add(ax, lung_tri, shaded(lung_tri, to_rgb(LUNG), 0.05))
