@@ -1033,11 +1033,13 @@ The task is nonetheless not solved. Instance F1 remained well below inter-reader
 agreement (0.34 for the best team against 0.47), so models often
 found part of a multi-instance finding but not every lesion, and findings with
 more than one instance had a lower Dice than single-instance findings
-(Section~\ref{sec:further}). The top teams also localized fewer focal findings
-than radiologists did (hit rate 0.78--0.82 against 0.84). Finally,
-a low Dice does not distinguish a missed abnormality from one that was recognized
-but placed at the wrong location (Figure~\ref{fig:qual-failure}a), which is the
-failure that grounding is meant to prevent.
+(Section~\ref{sec:further}). The qualitative failures also show that models
+sometimes segmented the right abnormality at a location other than the one
+stated in the sentence, which is the failure that grounding is meant to prevent
+and which an overall Dice does not reveal. Finally, these results hold only for
+non-contrast chest CT and for findings in the lungs and pleura, so grounding
+in contrast-enhanced scans, in other body regions and for other types of
+findings remains untested.
 
 For radiology, the results show that grounding a report sentence in 3D is now
 feasible for focal findings, which make up most of the test set. A model that
