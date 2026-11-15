@@ -1035,10 +1035,11 @@ found part of a multi-instance finding but not every lesion, and findings with
 more than one instance had a lower Dice than single-instance findings
 (Section~\ref{sec:further}). The top teams also localized fewer focal findings
 than radiologists did (hit rate 0.78--0.82 against 0.84). Finally,
-the qualitative failures show that models sometimes segmented the right
-abnormality at a location other than the one stated in the sentence, which is
-the failure that grounding is meant to prevent and which an overall Dice does
-not reveal.
+in one of the qualitative failures (Figure~\ref{fig:qual-failure}a), two teams
+segmented a consolidation that the report places in another lobe instead of the
+one named in the sentence. Dice records such a case only as a miss, without
+showing that the abnormality was recognized but placed at the wrong location,
+which is the failure that grounding is meant to prevent.
 
 For radiology, the results show that grounding a report sentence in 3D is now
 feasible for focal findings, which make up most of the test set. A model that
