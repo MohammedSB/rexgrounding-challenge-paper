@@ -730,8 +730,8 @@ cases of less common thoracic disease) raised it further to 0.356. The
 final submission averaged checkpoints of a single model from several epochs.
 
 \paragraph{Team 2} The second-placed team used no external data
-and a deliberately simple architecture they called Grounder: a 3D nnU-Net with
-the residual-encoder ``L'' configuration \citep{isensee2021nnu,isensee2024nnu}, conditioned on the finding
+and a deliberately simple architecture they called Grounder: a residual-encoder
+3D nnU-Net \citep{isensee2021nnu,isensee2024nnu}, conditioned on the finding
 text through feature-wise linear modulation \citep{perez2018film}. The sentence was embedded with Qwen3-Embedding-4B
 \citep{zhang2025qwen3}, and a two-layer MLP mapped the embedding to
 scale and shift parameters applied at every decoder stage. Two choices drove
