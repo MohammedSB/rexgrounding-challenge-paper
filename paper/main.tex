@@ -690,10 +690,9 @@ All three winning teams followed the same recipe. A frozen Qwen3-Embedding
 text encoder \citep{zhang2025qwen3} turns the finding sentence into a single
 embedding vector, and a 3D segmentation network takes the CT volume together
 with this vector and outputs the mask of that finding. The teams differed in
-three places. The first is the image encoder, which was the chest CT foundation
-model CIRCLE for Team 1, a residual-encoder nnU-Net trained from scratch for
-Team 2, and the VoxTell encoder together with TAP-CT \citep{veenboer2025tap}
-for Team 3. The second is how the text enters
+three places. The first is the image encoder. Team 1 used the chest CT foundation
+model CIRCLE, Team 2 a residual-encoder nnU-Net trained from scratch, and
+Team 3 the VoxTell encoder together with TAP-CT \citep{veenboer2025tap}. The second is how the text enters
 the network. Teams 1 and 3 kept the VoxTell decoder \citep{rokuss2026voxtell}, in
 which the text embedding acts as the query of a small transformer that
 cross-attends to the image features at the bottleneck. Its output is projected
