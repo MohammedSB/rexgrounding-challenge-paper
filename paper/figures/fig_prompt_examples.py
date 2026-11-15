@@ -93,8 +93,9 @@ for i, (case, k, vs) in enumerate(ROWS):
     fig.text(0.0, y_top - 0.02 / H, "abc"[i], ha="left", va="top", fontsize=7.6, fontweight="bold", color=INK)   # row tag
     for j, v in enumerate(vs):
         x0 = j * pan_w / W
-        fig.text(x0 + 0.012, y_top - 0.02 / H, LABEL[v], ha="left", va="top", fontsize=7, color=INK, fontweight="bold")
-        fig.text(x0 + 0.012, y_top - (head_h + 0.0) / H, "\n".join(prompt_lines(case, k, v)), ha="left", va="top",
+        tx = x0 + (0.026 if j == 0 else 0.012)                      # first column leaves room for the row tag
+        fig.text(tx, y_top - 0.02 / H, LABEL[v], ha="left", va="top", fontsize=7, color=INK, fontweight="bold")
+        fig.text(tx, y_top - (head_h + 0.0) / H, "\n".join(prompt_lines(case, k, v)), ha="left", va="top",
                  fontsize=6.0, color=INK2, linespacing=1.2, style="italic")
         ax = fig.add_axes([x0, y_top - (head_h + text_hs[i] + pan_h) / H, pan_w / W, pan_h / H], projection="3d")
         add(ax, lung_tri, shaded(lung_tri, to_rgb(LUNG), 0.05))
