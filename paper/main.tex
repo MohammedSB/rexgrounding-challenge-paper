@@ -969,7 +969,7 @@ findings). For Teams 2, 3 and 4, removing the side lowered Dice by 0.02--0.03,
 removing the lobe or segment by 0.04--0.06, and keeping only the name of the
 finding by 0.05--0.08. Team 1 lost at most 0.02 under these edits and thus
 relied less on the stated location. Wrong locations misled all four models.
-With left and right swapped, Dice fell from 0.40--0.42 to 0.08--0.14 and the
+With left and right swapped (Figure~\ref{fig:prompt-examples}a and b), Dice fell from 0.40--0.42 to 0.08--0.14 and the
 hit rate from 0.77--0.80 to 0.16--0.31, so the methods followed the location
 given in the prompt. Teams 3 and 4 partly enforced this by post-processing, which
 restricted masks to the named lobe or side, but Teams 1 and 2 used no such step,
@@ -977,14 +977,14 @@ so their models followed the location by themselves. For Teams 2, 3 and 4, the s
 the predicted mask on the side of the finding fell from 92--93\% to
 22--24\%, whereas Team 1 more often returned an empty mask (31\% of
 findings, against 12--21\%). Naming the wrong lobe in the same lung lowered
-Dice from 0.37--0.38 to 0.07--0.17 (Figure~\ref{fig:prompt-examples}).
+Dice from 0.37--0.38 to 0.07--0.17 (Figure~\ref{fig:prompt-examples}a--c).
 Every edit that removed or changed the location lowered Dice significantly for
 all four teams (Wilcoxon $p < 0.001$). A
-wrong size left the masks of Teams 2, 3 and 4 almost unchanged (Dice changed
+wrong size (Figure~\ref{fig:prompt-examples}a) left the masks of Teams 2, 3 and 4 almost unchanged (Dice changed
 by less than 0.01), whereas the Dice of Team 1 fell from 0.46 to 0.41 on these
 62 findings. Neither size edit changed Dice significantly for any team
 (adjusted $p = 0.07$--0.89). When a finding in both lungs was prompted for one side only
-($n = 297$ findings), at least 85\% of the predicted mask lay on the named side, and
+($n = 297$ findings, Figure~\ref{fig:prompt-examples}c), at least 85\% of the predicted mask lay on the named side, and
 the union of the two masks scored within 0.01 of the original sentence. The
 models therefore relied on the stated side and lobe but hardly on the stated size.
 
@@ -1286,7 +1286,7 @@ sentences. Masks are rendered in 3D inside the lungs and viewed from the front
 predicted surfaces are blue where they lie within 3\,mm of the reference
 and orange elsewhere. Circles mark masks smaller than 1\,mL. Dice is
 computed against the unchanged reference, so a prompt for one side of a
-bilateral finding (last row) can cover at most part of it.}
+bilateral finding (c) can cover at most part of it.}
 \label{fig:prompt-examples}
 \end{figure*}
 

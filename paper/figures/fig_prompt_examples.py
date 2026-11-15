@@ -88,6 +88,7 @@ for i, (case, k, vs) in enumerate(ROWS):
     S_, lo = bbox(gt); gt_tri = mesh(gt[S_], sp, lo)
     dist = ndimage.distance_transform_edt(~gt, sampling=sp)
     y_top = 1 - sum(row_hs[:i]) / H
+    fig.text(0.0, y_top - 0.02 / H, "abc"[i], ha="left", va="top", fontsize=7.6, fontweight="bold", color=INK)   # row tag
     for j, v in enumerate(vs):
         x0 = j * pan_w / W
         fig.text(x0 + 0.012, y_top - 0.02 / H, LABEL[v], ha="left", va="top", fontsize=7, color=INK, fontweight="bold")
