@@ -47,7 +47,7 @@ axB.legend(handles=[Patch(facecolor=FOCAL, label="Dice"), Patch(facecolor=LIGHT,
            loc="lower left", bbox_to_anchor=(0.0, 1.0), ncol=2, frameon=False, fontsize=6.2, handlelength=1.0, handleheight=0.85,
            columnspacing=1.2, borderaxespad=0.1)
 
-# C: controlled prompt experiment (Teams 1 to 4): the same findings with the original and with the edited sentence.
+# C: prompt sensitivity analysis (Teams 1 to 4): the same findings with the original and with the edited sentence.
 # Figure 6C shows the mean over the four teams; per_team=True draws one dumbbell per team instead.
 RET = os.path.join(HERE, "..", "..", "prompt_variants", "returns")
 TEAMS = [("Team 1", "CIRCLE", "#a9c9f2", 0.36), ("Team 2", "AIMHI", FOCAL, 0.24), ("Team 3", "fomofo", "#6da7ec", 0.0), ("Team 4", "needpaper", DEEP, -0.24)]   # label, folder, colour, row offset
