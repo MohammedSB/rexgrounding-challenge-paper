@@ -936,6 +936,16 @@
    "hitA": 0.8185185185185185,
    "hitB": 0.770188679245283,
    "teams_A_gt_B": 0
+  },
+  {
+   "name": "2+ reference instances vs 1",
+   "nA": 244,
+   "nB": 265,
+   "diceA": 0.33696474425502804,
+   "diceB": 0.3669716076769288,
+   "hitA": 0.8086065573770492,
+   "hitB": 0.770188679245283,
+   "teams_A_gt_B": 0
   }
  ],
  "max_hit_rate_team": "needpaper"

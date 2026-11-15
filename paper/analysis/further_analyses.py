@@ -112,7 +112,8 @@ out["cue_pairs_focal"] = [pair(flags["size"] & foc, ~flags["size"] & foc, "Size 
                           pair(flags["lobe"] & foc, ~flags["lobe"] & foc, "Lobe or segment stated"),
                           pair((words >= 13) & foc, (words <= 7) & foc, "13+ words vs 7 or fewer"),
                           pair(flags["bil"] & foc, ~flags["bil"] & foc, "Bilateral or both lungs"),
-                          pair((ninst >= 4) & foc, (ninst == 1) & foc, "4+ reference instances vs 1")]
+                          pair((ninst >= 4) & foc, (ninst == 1) & foc, "4+ reference instances vs 1"),
+                          pair((ninst >= 2) & foc, (ninst == 1) & foc, "2+ reference instances vs 1")]
 out["max_hit_rate_team"] = max(det, key=lambda x: x["hit_rate"])["team"]
 json.dump(out, open("paper/analysis/further_analyses.json", "w"), indent=1)
 print("written")
