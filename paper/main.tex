@@ -748,12 +748,12 @@ negative text examples did not help.
 \paragraph{Team 3} The third-placed team combined two model
 families. The main branch was an ensemble of 12 VoxTell models, in which
 the text embedding (Qwen3-Embedding-4B) enters an nnU-Net decoder as a query
-through cross-attention, trained on 192$^3$ patches. A second branch,
-TAP-CT \citep{veenboer2025tap}, a 3D vision transformer
-pretrained in the style of DINOv2 \citep{oquab2023dinov2} with a
-convolutional skip decoder and FiLM conditioning on Qwen3-Embedding-0.6B, was
-weaker alone but added diversity, and the two were fused with weights of
-0.8 and 0.2. All members were trained on the training and validation sets
+through cross-attention, trained on 192$^3$ patches. The second branch
+was an ensemble of five models that used TAP-CT \citep{veenboer2025tap}, a 3D
+vision transformer pretrained in the style of DINOv2 \citep{oquab2023dinov2},
+as the image encoder, with a convolutional skip decoder and FiLM conditioning on
+Qwen3-Embedding-0.6B. This branch was weaker alone but added diversity, and the
+two branches were fused with weights of 0.8 and 0.2. All members were trained on the training and validation sets
 with synonym-based text augmentation (31 synonym groups), but their recipes
 otherwise varied. Two of the 12 VoxTell members added 8,000 CT-RATE
 sentence--mask pairs with pseudo-masks of pleural effusions and nodules from
