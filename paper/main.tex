@@ -690,10 +690,12 @@ All three winning teams followed the same recipe. A frozen Qwen3-Embedding
 text encoder \citep{zhang2025qwen3} turns the finding sentence into a single
 embedding vector, and a 3D segmentation network takes the CT volume together
 with this vector and outputs the mask of that finding. The teams differed in
-three places. The first is the image encoder. Team 1 used the chest CT foundation
-model CIRCLE\footnote{\url{https://github.com/uii-open-source/CIRCLE}}, Team 2 a residual-encoder nnU-Net trained from scratch, and
-Team 3 the VoxTell encoder together with TAP-CT \citep{veenboer2025tap}. The second is how the text enters
-the network. Teams 1 and 3 kept the VoxTell decoder \citep{rokuss2026voxtell}, in
+three places. The first difference is the image encoder. Team 1 used the chest
+CT foundation model CIRCLE\footnote{\url{https://github.com/uii-open-source/CIRCLE}}.
+Team 2 used a residual-encoder nnU-Net trained from scratch. Team 3 used the
+VoxTell encoder together with a second model, TAP-CT \citep{veenboer2025tap}.
+The second difference is how the text embedding is combined with the image
+features. Teams 1 and 3 kept the VoxTell decoder \citep{rokuss2026voxtell}, in
 which the text embedding acts as the query of a small transformer that
 cross-attends to the image features at the bottleneck. Its output is projected
 to every decoder stage, where it is multiplied channel-wise with the image
@@ -702,7 +704,7 @@ the mask at every resolution. Team 2, and Team 3's TAP-CT branch, used FiLM
 \citep{perez2018film} instead, in which small networks map the embedding to a
 per-channel scale and shift that are applied to the image features, with no
 cross-attention between text and image. The
-third is everything around the model. Team 1 added 950 in-house annotated
+third difference is the training data, ensembling and post-processing. Team 1 added 950 in-house annotated
 scans and averaged checkpoints, Team 2 used only the challenge data and averaged
 13 models, and Team 3 averaged 17 models and post-processed each mask by
 restricting it to the lobe named in the sentence, choosing a threshold per
