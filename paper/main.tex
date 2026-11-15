@@ -969,8 +969,10 @@ removing the lobe or segment by 0.04--0.06, and keeping only the name of the
 finding by 0.05--0.08. Team 1 lost at most 0.02 under these edits and thus
 relied less on the stated location. Wrong locations misled all four models.
 With left and right swapped, Dice fell from 0.40--0.42 to 0.08--0.14 and the
-hit rate from 0.77--0.80 to 0.16--0.31, which shows that the models follow the
-location given in the prompt rather than ignoring it. For Teams 2, 3 and 4, the share of
+hit rate from 0.77--0.80 to 0.16--0.31, so the methods followed the location
+given in the prompt. Teams 3 and 4 partly enforced this by post-processing, which
+restricted masks to the named lobe or side, but Teams 1 and 2 used no such step,
+so their models followed the location by themselves. For Teams 2, 3 and 4, the share of
 the predicted mask on the side of the finding fell from 92--93\% to
 22--24\%, whereas Team 1 more often returned an empty mask (31\% of
 findings, against 12--21\%). Naming the wrong lobe in the same lung lowered
