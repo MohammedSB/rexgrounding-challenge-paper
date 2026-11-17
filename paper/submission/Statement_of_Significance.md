@@ -3,8 +3,6 @@
 Manuscript: Grounding Radiology Reports in 3D Chest CT: Results of the ReXGrounding Challenge
 Corresponding author: Mohammed Baharoon (MohammedSalimAB@outlook.com)
 
-Items in [square brackets] need the authors' input before upload.
-
 ## Question 1
 
 Peer-Review: Has this paper been previously submitted to this journal or to another journal? If yes, please provide the journal name and a detailed explanation of what has been done to improve the prior submission to justifying re-submission to MedIA. (300 words maximum). Please note that re-submission to MedIA of papers previously rejected by MedIA is not permitted.
@@ -33,13 +31,11 @@ Answer:
 
 5. Hrvoje Bogunović, Medical University of Vienna, Austria. Has organized and reported MICCAI challenges and works on segmentation of pathology in volumetric imaging, so he can judge the challenge report format and the BIAS reporting. No prior collaboration with any listed author.
 
-[Authors to double-check the "no prior collaboration" statements against their own publication lists before upload. Excluded on purpose: all editors in the authors' countries (USA, Saudi Arabia, China including Hong Kong, South Korea, the Netherlands, Germany, Belgium), Executive Committee and Senior Editors, and Associate Editors who co-authored the Metrics Reloaded or BIAS consortium papers with Klaus Maier-Hein (Kainz, Reyes, Rajpoot, Litjens, Collins, Menze) or the VLM3D challenge design with Pranav Rajpurkar and Xiaoman Zhang (Menze, Kainz, Batmanghelich, Zongwei Zhou).]
-
 ## Question 4
 
 Novelty: To help the editors understand your intended contribution to the literature, please state clearly (in 1-2 sentences) the methodological innovation that is contained within your paper. (300 words maximum)
 
-Answer: This paper reports the first international challenge on grounding free-text radiology report findings as 3D segmentations in chest CT, establishing a benchmark of 300 exhaustively annotated test scans with hidden reference masks and a public leaderboard, and analysing the methods of 48 teams. Beyond the ranking, it introduces a controlled prompt-editing experiment in which the best methods are rerun on systematically edited sentences, which quantifies for the first time how text-conditioned 3D segmentation models use the side, lobe and size information in a sentence.
+Answer: This paper reports the first international challenge on grounding free-text radiology report findings as 3D segmentations in chest CT, establishing a benchmark of 300 exhaustively annotated test scans with hidden reference masks and a public leaderboard, and analysing the methods of 48 teams. Beyond the ranking, it introduces a prompt sensitivity analysis in which the best methods are rerun on systematically edited sentences, which quantifies for the first time how text-conditioned 3D segmentation models use the side, lobe and size information in a sentence.
 
 ## Question 5
 
@@ -47,7 +43,7 @@ How is this work different from prior publications of any of the listed authors?
 
 Answer:
 
-Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2026. ReXGroundingCT: A 3D chest CT dataset for segmentation of findings from free-text reports. NEJM AI. [volume, article number and DOI to add]. That article describes the construction of the ReXGroundingCT dataset (3,142 scans, 100 test scans) and shows that existing text-promptable segmentation models perform poorly on it. The present paper reports the challenge built on that dataset: 350 additional validation and test scans were annotated exhaustively, 48 teams developed methods for the task, and the paper analyses their results, the stability of the ranking, performance by finding type and the methods' use of language. None of this appears in the dataset paper.
+Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2026. ReXGroundingCT: A 3D chest CT dataset for segmentation of findings from free-text reports. NEJM AI 3(7), AIdbp2501220. https://doi.org/10.1056/AIdbp2501220. That article describes the construction of the ReXGroundingCT dataset (3,142 scans, 100 test scans) and shows that existing text-promptable segmentation models perform poorly on it. The present paper reports the challenge built on that dataset: 350 additional validation and test scans were annotated exhaustively, 48 teams developed methods for the task, and the paper analyses their results, the stability of the ranking, performance by finding type and the methods' use of language. None of this appears in the dataset paper.
 
 Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2025. State-of-the-art text-prompted medical segmentation models struggle to ground chest CT findings. Proceedings of the Machine Learning for Healthcare Conference (MLHC). That paper benchmarks existing models zero-shot on the original test set. The present paper reports methods developed specifically for the task and their evaluation on a three times larger hidden test set.
 
@@ -59,15 +55,15 @@ Please list 3-5 published papers that you believe are the efforts closest to you
 
 Answer:
 
-1. VoxTell: Free-text promptable universal 3D medical image segmentation. Rokuss, M. (first), Maier-Hein, K. (last). Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026. [DOI to confirm]. Proposes one text-promptable 3D segmentation model and was the best model before the challenge; our paper is a challenge report that compares 48 methods on a hidden test set.
+1. VoxTell: Free-text promptable universal 3D medical image segmentation. Rokuss, M. (first), Maier-Hein, K. (last). Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026, pp. 37538–37557. Proposes one text-promptable 3D segmentation model and was the best model before the challenge; our paper is a challenge report that compares 48 methods on a hidden test set.
 
-2. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. [DOI to confirm]. Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
+2. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. https://doi.org/10.1038/s41551-025-01599-y. Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
 
-3. Rapid artificial intelligence solutions in a pandemic: the COVID-19-20 Lung CT Lesion Segmentation Challenge. Roth, H.R. (first), Xu, D. (last) [last author to confirm]. Medical Image Analysis, 2022. https://doi.org/10.1016/j.media.2022.102605. A MICCAI challenge report on segmenting one lesion type in chest CT from image input alone; our challenge segments any reported finding from its sentence and analyses the use of the text.
+3. Rapid artificial intelligence solutions in a pandemic: the COVID-19-20 Lung CT Lesion Segmentation Challenge. Roth, H.R. (first), Linguraru, M.G. (last). Medical Image Analysis, 2022. https://doi.org/10.1016/j.media.2022.102605. A MICCAI challenge report on segmenting one lesion type in chest CT from image input alone; our challenge segments any reported finding from its sentence and analyses the use of the text.
 
 4. The Liver Tumor Segmentation Benchmark (LiTS). Bilic, P. (first), Menze, B. (last). Medical Image Analysis, 2023. https://doi.org/10.1016/j.media.2022.102680. A long-running CT lesion segmentation benchmark with a fixed target class; our benchmark targets free-text findings across 14 categories with exhaustive radiologist annotation and a controlled language experiment.
 
-5. Unleashing the strengths of unlabelled data in deep learning-assisted pan-cancer abdominal organ quantification: the FLARE22 challenge. Ma, J. (first), Wang, B. (last). The Lancet Digital Health, 2024. https://doi.org/10.1016/S2589-7500(24)00154-7 [DOI to confirm]. A large MICCAI challenge report on CT segmentation of fixed anatomical classes following BIAS; our report follows the same reporting standard for a text-conditioned task.
+5. Unleashing the strengths of unlabelled data in deep learning-assisted pan-cancer abdominal organ quantification: the FLARE22 challenge. Ma, J. (first), Wang, B. (last). The Lancet Digital Health, 2024. https://doi.org/10.1016/S2589-7500(24)00154-7. A large MICCAI challenge report on CT segmentation of fixed anatomical classes following BIAS; our report follows the same reporting standard for a text-conditioned task.
 
 ## Question 7
 
@@ -79,25 +75,25 @@ Answer: This is a challenge report rather than a single proposed method. The cha
 
 Please state whether your method operates on full-resolution, full-field-of-view images or not. For example, histology methods may use entire whole-slide images or tiled patches and MRI analyses may be volumetric (3D) or slice-based (2D). If input is not based on full-resolution, full-field-of-view images, please provide scientific justification.
 
-Answer: Participants received the full chest CT volumes at native resolution, orientation and intensity, and predictions were evaluated on the native voxel grid of each scan. All winning methods are volumetric (3D); their internal resampling, cropping and patching choices are described in Appendix B.
+Answer: Participants used the full chest CT volumes as provided by CT-RATE, without any pre-processing by the organizers, and predictions were evaluated at the original array dimensions of each scan. All winning methods are volumetric (3D); their internal resampling, cropping and patching choices are described in Appendix B.
 
 ## Question 9
 
 Please confirm that the manuscript includes figures showing findings across the full spatial extent of the input, e.g., findings derived from 3D MRIs need to be shown from at least two orthogonal planes (e.g., axial and coronal).
 
-Answer: Confirmed. Reference and predicted masks are shown as 3D surface renderings of the whole lung volume (Figures 5, 7 and D.1), which display the full three-dimensional extent of each finding, and as axial slices (Figure 1). [If the editors require two orthogonal 2D planes, a coronal view can be added to Figure 5.]
+Answer: Confirmed. Reference and predicted masks are shown as 3D surface renderings of the whole lung volume (Figures 5, 6, D.1 and D.2), which display the full three-dimensional extent of each finding, and as axial slices (Figure 1).
 
 ## Question 10
 
 Please confirm that any information about novelty (i.e., Questions 4 to 7) is explicitly described in the manuscript.
 
-Answer: Confirmed. The contribution is stated in Section 1 (Introduction), the comparison with the state of the art in Sections 3.3 and 4.1, the statistical methods in Section 2.4, and the controlled prompt experiment in Sections 2.4 and 3.7.
+Answer: Confirmed. The contribution is stated in Section 1 (Introduction), the comparison with the state of the art in Sections 3.3 and 4.1, the statistical methods in Section 2.4, and the prompt sensitivity analysis in Sections 2.5 and 3.7.
 
 ## Question 11
 
 Reproducibility: How did you ensure reproducibility of your findings? If this work relies on machine learning, Did you test your method on multiple data sets of which at least one is publicly available? If not, please justify. Did you apply stratified cross-validation or test on external data sets? If not, please justify. How did you ensure that there was no data leakage between training and testing data? For example, with respect to cross-validation, was the data of a subject confined to one-fold?
 
-Answer: All methods were evaluated by the organizers on a single hidden test set of 300 scans with the public evaluation code, so every reported score is reproducible from a team's submitted masks. The test set is from the same source as the training data because ReXGroundingCT is the only dataset with free-text finding segmentations in 3D CT; this is stated as a limitation, and an inter-rater study on 50 scans is used to put the scores in context. Cross-validation does not apply to a challenge with a fixed held-out test set; instead, the paper compares the ranking on the 150 publicly scored scans with the ranking on all 300 scans and reports bootstrap confidence intervals and rank distributions. Training, validation and test sets are disjoint sets of scans, no scan appears in more than one split, and the test masks were never released. Some teams pretrained on the public CT-RATE collection, which contains the test images without any challenge masks or sentences; this is documented in the method descriptions (Appendix B), and the one team that identified test studies in its pretraining pool retrained with those studies removed.
+Answer: All methods were evaluated by the organizers on a single hidden test set of 300 scans with the public evaluation code, so every reported score is reproducible from a team's submitted masks. The test set is from the same source as the training data because ReXGroundingCT is the only dataset with free-text finding segmentations in 3D CT; this is stated as a limitation, and an inter-rater study on 50 scans is used to put the scores in context. Cross-validation does not apply to a challenge with a fixed held-out test set; instead, the paper compares the ranking on the 150 publicly scored scans with the ranking on all 300 scans and reports bootstrap confidence intervals and rank distributions. Training, validation and test sets are disjoint sets of scans, no scan appears in more than one split, and the test masks were never released. Some teams pretrained on the public CT-RATE collection, which contains the test images without any challenge masks or sentences; this is documented in the method descriptions (Appendix B), and the one team that identified test studies in its pretraining pool retrained without them and found that the final masks changed equally on exposed and unexposed studies.
 
 ## Question 12
 
@@ -109,7 +105,7 @@ Answer: ReXGroundingCT (public, https://huggingface.co/datasets/rajpurkarlab/ReX
 
 What are potential biases in the data and how are those biases accounted for in the analysis?
 
-Answer: The data come from a single centre in Turkey, six scanner models and non-contrast chest CT only, so results may not transfer to other institutions, protocols or contrast-enhanced imaging. The report sentences were machine-translated from Turkish and rewritten and split by large language models, with radiologist review on samples. Focal findings make up 87% of the test set and several categories contain fewer than ten findings. Training annotations cover at most three instances per finding whereas the test annotations are exhaustive, which can teach models to stop after a few instances. The reference standard comes from single annotators with modest inter-rater agreement (Dice 0.32). These biases are addressed by reporting results per finding category with bootstrap confidence intervals, by analysing performance against the number of instances, by comparing all scores with the inter-rater agreement, by describing the sources of error in Section 2.2 and the limitations in Section 4.2, and by keeping the leaderboard open so that future methods are compared on the same data. Patient age and sex are reported for all splits; performance was not stratified by sex or age because of the sample size, and this is noted as a limitation. [Add this sentence to Section 4.2 if not already present.]
+Answer: The data come from a single centre in Turkey, six scanner models and non-contrast chest CT only, so results may not transfer to other institutions, protocols or contrast-enhanced imaging. The report sentences were machine-translated from Turkish and rewritten and split by large language models, with radiologist review on samples. Focal findings make up 88% of the test set and several categories contain fewer than ten findings. Training annotations cover at most three instances per finding whereas the test annotations are exhaustive, which can teach models to stop after a few instances. The reference standard comes from single annotators with modest inter-rater agreement (Dice 0.32). These biases are addressed by reporting results per finding category with bootstrap confidence intervals, by analysing performance against the number of instances, by comparing all scores with the inter-rater agreement, by describing the sources of error in Section 2.2 and the limitations in Section 4.2, and by keeping the leaderboard open so that future methods are compared on the same data. Patient age and sex are reported for all splits; performance was not stratified by sex or age because of the sample size.
 
 ## Question 14
 
@@ -127,7 +123,7 @@ Answer: Confirmed. Data, splits, annotation and sources of error are described i
 
 Other: Has the manuscript been written with the help of a Large Language Model (such as ChatGPT)? If yes, please specify which ones was used, how it was used, and how you ensured the scientific integrity of the writing (including that the citations provided by the model are correct). Please confirm that this information is included in the manuscript.
 
-Answer: Yes. The authors used Claude (Opus 5.5 and Fable 5.1, Anthropic) to help draft and edit the text, to write analysis and figure code, and to cross-check the reported numbers against the analysis outputs. Every number in the manuscript was traced to its source file, and the authors reviewed and edited every sentence. All references were selected and entered by the authors from the original publications; none was generated by the model. Separately, Claude Opus 5.5 was used as a research tool to rewrite test sentences in the controlled prompt experiment, which is described in Section 2.4. The use of the model in preparing the manuscript is declared in the section "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process" before the reference list.
+Answer: Yes. The authors used Claude (Opus 5.5 and Fable 5.1, Anthropic) to help draft and edit the text, to write analysis and figure code, and to cross-check the reported numbers against the analysis outputs. Every number in the manuscript was traced to its source file, and the authors reviewed and edited every sentence. All references were selected and entered by the authors from the original publications; none was generated by the model. Separately, Claude Opus 5.5 was used as a research tool to rewrite test sentences in the prompt sensitivity analysis, which is described in Section 2.5. The use of the model in preparing the manuscript is declared in the section "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process" before the reference list.
 
 ## Question 17
 
@@ -139,4 +135,4 @@ Answer: Confirmed. All scans and reports come from CT-RATE, a public de-identifi
 
 Please enter any additional comments you would like to send to the publication office. These comments will not appear directly in your submission.
 
-Answer: This manuscript is a Challenge Report. The required Bias Report is included as the BIAS checklist in Appendix E, and the paper follows the BIAS guideline throughout. The author list has 56 authors, as is usual for challenge reports (organizers, the four winning teams, the annotators and the authors of the baseline model); we would be grateful if the vitae requirement could be waived or limited to the corresponding and senior authors. Competing interests of individual team members are declared in the manuscript.
+Answer: This manuscript is a Challenge Report. The required Bias Report is included as the BIAS checklist in Appendix E, and the paper follows the BIAS guideline throughout. The author list has 62 authors, as is usual for challenge reports (organizers, annotators, the four best-ranked teams, and the authors of the VoxTell baseline model and of the CT-RATE dataset); we would be grateful if the vitae requirement could be waived or limited to the corresponding and senior authors. Competing interests of individual team members are declared in the manuscript.
