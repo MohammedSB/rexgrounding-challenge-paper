@@ -111,7 +111,7 @@ Answer: The data come from a single centre in Turkey, six scanner models and non
 
 Is the data and code publicly available? If not, please justify.
 
-Answer: The training and validation data, including findings and reference masks, the test images and finding sentences, and the evaluation code are public at https://huggingface.co/datasets/rajpurkarlab/ReXGroundingCT under a CC BY-NC-SA 4.0 licence. The test reference masks are withheld so that the public leaderboard at https://rexrank.ai/ReXGroundingCT can continue to evaluate new methods on an uncontaminated test set; any method can be scored on it by submission. The analysis code and derived results underlying the figures and tables of this paper are available at [https://github.com/MohammedSB/rexgrounding-challenge-paper, to be made public on acceptance]. Participating teams were encouraged but not required to release their code; the links they provided are given in Appendix B.
+Answer: The training and validation data, including findings and reference masks, the test images and finding sentences, and the evaluation code are public at https://huggingface.co/datasets/rajpurkarlab/ReXGroundingCT under a CC BY-NC-SA 4.0 licence. The test reference masks are withheld so that the public leaderboard at https://rexrank.ai/ReXGroundingCT can continue to evaluate new methods on an uncontaminated test set; any method can be scored on it by submission. Participating teams were encouraged but not required to release their code; the links they provided are given in Appendix B.
 
 ## Question 15
 
