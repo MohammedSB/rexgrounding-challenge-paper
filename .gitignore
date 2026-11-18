@@ -34,3 +34,4 @@ paper/AIdbp2501220.pdf
 *.toc
 .DS_Store
 __pycache__/
+*.spl
