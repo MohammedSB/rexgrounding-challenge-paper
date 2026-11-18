@@ -143,4 +143,4 @@ Answer: Confirmed. All scans and reports come from CT-RATE, a public de-identifi
 
 Please enter any additional comments you would like to send to the publication office. These comments will not appear directly in your submission.
 
-Answer: This manuscript is a Challenge Report. The required Bias Report is included as the BIAS checklist in Appendix F, and the paper follows the BIAS guideline throughout. The author list has 62 authors, as is usual for challenge reports (organizers, annotators, the four best-ranked teams, and the authors of the VoxTell baseline model and of the CT-RATE dataset); we would be grateful if the vitae requirement could be waived or limited to the corresponding and senior authors. Competing interests of individual team members are declared in the manuscript.
+Answer: This manuscript is a Challenge Report. The required Bias Report is included as the BIAS checklist in Appendix F, and the paper follows the BIAS guideline throughout.
