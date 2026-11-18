@@ -1058,7 +1058,8 @@ findings remains under-explored.
 
 The challenge also has several limitations. All scans come from a single source,
 CT-RATE, acquired at one centre, so the results may not transfer to other
-institutions. Performance was not analysed by patient sex or age. The test set
+institutions. Performance did not differ significantly by patient sex or age
+group for any of the ten best teams (\ref{app:sexage}). The test set
 is dominated by focal findings, non-focal findings make up only 12.5\% of
 it, and several categories contain fewer than ten findings, so per-category
 results for rare findings are imprecise. For ranking, Dice is a poor fit for diffuse
@@ -1309,6 +1310,43 @@ bilateral finding (c) can cover at most part of it.}
 \caption{The findings of Figure~\ref{fig:prompt-examples} segmented by Team 1.}
 \label{fig:prompt-examples-t1}
 \end{figure*}
+
+\section{Performance by patient sex and age}
+\label{app:sexage}
+\setcounter{table}{0}\setcounter{figure}{0}
+Table~\ref{tab:sexage} shows the performance of the ten best teams by patient
+sex and age, using the per-scan results of their ranked submissions and the
+sex and age recorded in CT-RATE. Dice was slightly higher for female than for
+male patients in nine of the ten teams, but the difference was not significant
+for any team (two-sided Mann--Whitney U test on per-scan Dice, $p \geq 0.16$).
+Dice was highest in patients under 40 years and lower in older patients, a
+difference that was also not significant for any team (Kruskal--Wallis test,
+$p \geq 0.05$) and that partly reflects a higher share of non-focal findings in
+patients aged 60 and over (16\% against 11--12\%). The tests were not corrected
+for multiple comparisons.
+
+\begin{table}[!htbp]
+\centering
+\caption{Performance of the ten best teams by patient sex and age group on the
+300 test scans. Values are the mean over the ten teams, with the range across
+teams in brackets.}
+\label{tab:sexage}
+\renewcommand{\baselinestretch}{1}\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lcccc}
+\toprule
+Group & Scans & Findings & Dice & Hit rate \\
+\midrule
+Female & 127 & 243 & 0.359 {\scriptsize[0.330--0.384]} & 0.771 {\scriptsize[0.704--0.811]} \\
+Male & 173 & 339 & 0.346 {\scriptsize[0.330--0.369]} & 0.732 {\scriptsize[0.678--0.767]} \\
+\midrule
+Under 40 years & 142 & 249 & 0.376 {\scriptsize[0.351--0.403]} & 0.783 {\scriptsize[0.727--0.811]} \\
+40--59 years & 113 & 218 & 0.328 {\scriptsize[0.314--0.346]} & 0.736 {\scriptsize[0.670--0.771]} \\
+60 years and over & 45 & 115 & 0.332 {\scriptsize[0.293--0.363]} & 0.697 {\scriptsize[0.643--0.730]} \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{BIAS checklist}
 \label{app:bias}
