@@ -638,9 +638,9 @@ def _results_time(ax, x0, y0, CW, CH, split, style):
     a.step(bt, bv, where="post", color=SEQ[4], linewidth=1.4, zorder=3)
     a.axhline(0.285, color=INK2, linewidth=0.7, linestyle=(0, (3, 2)), zorder=1)
     XA = OPEN + dt.timedelta(days=9)
-    a.text(OPEN + dt.timedelta(days=1), 0.232, "Best model before the challenge (0.285)", fontsize=FS_NOTE, color=INK2,
+    a.text(OPEN + dt.timedelta(days=1), 0.226, "Best model before the challenge (0.285)", fontsize=FS_NOTE, color=INK2,
            ha="left", va="center", zorder=4)
-    a.annotate("", xy=(XA, 0.2835), xytext=(XA, 0.242), zorder=4,
+    a.annotate("", xy=(XA, 0.279), xytext=(XA, 0.244), zorder=4,
                arrowprops=dict(arrowstyle="-|>", color=INK2, lw=0.6, mutation_scale=6, shrinkA=0, shrinkB=0))
     a.text(bt[-2], bv[-1] + 0.006, f"Best {bv[-1]:.3f}", fontsize=FS_NOTE, color=SEQ[4], ha="right", va="bottom", fontweight="bold")
     a.set_xlim(OPEN, DEADLINE + dt.timedelta(days=1)); a.set_ylim(0.10, 0.42)
