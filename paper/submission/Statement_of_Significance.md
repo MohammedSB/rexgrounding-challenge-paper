@@ -35,7 +35,7 @@ Answer:
 
 Novelty: To help the editors understand your intended contribution to the literature, please state clearly (in 1-2 sentences) the methodological innovation that is contained within your paper. (300 words maximum)
 
-Answer: This paper reports the first international challenge on grounding free-text radiology report findings as 3D segmentations in chest CT, establishing a benchmark of 300 exhaustively annotated test scans with hidden reference masks and a public leaderboard, and analysing the methods of 48 teams. Beyond the ranking, it introduces a prompt sensitivity analysis in which the best methods are rerun on systematically edited sentences, which quantifies for the first time how text-conditioned 3D segmentation models use the side, lobe and size information in a sentence.
+Answer: This paper reports the first international challenge on grounding free-text radiology report findings as 3D segmentations in chest CT, establishing a benchmark of 300 exhaustively annotated test scans with hidden reference masks and a public leaderboard, and analysing the methods of 48 teams. The challenge substantially advanced the state of the art, raising the best Dice on the pre-challenge benchmark from 0.285 to 0.390, so that the best methods now match the agreement between two independent groups of radiologists in Dice and hit rate.
 
 ## Question 5
 
@@ -43,11 +43,14 @@ How is this work different from prior publications of any of the listed authors?
 
 Answer:
 
-Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2026. ReXGroundingCT: A 3D chest CT dataset for segmentation of findings from free-text reports. NEJM AI 3(7), AIdbp2501220. https://doi.org/10.1056/AIdbp2501220. That article describes the construction of the ReXGroundingCT dataset (3,142 scans, 100 test scans) and shows that existing text-promptable segmentation models perform poorly on it. The present paper reports the challenge built on that dataset: 350 additional validation and test scans were annotated exhaustively, 48 teams developed methods for the task, and the paper analyses their results, the stability of the ranking, performance by finding type and the methods' use of language. None of this appears in the dataset paper.
+1. Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2026. ReXGroundingCT: A 3D chest CT dataset for segmentation of findings from free-text reports. NEJM AI 3(7), AIdbp2501220. https://doi.org/10.1056/AIdbp2501220.
+Difference: That article describes the construction of the ReXGroundingCT dataset (3,142 scans, 100 test scans) and shows that existing text-promptable segmentation models perform poorly on it. The present paper reports the challenge built on that dataset: 350 additional validation and test scans were annotated exhaustively, 48 teams developed methods for the task, and the paper analyses their results, the stability of the ranking, performance by finding type and the methods' use of language. None of this appears in the dataset paper.
 
-Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2025. State-of-the-art text-prompted medical segmentation models struggle to ground chest CT findings. Proceedings of the Machine Learning for Healthcare Conference (MLHC). That paper benchmarks existing models zero-shot on the original test set. The present paper reports methods developed specifically for the task and their evaluation on a three times larger hidden test set.
+2. Baharoon, M., Luo, L., Moritz, M., et al., Rajpurkar, P., 2025. State-of-the-art text-prompted medical segmentation models struggle to ground chest CT findings. Proceedings of the Machine Learning for Healthcare Conference (MLHC).
+Difference: That paper benchmarks existing models zero-shot on the original test set. The present paper reports methods developed specifically for the task and their evaluation on a three times larger hidden test set.
 
-Rokuss, M., Langenberg, M., Kirchhoff, Y., et al., Maier-Hein, K., 2026. VoxTell: Free-text promptable universal 3D medical image segmentation. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. That paper proposes a single method, which several teams fine-tuned in the challenge. The present paper evaluates it alongside 47 other entries and is a challenge report, not a method paper.
+3. Rokuss, M., Langenberg, M., Kirchhoff, Y., et al., Maier-Hein, K., 2026. VoxTell: Free-text promptable universal 3D medical image segmentation. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition.
+Difference: That paper proposes a single method, which several teams fine-tuned in the challenge. The present paper evaluates it alongside 47 other entries and is a challenge report, not a method paper.
 
 ## Question 6
 
@@ -63,7 +66,7 @@ Answer:
 
 4. The Liver Tumor Segmentation Benchmark (LiTS). Bilic, P. (first), Menze, B. (last). Medical Image Analysis, 2023. https://doi.org/10.1016/j.media.2022.102680. A long-running CT lesion segmentation benchmark with a fixed target class; our benchmark targets free-text findings across 14 categories with exhaustive radiologist annotation and a controlled language experiment.
 
-5. Unleashing the strengths of unlabelled data in deep learning-assisted pan-cancer abdominal organ quantification: the FLARE22 challenge. Ma, J. (first), Wang, B. (last). The Lancet Digital Health, 2024. https://doi.org/10.1016/S2589-7500(24)00154-7. A large MICCAI challenge report on CT segmentation of fixed anatomical classes following BIAS; our report follows the same reporting standard for a text-conditioned task.
+5. RadGenome-Chest CT: a grounded vision-language dataset for chest CT analysis. Zhang, X. (first), Wang, Y. (last). Scientific Data, 2025. Preprint: https://doi.org/10.48550/arXiv.2404.16754. Links each sentence of chest CT reports from CT-RATE to the anatomical region it mentions, segmented automatically; our benchmark links each finding to radiologist segmentations of the abnormality itself and evaluates 48 methods on it.
 
 ## Question 7
 
@@ -91,7 +94,7 @@ Answer: Confirmed. The contribution is stated in Section 1 (Introduction), the c
 
 ## Question 11
 
-Reproducibility: How did you ensure reproducibility of your findings? If this work relies on machine learning, Did you test your method on multiple data sets of which at least one is publicly available? If not, please justify. Did you apply stratified cross-validation or test on external data sets? If not, please justify. How did you ensure that there was no data leakage between training and testing data? For example, with respect to cross-validation, was the data of a subject confined to one-fold?
+Reproducibility: How did you ensure reproducibility of your findings? If this work relies on machine learning: Did you test your method on multiple data sets of which at least one is publicly available? If not, please justify. Did you apply stratified cross-validation or test on external data sets? If not, please justify. How did you ensure that there was no data leakage between training and testing data? For example, with respect to cross-validation, was the data of a subject confined to one-fold?
 
 Answer: All methods were evaluated by the organizers on a single hidden test set of 300 scans with the public evaluation code, so every reported score is reproducible from a team's submitted masks. The test set is from the same source as the training data because ReXGroundingCT is the only dataset with free-text finding segmentations in 3D CT; this is stated as a limitation, and an inter-rater study on 50 scans is used to put the scores in context. Cross-validation does not apply to a challenge with a fixed held-out test set; instead, the paper compares the ranking on the 150 publicly scored scans with the ranking on all 300 scans and reports bootstrap confidence intervals and rank distributions. Training, validation and test sets are disjoint sets of scans, no scan appears in more than one split, and the test masks were never released. Some teams pretrained on the public CT-RATE collection, which contains the test images without any challenge masks or sentences; this is documented in the method descriptions (Appendix B), and the one team that identified test studies in its pretraining pool retrained without them and found that the final masks changed equally on exposed and unexposed studies.
 
