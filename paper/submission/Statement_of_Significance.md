@@ -58,15 +58,20 @@ Please list 3-5 published papers that you believe are the efforts closest to you
 
 Answer:
 
-1. VoxTell: Free-text promptable universal 3D medical image segmentation. Rokuss, M. (first), Maier-Hein, K. (last). Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026, pp. 37538–37557. Proposes one text-promptable 3D segmentation model and was the best model before the challenge; our paper is a challenge report that compares 48 methods on a hidden test set.
+1. VoxTell: Free-text promptable universal 3D medical image segmentation. Rokuss, M. (first), Maier-Hein, K. (last). Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2026, pp. 37538–37557.
+Difference: Proposes one text-promptable 3D segmentation model and was the best model before the challenge; our paper is a challenge report that compares 48 methods on a hidden test set.
 
-2. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. https://doi.org/10.1038/s41551-025-01599-y. Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
+2. Generalist foundation models from a multimodal dataset for 3D computed tomography (CT-RATE and CT-CLIP). Hamamci, I.E. (first), Menze, B. (last). Nature Biomedical Engineering, 2026. https://doi.org/10.1038/s41551-025-01599-y.
+Difference: Provides the CT volumes and reports on which the challenge builds and trains vision-language models for classification and retrieval; it does not localize findings.
 
-3. Rapid artificial intelligence solutions in a pandemic: the COVID-19-20 Lung CT Lesion Segmentation Challenge. Roth, H.R. (first), Linguraru, M.G. (last). Medical Image Analysis, 2022. https://doi.org/10.1016/j.media.2022.102605. A MICCAI challenge report on segmenting one lesion type in chest CT from image input alone; our challenge segments any reported finding from its sentence and analyses the use of the text.
+3. Rapid artificial intelligence solutions in a pandemic: the COVID-19-20 Lung CT Lesion Segmentation Challenge. Roth, H.R. (first), Linguraru, M.G. (last). Medical Image Analysis, 2022. https://doi.org/10.1016/j.media.2022.102605.
+Difference: A MICCAI challenge report on segmenting one lesion type in chest CT from image input alone; our challenge segments any reported finding from its sentence and analyses the use of the text.
 
-4. The Liver Tumor Segmentation Benchmark (LiTS). Bilic, P. (first), Menze, B. (last). Medical Image Analysis, 2023. https://doi.org/10.1016/j.media.2022.102680. A long-running CT lesion segmentation benchmark with a fixed target class; our benchmark targets free-text findings across 14 categories with exhaustive radiologist annotation and a controlled language experiment.
+4. The Liver Tumor Segmentation Benchmark (LiTS). Bilic, P. (first), Menze, B. (last). Medical Image Analysis, 2023. https://doi.org/10.1016/j.media.2022.102680.
+Difference: A long-running CT lesion segmentation benchmark with a fixed target class; our benchmark targets free-text findings across 14 categories with exhaustive radiologist annotation and a prompt sensitivity analysis.
 
-5. RadGenome-Chest CT: a grounded vision-language dataset for chest CT analysis. Zhang, X. (first), Wang, Y. (last). Scientific Data, 2025. Preprint: https://doi.org/10.48550/arXiv.2404.16754. Links each sentence of chest CT reports from CT-RATE to the anatomical region it mentions, segmented automatically; our benchmark links each finding to radiologist segmentations of the abnormality itself and evaluates 48 methods on it.
+5. RadGenome-Chest CT: a grounded vision-language dataset for chest CT analysis. Zhang, X. (first), Wang, Y. (last). Scientific Data, 2025. Preprint: https://doi.org/10.48550/arXiv.2404.16754.
+Difference: Links each sentence of chest CT reports from CT-RATE to the anatomical region it mentions, segmented automatically; our benchmark links each finding to radiologist segmentations of the abnormality itself and evaluates 48 methods on it.
 
 ## Question 7
 
