@@ -530,7 +530,8 @@ def panel_c_results(x0, y0, w, h):
         d = float(r["dice_full_test"]); lo, hi = stats[r["team"]]["ci95"]
         aL.plot([lo, hi], [y, y], color=SEQ[2], linewidth=1.4, solid_capstyle="butt", zorder=2)
         aL.plot([d], [y], marker="o", ms=3.6, color=SEQ[4], mec="white", mew=0.5, zorder=3)
-    aL.set_yticks(list(ys)); aL.set_yticklabels([f"Team {r['rank']}" for r in top], fontsize=6.2)
+    aL.set_yticks(list(ys)); ORD = lambda k: f"{k}{'th' if 10 <= k % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(k % 10, 'th')} place"
+    aL.set_yticklabels([ORD(int(r['rank'])) for r in top], fontsize=6.2)
     aL.set_xlim(0.26, 0.42); aL.set_xticks([0.30, 0.35, 0.40]); aL.set_xticklabels(["0.30", "0.35", "0.40"])
     aL.set_ylim(-0.7, len(top) - 0.3); aL.set_xlabel("Dice with 95% confidence interval", labelpad=2)
     aL.axvline(0.285, color=INK2, linewidth=0.7, linestyle=(0, (3, 2)), zorder=1)
