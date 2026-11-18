@@ -509,19 +509,24 @@ def panel_c_results(x0, y0, w, h):
     category (categories with at least five test findings)."""
     ax = canvas(x0, y0, w, h); CW, CH = w * W, h * H
     split = 4.05
+    if os.environ.get("FIG1R", "D") in ("C", "D"):                    # D (default): over-time + finding type
+        _results_time(ax, x0, y0, CW, CH, split, os.environ.get("FIG1R", "D")); return
     ax.add_patch(FancyBboxPatch((0.05, 0.05), split - 0.15, CH - 0.24, boxstyle="round,pad=0,rounding_size=0.08",
                                 facecolor=PANEL, edgecolor="none"))
     ax.add_patch(FancyBboxPatch((split + 0.05, 0.05), CW - split - 0.12, CH - 0.24,
                                 boxstyle="round,pad=0,rounding_size=0.08", facecolor=PANEL2, edgecolor="none"))
+    GR = "#dcdad5"                                                                 # grid on the tinted boxes
+    def inset(xi, wi, yb=0.44, ht=None):                                           # chart axes, inches -> figure fractions
+        a2 = fig.add_axes([x0 + xi / W, y0 + yb / H, wi / W, ((CH - 1.05) if ht is None else ht) / H], facecolor="none")
+        a2.spines["left"].set_visible(False); a2.tick_params(axis="y", length=0)
+        a2.xaxis.grid(True, color=GR, linewidth=0.5); a2.set_axisbelow(True); return a2
+    STYLE = os.environ.get("FIG1R", "D")
+    if STYLE in ("A", "B"):
+        _results_v2(ax, CW, CH, split, inset, STYLE); return
     ax.text(0.20, CH - 0.35, "Results", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
     ax.text(0.78, CH - 0.35, "Dice of the ten best teams on the 300 test scans", fontsize=FS_BODY, color=INK2, va="center")
     ax.text(split + 0.20, CH - 0.35, "By finding type", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
     ax.text(split + 1.22, CH - 0.35, "Mean Dice of the ten best teams", fontsize=FS_BODY, color=INK2, va="center")
-    GR = "#dcdad5"                                                                 # grid on the tinted boxes
-    def inset(xi, wi):                                                             # chart axes, inches -> figure fractions
-        a2 = fig.add_axes([x0 + xi / W, y0 + 0.44 / H, wi / W, (CH - 1.05) / H], facecolor="none")
-        a2.spines["left"].set_visible(False); a2.tick_params(axis="y", length=0)
-        a2.xaxis.grid(True, color=GR, linewidth=0.5); a2.set_axisbelow(True); return a2
     # ---- left: dot and CI per team
     stats = {s["team"]: s for s in json.load(open(os.path.join(ROOT, "paper", "analysis", "ranking_stats.json")))["teams"]}
     top = merged[:10]; ys = np.arange(len(top))[::-1]
@@ -555,6 +560,116 @@ def panel_c_results(x0, y0, w, h):
     aR.axhline(nf - 0.5, color=LINE, linewidth=0.6)                                 # rule between the focal and non-focal groups
     aR.legend(handles=[Patch(color=BLUE, label="Focal"), Patch(color=SEQ[1], label="Non-focal")], loc="lower right",
               frameon=False, fontsize=6, handlelength=1.0, handleheight=0.9, borderaxespad=0.2)
+
+
+def _results_v2(ax, CW, CH, split, inset, style):
+    """Graphical-abstract results, two designs. Left: progress on the 100 pre-challenge benchmark scans.
+    Right: challenge winner (Team 1, 300 test scans) against inter-radiologist agreement (50 scans)."""
+    ax.text(0.20, CH - 0.35, "Progress", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+    ax.text(1.02, CH - 0.35, "Dice on the 100 pre-challenge benchmark scans", fontsize=FS_BODY, color=INK2, va="center")
+    ax.text(split + 0.20, CH - 0.35, "Versus radiologists", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+    ax.text(split + 1.72, CH - 0.35, "Winner vs inter-radiologist agreement", fontsize=FS_BODY, color=INK2, va="center")
+    LIGHT, DARK = SEQ[1], BLUE
+    # ---- left: before vs after
+    aL = inset(1.55, split - 2.05)
+    rows = [("Best model before\nthe challenge", 0.285, LIGHT), ("Challenge winner", 0.390, DARK)]
+    ys = [1, 0]
+    if style == "A":
+        for y, (lab, v, c) in zip(ys, rows):
+            aL.barh(y, v, height=0.5, color=c, edgecolor="none")
+            aL.text(v + 0.008, y, f"{v:.3f}", va="center", ha="left", fontsize=7, color=INK)
+    else:
+        aL.plot([0.285, 0.390], [0.5, 0.5], color=SEQ[2], linewidth=1.6, zorder=1)
+        aL.annotate("", xy=(0.386, 0.5), xytext=(0.29, 0.5), arrowprops=dict(arrowstyle="-|>", color=SEQ[3], lw=1.4, mutation_scale=9))
+        for x, c, lab in ((0.285, LIGHT, "Best model before\nthe challenge"), (0.390, DARK, "Challenge\nwinner")):
+            aL.plot([x], [0.5], "o", ms=7, color=c, mec="white", mew=0.8, zorder=3)
+            aL.text(x, 0.82, f"{x:.3f}", ha="center", va="bottom", fontsize=7.5, color=INK, fontweight="bold")
+            aL.text(x, 0.18, lab, ha="center", va="top", fontsize=6.2, color=INK2, linespacing=1.05)
+        aL.text(0.3375, 0.62, "+37%", ha="center", va="bottom", fontsize=6.5, color=SEQ[4])
+        rows = []
+    aL.set_xlim(0, 0.45) if style == "A" else aL.set_xlim(0.24, 0.43)
+    aL.set_xticks([0, 0.1, 0.2, 0.3, 0.4] if style == "A" else [0.25, 0.30, 0.35, 0.40])
+    aL.set_ylim(-0.6, 1.6) if style == "A" else aL.set_ylim(-0.4, 1.3)
+    aL.set_yticks(ys if style == "A" else []); 
+    if style == "A": aL.set_yticklabels([r[0] for r in [("Best model before\nthe challenge",), ("Challenge winner",)]], fontsize=6.2)
+    aL.set_xlabel("Dice", labelpad=2)
+    # ---- right: winner vs radiologists
+    M = [("Dice", 0.375, 0.32), ("Dice, focal", 0.378, 0.34), ("Dice, non-focal", 0.243, 0.15),
+         ("Hit rate", 0.77, 0.76), ("Instance F1", 0.34, 0.47)]
+    aR = inset(split + 1.45, CW - split - 1.75, yb=0.62, ht=CH - 1.25); ys = np.arange(len(M))[::-1]
+    for y, (lab, w_, r_) in zip(ys, M):
+        if style == "A":
+            aR.barh(y + 0.18, w_, height=0.32, color=DARK, edgecolor="none")
+            aR.barh(y - 0.18, r_, height=0.32, color=LIGHT, edgecolor="none")
+            aR.text(w_ + 0.012, y + 0.18, f"{w_:.2f}", va="center", fontsize=5.8, color=INK)
+            aR.text(r_ + 0.012, y - 0.18, f"{r_:.2f}", va="center", fontsize=5.8, color=INK2)
+        else:
+            aR.plot([min(w_, r_), max(w_, r_)], [y, y], color=GR if False else "#c9c6bf", linewidth=2.2, zorder=1)
+            aR.plot([r_], [y], "o", ms=6, color=LIGHT, mec="white", mew=0.6, zorder=2)
+            aR.plot([w_], [y], "o", ms=6, color=DARK, mec="white", mew=0.6, zorder=3)
+    aR.set_yticks(list(ys)); aR.set_yticklabels([m[0] for m in M], fontsize=6.2)
+    aR.set_xlim(0, 0.9); aR.set_xticks([0, 0.2, 0.4, 0.6, 0.8]); aR.set_ylim(-0.6, len(M) - 0.4)
+    aR.legend(handles=[Patch(color=DARK, label="Challenge winner (300 scans)"), Patch(color=LIGHT, label="Two radiologist groups (50 scans)")],
+              loc="upper center", bbox_to_anchor=(0.45, -0.12), ncol=2, frameon=False, fontsize=6, handlelength=1.0, handleheight=0.9,
+              columnspacing=1.2)
+
+
+def _results_time(ax, x0, y0, CW, CH, split, style):
+    """Graphical-abstract results over time. C: one wide panel. D: over-time panel left, Dice by finding type right."""
+    import datetime as dt, csv as _csv
+    GR = "#dcdad5"
+    rows = list(_csv.DictReader(open(os.path.join(ROOT, "paper", "figures", "data", "submission_timeline.csv"))))
+    P = lambda t: dt.datetime.fromisoformat(t.replace("Z", "+00:00")).replace(tzinfo=None)
+    subs = sorted((P(r["created_at"]), float(r["public_dice"])) for r in rows)
+    OPEN, DEADLINE = dt.datetime(2026, 6, 14), dt.datetime(2026, 9, 15, 3, 59)
+    bt, bv, cur = [], [], 0.0
+    for t, v in subs:
+        if v > cur: cur = v; bt.append(t); bv.append(v)
+    bt.append(DEADLINE); bv.append(cur)
+    right = CW - 0.12 if style == "C" else split - 0.10
+    ax.add_patch(FancyBboxPatch((0.05, 0.05), right - 0.05, CH - 0.24, boxstyle="round,pad=0,rounding_size=0.08",
+                                facecolor=PANEL, edgecolor="none"))
+    ax.text(0.20, CH - 0.35, "Progress", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+    ax.text(1.02, CH - 0.35, "Leaderboard Dice of every submission during the challenge", fontsize=FS_BODY, color=INK2, va="center")
+    a = fig.add_axes([x0 + 0.62 / W, y0 + 0.44 / H, (right - 0.95) / W, (CH - 1.05) / H], facecolor="none")
+    a.yaxis.grid(True, color=GR, linewidth=0.5); a.set_axisbelow(True)
+    for sp in ("top", "right"): a.spines[sp].set_visible(False)
+    a.scatter([t for t, _ in subs], [v for _, v in subs], s=4, color=SEQ[1], alpha=0.55, edgecolors="none", zorder=2)
+    a.step(bt, bv, where="post", color=SEQ[4], linewidth=1.4, zorder=3)
+    a.axhline(0.285, color=INK2, linewidth=0.7, linestyle=(0, (3, 2)), zorder=1)
+    a.text(OPEN + dt.timedelta(days=1), 0.289, "Best model before\nthe challenge (0.285)", fontsize=FS_NOTE, color=INK2,
+           va="bottom", linespacing=1.05)
+    a.text(bt[-2], bv[-1] + 0.006, f"Best {bv[-1]:.3f}", fontsize=FS_NOTE, color=SEQ[4], ha="right", va="bottom", fontweight="bold")
+    a.set_xlim(OPEN, DEADLINE + dt.timedelta(days=1)); a.set_ylim(0.10, 0.42)
+    a.set_yticks([0.1, 0.2, 0.3, 0.4]); a.set_ylabel("Dice", labelpad=2)
+    import matplotlib.dates as mdates
+    a.xaxis.set_major_locator(mdates.MonthLocator()); a.xaxis.set_major_formatter(mdates.DateFormatter("%b"))
+    a.tick_params(axis="x", length=2)
+    a.legend(handles=[Line2D([], [], marker="o", ls="none", ms=3, color=SEQ[1], label="Submission"),
+                      Line2D([], [], color=SEQ[4], lw=1.4, label="Best so far")],
+             loc="lower right", frameon=True, facecolor=PANEL, edgecolor="none", framealpha=1, fontsize=6, handlelength=1.4)
+    if style == "D":
+        ax.add_patch(FancyBboxPatch((split + 0.05, 0.05), CW - split - 0.12, CH - 0.24,
+                                    boxstyle="round,pad=0,rounding_size=0.08", facecolor=PANEL2, edgecolor="none"))
+        ax.text(split + 0.20, CH - 0.35, "By finding type", fontsize=FS_HEAD, color=INK, fontweight="bold", va="center")
+        ax.text(split + 1.22, CH - 0.35, "Mean Dice of the ten best teams", fontsize=FS_BODY, color=INK2, va="center")
+        R = json.load(open(os.path.join(ROOT, "final_results_MICCAI2026.json")))["results"]
+        top = merged[:10]
+        pcs = [next(x for x in R if abs(x["metrics_full_test_set"]["dice"] - float(r["dice_full_test"])) < 5e-6)["per_category_full_test_set"] for r in top]
+        n = {k: v["n"] for k, v in pcs[0].items()}
+        mean = {k: float(np.mean([pc[k]["dice"] for pc in pcs])) for k in n}
+        keys = [k for k in n if n[k] >= 5]
+        order = sorted([k for k in keys if focal(k)], key=lambda k: -mean[k]) + sorted([k for k in keys if not focal(k)], key=lambda k: -mean[k])
+        aR = fig.add_axes([x0 + (split + 1.45) / W, y0 + 0.44 / H, (CW - split - 1.65) / W, (CH - 1.05) / H], facecolor="none")
+        aR.spines["left"].set_visible(False); aR.tick_params(axis="y", length=0); aR.xaxis.grid(True, color=GR, linewidth=0.5); aR.set_axisbelow(True)
+        ys = np.arange(len(order))[::-1]
+        for y, k in zip(ys, order): aR.barh(y, mean[k], height=0.62, color=BLUE if focal(k) else SEQ[1], edgecolor="none")
+        aR.set_yticks(list(ys)); aR.set_yticklabels([NAMES[k] for k in order], fontsize=6.2)
+        aR.set_xlim(0, 0.5); aR.set_xticks([0, 0.2, 0.4]); aR.set_xticklabels(["0", "0.2", "0.4"]); aR.set_ylim(-0.7, len(order) - 0.3)
+        aR.set_xlabel("Dice", labelpad=2)
+        nf = sum(1 for k in order if not focal(k)); aR.axhline(nf - 0.5, color=LINE, linewidth=0.6)
+        aR.legend(handles=[Patch(color=BLUE, label="Focal"), Patch(color=SEQ[1], label="Non-focal")], loc="lower right",
+                  frameon=False, fontsize=6, handlelength=1.0, handleheight=0.9, borderaxespad=0.2)
 
 # =================================================================== d: categories
 def panel_d(ax):
