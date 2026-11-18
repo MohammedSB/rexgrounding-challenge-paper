@@ -89,7 +89,7 @@ Answer: Participants used the full chest CT volumes as provided by CT-RATE, with
 
 Please confirm that the manuscript includes figures showing findings across the full spatial extent of the input, e.g., findings derived from 3D MRIs need to be shown from at least two orthogonal planes (e.g., axial and coronal).
 
-Answer: Confirmed. Reference and predicted masks are shown as 3D surface renderings of the whole lung volume (Figures 5, 6, D.1 and D.2), which display the full three-dimensional extent of each finding, and as axial slices (Figure 1).
+Answer: Confirmed. Figures 5, 6, D.1 and D.2 render the reference and predicted 3D masks inside the whole lung volume, viewed from the front, so each finding is shown across the full extent of the lungs rather than in a single slice. Figure 1 additionally shows the input CT volume in coronal view and reference masks in axial slices.
 
 ## Question 10
 
