@@ -1,4 +1,5 @@
 First challenge on grounding radiology report findings in 3D chest CT
 The best methods match inter-radiologist agreement in Dice and hit rate
-48 teams from 15 countries made 760 submissions, evaluated on 300 chest CT scans
+Dice rose from 0.285 before the challenge to 0.390 on the same benchmark scans
+48 teams from 15 countries made 760 submissions to the challenge
 Non-focal and multi-instance findings remain the main open problems
